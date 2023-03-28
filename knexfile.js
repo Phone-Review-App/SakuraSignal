@@ -1,7 +1,7 @@
-const path = require('path')
+const path = require('path');
 
 require("dotenv").config({
-  path: path.join(__dirname,'../.env')
+  path: path.join(__dirname, './.env')
 });
 
 /**
@@ -18,20 +18,20 @@ module.exports = {
       password: process.env.DB_PASSWORD,
     },
     migrations: {
-      directory: "./migrations",
+      directory: "./db/migrations",
     },
     seeds: {
-      directory: "./seeds",
+      directory: "./db/seeds",
     }
   },
   production: {
     client: "pg",
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: "./migrations",
+      directory: "./db/migrations",
     },
     seeds: {
-      directory: "/seeds",
+      directory: "/db/seeds",
     }
   }
 };
