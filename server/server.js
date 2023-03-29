@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const db = require('../db/index');
 
 
 function setupServer () {
@@ -14,6 +15,29 @@ function setupServer () {
     res.send('world')
   });
 
+  app.get('/provider', async (req, res) => {
+    const providerInfo = await db('provider')
+      .select('*')
+      .timeout(1500);
+    console.log(providerInfo);
+    res.send(providerInfo); 
+  })
+
+  app.get('/review_score', async (req, res) => {
+    const providerInfo = await db('review_score')
+      .select('*')
+      .timeout(1500);
+    console.log(providerInfo);
+    res.send(providerInfo); 
+  })
+  app.get('/review_detail', async (req, res) => {
+    const providerInfo = await db('review_score')
+      .select('*')
+      .timeout(1500);
+    console.log(providerInfo);
+    res.send(providerInfo); 
+  })
+  
   return app;
 }
 
