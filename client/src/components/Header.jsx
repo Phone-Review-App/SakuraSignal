@@ -1,18 +1,17 @@
 import React from "react";
 
-const Navbar = (props) => {
+const Header = (props) => {
     const { className, text } = props;
     return (
         <div> 
             <h1>{ text }</h1>
         </div>
     )
-
 };
 
-Navbar.defaultProps = {
+Header.defaultProps = {
     className: "",
     text: ""
 };
 
-export default Navbar;
+export default Header;
