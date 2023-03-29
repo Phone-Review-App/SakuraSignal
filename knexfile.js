@@ -18,6 +18,7 @@ module.exports = {
       password: process.env.DB_PASSWORD,
     },
     migrations: {
+      tableName: 'knex_migrations',
       directory: "./db/migrations",
     },
     seeds: {
@@ -33,10 +34,11 @@ module.exports = {
       max:10
     },
     migrations: {
-      directory: "./db/migrations",
+      tableName: 'knex_migrations',
+      directory: __dirname +"/db/migrations",
     },
     seeds: {
-      directory: "./db/seeds",
+      directory: __dirname + "/db/seeds",
     }
   }
 };
