@@ -4,6 +4,7 @@ require("dotenv").config({
   path: path.join(__dirname, './.env')
 });
 console.log('🥩🍗🍖 hello');
+console.log(DATABASE_URL);
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
