@@ -1,16 +1,17 @@
 const path = require('path');
 
-require("dotenv").config();
-// {
-//   path: path.join(__dirname, './.env')
-// }
+require("dotenv").config(
+  {
+    path: path.join(__dirname, './.env')
+  }
+);
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
   development: {
     client: "pg",
-    connection: process.env.DATABASE_URL || {
+    connection: {
       host: process.env.DB_HOST || "127.0.0.1",
       port: process.env.DB_PORT || 5432,
       database: process.env.DB_NAME,
