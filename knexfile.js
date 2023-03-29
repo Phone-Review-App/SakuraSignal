@@ -1,9 +1,9 @@
 const path = require('path');
 
-require("dotenv").config({
-  path: path.join(__dirname, './.env')
-});
-
+require("dotenv").config();
+// {
+//   path: path.join(__dirname, './.env')
+// }
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
@@ -19,10 +19,10 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: "./db/migrations",
+      directory: __dirname +"/db/migrations",
     },
     seeds: {
-      directory: "./db/seeds",
+      directory: __dirname + "/db/seeds",
     }
   },
   production: {
