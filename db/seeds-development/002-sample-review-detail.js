@@ -27,7 +27,6 @@ function dataGenerator(n) {
   for (let i = 0; i < n; i++) {
     result.push(new Review());
   }
-  console.log(result);
   return result;
 }
 exports.seed = async function(knex) {
