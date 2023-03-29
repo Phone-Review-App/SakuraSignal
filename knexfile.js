@@ -23,7 +23,7 @@ module.exports = {
       directory: __dirname +"/db/migrations",
     },
     seeds: {
-      directory: __dirname + "/db/seeds",
+      directory: __dirname + "/db/seeds-development",
     }
   },
   production: {
@@ -36,7 +36,7 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: __dirname +"/db/migrations",
+      directory: __dirname + "/db/migrations",
     },
     seeds: {
       directory: __dirname + "/db/seeds",
