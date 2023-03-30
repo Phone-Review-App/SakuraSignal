@@ -1,4 +1,6 @@
 import React from 'react';
+import './Card.css'
+
 const Card = (props) => {
     const { divClassName, onClick, onChange, cardName, imgClassName, img_url, altValue, averageScoreClassName ,averageScore, buttonClassName  } = props;
     /*
@@ -11,20 +13,18 @@ const Card = (props) => {
     return (
       <>
         <div
-          className = {divClassName}
-          
-          onChange = {onChange}
+          className="card"
         >
           
           <h2>{ cardName }</h2>
-          <br/>
+          
           <span ClassName= {averageScoreClassName} > Average Score:{ averageScore }</span>
-          <br />
+          
           <img className = {imgClassName}
             src={img_url} 
             alt={altValue}
-        /><br />
-          <button className = {buttonClassName} onClick = {onClick}>Details</button>
+          />
+          <button className = {buttonClassName} onClick = {onClick} onChange = {onChange}>Details</button>
           </div>
       </>
     );
