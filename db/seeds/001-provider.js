@@ -41,7 +41,7 @@ exports.seed = async function(knex) {
     {
       id: 5, 
       name: 'Rakuten Mobile',
-      img_url: 'https://corp.mobile.rakuten.co.jp/?l-id=corp_header_logo',
+      img_url: 'https://global.rakuten.com/corp/news/assets/img/press/0_20190906New_logo.png',
       description: 'Rakuten is one of the largest online merchantile companies in Japan with many services. They offer mobile and home internet plans. While they have an English page the offers general information, if you click a page for more information, it will take you to a Japanese page. Also they only offer their stores and telephone help lines as Japanese only.',
       english_support: false,
       site_url: 'https://corp.mobile.rakuten.co.jp/english/about/service/?l-id=corp_gnavi_service_lang_en'

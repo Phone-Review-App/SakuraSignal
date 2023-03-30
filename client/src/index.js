@@ -13,12 +13,14 @@ import Rakuten from "./pages/Rakuten";
 import Softbank from "./pages/Softbank";
 import UQ from "./pages/UQ";
 import Ymobile from "./pages/Ymobile";
+import Layout from './pages/Layout';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Homepage />} />
           <Route path="Form" element={<Form />} />
           <Route path="AU" element={<AU />} />
           <Route path="Docomo" element={<Docomo />} />
