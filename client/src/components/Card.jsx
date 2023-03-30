@@ -12,19 +12,19 @@ const Card = (props) => {
       <>
         <div
           className = {divClassName}
-          onClick = {onClick}
+          
           onChange = {onChange}
         >
           
-          { cardName }
+          <h2>{ cardName }</h2>
           <br/>
           <span ClassName= {averageScoreClassName} > Average Score:{ averageScore }</span>
           <br />
           <img className = {imgClassName}
-            src= {img_url} 
-            alt= {altValue}
+            src={img_url} 
+            alt={altValue}
         /><br />
-          <button className = {buttonClassName}>Details</button>
+          <button className = {buttonClassName} onClick = {onClick}>Details</button>
           </div>
       </>
     );
