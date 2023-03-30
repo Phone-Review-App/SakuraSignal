@@ -2,7 +2,6 @@ import React from 'react';
 import './index.css';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Homepage";
 import Homepage from "./pages/Homepage";
 import Form from "./pages/Form";
 import AU from "./pages/AU";
@@ -19,8 +18,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
+        <Route path="/" element={<Homepage />}>
           <Route path="Form" element={<Form />} />
           <Route path="AU" element={<AU />} />
           <Route path="Docomo" element={<Docomo />} />
