@@ -1,7 +1,8 @@
 // import './App.css';
 import { Form } from 'react-router-dom';
 import  Button  from './Button';
-import {DropdownMenu, MyCompnent} from './DropdownMenu';
+import DropdownMenu from './DropdownMenu'
+import MyCompnent from './MyComponent';
 
 
 function App() {

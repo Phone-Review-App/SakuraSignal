@@ -8,7 +8,7 @@ const Homepage = () => {
   return (
     <>
       <h1>This is home page</h1>
-      <DropdownMenu value="AU"/>
+      <DropdownMenu />
       <h2>Hello World</h2>
       <MyComponent />
     </>
