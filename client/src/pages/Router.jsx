@@ -32,6 +32,9 @@ function Router() {
           <li>
             <Link to="./Ymobile">YMobile</Link>
           </li>
+          <li>
+            <Link to="Form">Form</Link>
+          </li>
         </ul>
       </nav>
     );

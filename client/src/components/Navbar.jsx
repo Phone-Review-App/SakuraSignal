@@ -7,8 +7,8 @@ const Navbar = (props) => {
 
     return (
         <div>
-            <h1>{ text }</h1>
             <Button text="Home"></Button>
+            <h1>{ text }</h1>
             <img src={ src } alt={ alt }/>       
             <p>{ description }</p>
             <p>{ support }</p>
