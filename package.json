@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install && npm run migrate && npm run seed && cd client && npm install && npm run build",
     "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
     "make:migration": "knex migrate:make",
     "migrate": "knex migrate:latest",
     "make:seed": "knex seed:make",
@@ -29,6 +30,7 @@
     "pg": "^8.10.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "nodemon": "^2.0.22"
   }
 }
