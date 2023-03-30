@@ -65,11 +65,54 @@ function setupServer () {
     res.send(providerInfo); 
   })
 
+  app.get('/provider/:providerid', async (req, res) => {
+    const provideId = Number(req.params.providerid);
+    let providerInfo = await db('provider')
+      .select('*')
+      .where('id', provideId)
+      .timeout(1500);
+
+    providerInfo = providerInfo[0]
+    const reviews = await db('review_detail')
+      .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
+      .where('provider_id', provideId)
+      .timeout(1500);
+
+    let averageOverall = average(reviews.map((element) => {
+      return element.overall;
+    }));
+    let averageEOU = average(reviews.map((element) => {
+      return element.ease_of_use;
+    }));
+    let averageCoverage = average(reviews.map((element) => {
+      return element.coverage;
+    }));
+    let averagePrice = average(reviews.map((element) => {
+      return element.price;
+    }));
+    let averageService = average(reviews.map((element) => {
+      return element.customer_service;
+    }));
+
+    providerInfo.overall = averageOverall;
+    providerInfo.ease_of_use = averageEOU;
+    providerInfo.coverage = averageCoverage;
+    providerInfo.price = averagePrice;
+    providerInfo.customer_service = averageService;
+    
+    // console.log(provideId);
+    // console.log(providerInfo);
+    // console.log(reviews);
+    // console.log(averageOverall);
+
+    res.send([providerInfo, reviews]);
+  })
+
   app.get('/review_detail', async (req, res) => {
-    const providerInfo = await db('review_score')
+    const providerInfo = await db('review_detail')
       .select('*')
       .timeout(1500);
-    console.log(providerInfo);
+    
     res.send(providerInfo); 
   })
   

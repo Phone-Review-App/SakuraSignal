@@ -13,6 +13,7 @@ import Rakuten from "./pages/Rakuten";
 import Softbank from "./pages/Softbank";
 import UQ from "./pages/UQ";
 import Ymobile from "./pages/Ymobile";
+import Layout from './pages/Layout';
 
 export default function App() {
   return (
