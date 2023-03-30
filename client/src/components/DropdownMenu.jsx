@@ -7,7 +7,7 @@ const options = [
     {value:"AU", text:"AU" },
     {value:"Docomo", text:"Docomo" },
     {value:"GTN", text:"GTN" },
-    {value:"Linemo", text:"Lineom" },
+    {value:"LINEMO", text:"LINEMO" },
     {value:"Mobal", text:"Mobal" },
     {value:"Rakuten", text:"Rakuten" },
     {value:"Softbank", text:"Softbank" },
@@ -16,7 +16,7 @@ const options = [
 ]
 
 function DropdownMenu ( props ) {
-const { htmlFor, labelName, selectName, required, disabled, size } = props;
+const { htmlFor, labelName, selectName, selectid, required, disabled, size } = props;
 
 
    const [selected, setSelected ] = useState(options[0].value);
@@ -41,6 +41,7 @@ const { htmlFor, labelName, selectName, required, disabled, size } = props;
         value={selected} 
         onChange={handleChange} 
         name={selectName}
+        id={selectid}
         required={required}
         disabled={disabled}
         size={size}
@@ -102,7 +103,8 @@ DropdownMenu.defaultProps ={
     selectName:"", 
     selectid:"", 
     required:"",
-    disabled:""
+    disabled:"",
+    size:1
 }
 
 export default DropdownMenu;
