@@ -16,7 +16,7 @@ function setupServer () {
     res.send('world')
   });
 
-  app.get('/provider', async (req, res) => {
+  app.get('/providers', async (req, res) => {
     const providerInfo = await db('provider')
       .select('*')
       .timeout(1500);
