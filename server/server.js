@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const db = require('../db/index');
+const average = require('./utils/average');
 
 
 function setupServer () {
@@ -19,7 +20,48 @@ function setupServer () {
     const providerInfo = await db('provider')
       .select('*')
       .timeout(1500);
-    console.log(providerInfo);
+
+    const overallScores = await Promise.all([
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 1),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 2),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 3),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 4),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 5),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 6),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 7),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 8),
+      db('review_detail')
+        .select('overall')
+        .where('provider_id', 9)
+    ]).catch((err) => console.error(err));
+
+    const arrOfArrOfOverallScores = overallScores.map((element) => {
+      return element.map((subelement) => subelement['overall'])
+    })
+
+    const arrOfAverageScores = arrOfArrOfOverallScores.map((element) => Number(average(element).toFixed(2)));
+
+    for (let i = 0; i < arrOfAverageScores.length; i++) {
+
+      providerInfo[i].overall = arrOfAverageScores[i]
+    }
+
     res.send(providerInfo); 
   })
 
