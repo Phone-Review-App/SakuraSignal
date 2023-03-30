@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Router from "./Router";
-import {DropdownMenu,MyComponent} from '../components/DropdownMenu'
-
+import DropdownMenu from '../components/DropdownMenu';
+import MyComponent from '../components/DropdownMenu';
 
 const Homepage = () => {
   return (

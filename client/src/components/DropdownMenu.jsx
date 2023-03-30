@@ -1,40 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
 import Button from './Button';
 
-// const { className } = props;
-// function DropdownMenu( props ){
-//     const [ display, setDisplay ] = useState( 'none');
-//     function handleClick() {
-//         if(display == 'none'){
-//             setDisplay('block')
-//         } else {
-//             setDisplay('none')
-//         }
-//     }
-//     return (<>
-//         <div>
-//             Hellow World!
-//             { props.child }
-//         </div>
-//         <div style={{display:display}}>
-//             { props.children }
-//         </div>
-//         </>)
-// }
-const options = [
-    {value:"AU", label:"AU" },
-    {value:"Docomo", label:"Docomo" },
-    {value:"GTN", label:"GTN" },
-    {value:"Linemo", label:"Lineom" },
-    {value:"Mobal", label:"Mobal" },
-    {value:"Rakuten", label:"Rakuten" },
-    {value:"Softbank", label:"Softbank" },
-    {value:"UQ", label:"UQ" },
-    {value:"Ymobile", label:"Ymobile" },
-]
 
-const MyComponent = () => (<Select options= {options} />)
+
     
 
         
@@ -76,4 +45,4 @@ DropdownMenu.defaultProps ={
     onClick: ()=>{}
 }
 
-export { DropdownMenu, MyComponent }
+export default DropdownMenu;
