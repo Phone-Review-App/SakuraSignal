@@ -15,12 +15,12 @@ const options = [
 ]
 
 function MyComponent ( props ) {
-    const onClick = props;
+    const {onClick} = props;
     return (
     <>
     <Select options= {options} 
     />
-    <Button text="MyCoponentSelected" onClick={onClick}/>
+    <Button text="MyComponentsSubmit" onClick={onClick}/>
     </>
     
 )}
