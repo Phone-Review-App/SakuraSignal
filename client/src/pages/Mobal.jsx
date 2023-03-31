@@ -13,7 +13,8 @@ const Mobal = () => {
   },)
 
   async function getProvider() {
-    const fetchedProvider = await axios.get('/api/provider/1');
+    // for a general provider page. replace the path with axios.get(`/api/provider/${provider_id}`)
+    const fetchedProvider = await axios.get('/api/provider/1'); 
     setProvider(fetchedProvider.data)
   }
     return (
