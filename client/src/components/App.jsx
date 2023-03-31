@@ -1,10 +1,19 @@
 // import './App.css';
-import  Homepage  from '../pages/Homepage';
+import { Form } from 'react-router-dom';
+import  Button  from './Button';
+import DropdownMenu from './DropdownMenu'
+import MyComponent from './MyComponent';
+
 
 function App() {
   return (
     <div className="App">
-      < Homepage/>
+      <Button />
+      <DropdownMenu 
+      
+      />
+      <MyComponent/>
+      
     </div>
   );
 }

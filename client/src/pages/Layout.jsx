@@ -7,6 +7,7 @@ const Layout = () => {
     <>
       <Router />
       <Outlet />
+      
     </>
   );
 };
