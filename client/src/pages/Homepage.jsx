@@ -5,6 +5,8 @@ import './Homepage.css';
 import Card from '../components/Card'
 import DropdownMenu from '../components/DropdownMenu'; // Remove me after test
 import MyComponent from '../components/MyComponent'; // Remove me after test
+import Radio from '../components/Radio'; // Remove me after test
+
 
 const Homepage = () => {
   const [providers, setProviders] = useState([]);
@@ -42,6 +44,7 @@ const Homepage = () => {
   
   <DropdownMenu /> 
   <MyComponent />
+  <Radio />
     </>
     
   );
