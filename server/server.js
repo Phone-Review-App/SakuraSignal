@@ -124,8 +124,41 @@ function setupServer () {
 
   app.post('/api/review', async (req,res) => {
     const review = req.body
+    const testEmail = await db('review_detail')
+      .select('*')
+      .where('email', review.email)
+      .timeout(1500);
 
-    res.send(review)
+    // console.log(testEmail);
+    // console.log(review.email);
+    if(testEmail.length === 0) { // this email has never been used
+      const insertion = await db('review_detail')
+        .insert(review);
+
+        // console.log(review);
+        // console.log(insertion);
+
+        res.status(200).send("You review has been added");
+    } else {
+        // console.log('line 143', review.provider_id, testEmail[0].provider_id);
+
+        let wasUsedWithProvider = false;
+
+        for (let i = 0; i < testEmail.length; i++) {
+          if(review.provider_id === testEmail[i].provider_id) {
+            wasUsedWithProvider = true
+          }
+        }
+
+      if(wasUsedWithProvider) { // this email has already been used to review the current provider.
+        res.status(400).send("This email has already been used for this provider");
+      } else { // this email has been used, but for a different provider
+        const insertion = await db('review_detail')
+          .insert(review);
+      
+        res.status(200).send("You review has been added");
+      }
+    }
   });
   
   return app;
