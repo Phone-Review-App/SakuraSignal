@@ -5,6 +5,7 @@ import ProviderInfo from "../components/ProviderInfo";
 import AvgScores from "../components/AvgScores";
 import "./Provider.css"
 
+
 const Mobal = () => {
   const [provider, setProvider] = useState([{},[]]);
 
