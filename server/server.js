@@ -17,7 +17,6 @@ function setupServer () {
   });
 
   app.get('/api/providers', async (req, res) => {
-    console.log('🤡', req);
     const providerInfo = await db('provider')
       .select('*')
       .timeout(1500);
