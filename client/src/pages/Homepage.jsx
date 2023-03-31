@@ -44,7 +44,8 @@ const Homepage = () => {
   
   <DropdownMenu /> 
   <MyComponent />
-  <Radio />
+  <Radio className="test" radioName="groupA"/>
+  <Radio className="testa" radioName="groupB"/>
     </>
     
   );

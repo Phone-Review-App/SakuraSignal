@@ -7,12 +7,12 @@ import React, {useState, useEffect} from 'react';
 // ];
 const inputs = [];
 for(let i =0; i<= 10; i++){
-    inputs.push({type:"radio", value: i.toString(), name:"score"})
+    inputs.push({type:"radio", value: i.toString()})
 }
 //console.log("😀",inputs);
 
 const Radio = ( props ) => {
-    const { className, label } = props
+    const { className, label, radioName } = props
 
     const [selectedRadioButton, setSelectedRadioButton] = useState('0');
 
@@ -26,13 +26,15 @@ const Radio = ( props ) => {
     return (
         <div className={ className } >
             {
-            inputs.map((input) => {
+            inputs.map((input, index) => {
                 return (
-                    <label htmlFor={label}>
+                    <label htmlFor={label} 
+                    key={index}>
                         {input.value}
                         <input 
+                        
                     type={input.type}
-                    name={input.name}
+                    name={radioName}
                     value={input.value}
                     checked={isRadioSelected(input.value)}
                     onChange={handleRadioSelect}
@@ -85,7 +87,8 @@ const Radio = ( props ) => {
 
 Radio.defaultProps = {
     className:"",
-    label:""
+    label:"",
+    radioName:"",
 }
 
 export default Radio;
