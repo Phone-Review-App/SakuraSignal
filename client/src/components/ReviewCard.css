@@ -1,0 +1,20 @@
+.reviews-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: aquamarine;
+  margin: 10px auto;
+}
+
+.scores {
+  display: flex;
+}
+
+span {
+  margin: 10px;
+}
