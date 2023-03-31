@@ -114,14 +114,6 @@ function setupServer () {
     }
   });
 
-  app.get('/api/review_detail', async (req, res) => {
-    const providerInfo = await db('review_detail')
-      .select('*')
-      .timeout(1500);
-    
-    res.send(providerInfo); 
-  });
-
   app.post('/api/review', async (req,res) => {
     const review = req.body
     const testEmail = await db('review_detail')
