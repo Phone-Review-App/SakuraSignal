@@ -18,7 +18,7 @@ const Card = (props) => {
           
           <h2>{ cardName }</h2>
           
-          <span ClassName= {averageScoreClassName} > Average Score:{ averageScore }</span>
+          <span className= {averageScoreClassName} > Average Score:{ averageScore }</span>
           
           <img className = {imgClassName}
             src={img_url} 
