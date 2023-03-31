@@ -72,7 +72,7 @@ function setupServer () {
       .where('id', provideId)
       .timeout(1500);
 
-      console.log('🍒', providerInfo)
+      // console.log('🍒', providerInfo)
     if (providerInfo.length === 0) {
       res.status(404).send("providerId not found")
     } else {
