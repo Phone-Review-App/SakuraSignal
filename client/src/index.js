@@ -2,7 +2,6 @@ import './index.css';
 import React from 'react';
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-// import Layout from './pages/Layout';
 import Homepage from "./pages/Homepage";
 import Form from "./pages/Form";
 import AU from "./pages/AU";
@@ -66,5 +65,3 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <RouterProvider router={ router } />
 );
-
-
