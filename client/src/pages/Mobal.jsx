@@ -2,6 +2,8 @@ import React, { useState, useEffect} from "react";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
 import ProviderInfo from "../components/ProviderInfo";
+import AvgScores from "../components/AvgScores";
+import "./Provider.css"
 
 const Mobal = () => {
   const [provider, setProvider] = useState([{},[]]);
@@ -18,7 +20,7 @@ const Mobal = () => {
         <div>
           <ProviderInfo provider={provider[0]} />
           <div className="main-content">
-
+            <AvgScores scores={provider[0]} />
             <ReviewCard reviews={provider[1]}></ReviewCard>
           </div>
         </div>
