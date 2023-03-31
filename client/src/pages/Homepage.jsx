@@ -12,7 +12,7 @@ const Homepage = () => {
   },[])
 
   async function getProviders() {
-    const fetchedProviders = await axios.get('/providers');
+    const fetchedProviders = await axios.get('/api/providers');
     setProviders(fetchedProviders.data)
   }
 

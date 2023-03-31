@@ -12,11 +12,11 @@ function setupServer () {
 
   // add endpoints here
 
-  app.get('/hello', (req, res) => {
+  app.get('/api/hello', (req, res) => {
     res.send('world')
   });
 
-  app.get('/providers', async (req, res) => {
+  app.get('/api/providers', async (req, res) => {
     const providerInfo = await db('provider')
       .select('*')
       .timeout(1500);
@@ -65,7 +65,7 @@ function setupServer () {
     res.send(providerInfo); 
   })
 
-  app.get('/provider/:providerid', async (req, res) => {
+  app.get('/api/provider/:providerid', async (req, res) => {
     const provideId = Number(req.params.providerid);
     let providerInfo = await db('provider')
       .select('*')
@@ -108,7 +108,7 @@ function setupServer () {
     res.send([providerInfo, reviews]);
   })
 
-  app.get('/review_detail', async (req, res) => {
+  app.get('/api/review_detail', async (req, res) => {
     const providerInfo = await db('review_detail')
       .select('*')
       .timeout(1500);
