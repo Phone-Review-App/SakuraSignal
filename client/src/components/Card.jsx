@@ -1,6 +1,8 @@
 import React from 'react';
+import './Card.css'
+
 const Card = (props) => {
-    const { divClassName, onClick, onChange, cardName, imgClassName, img_url, altValue, averageScoreClassName ,averageScore, buttonClassName  } = props;
+    const { description, divClassName, onClick, onChange, cardName, imgClassName, img_url, altValue, averageScoreClassName ,averageScore, buttonClassName  } = props;
     /*
     You can console.log(className) to see what it returns
     You can also console.log(props) to see what object passed
@@ -11,20 +13,19 @@ const Card = (props) => {
     return (
       <>
         <div
-          className = {divClassName}
-          onClick = {onClick}
-          onChange = {onChange}
+          className="card"
         >
           
-          { cardName }
-          <br/>
+          <h2>{ cardName }</h2>
+          
           <span ClassName= {averageScoreClassName} > Average Score:{ averageScore }</span>
-          <br />
+          
           <img className = {imgClassName}
-            src= {img_url} 
-            alt= {altValue}
-        /><br />
-          <button className = {buttonClassName}>Details</button>
+            src={img_url} 
+            alt={altValue}
+          />
+          <p>{description}</p>
+          <button className = {buttonClassName} onClick = {onClick} onChange = {onChange}>Details</button>
           </div>
       </>
     );

@@ -17,7 +17,7 @@ exports.seed = async function(knex) {
     {
       id: 2, 
       name: 'Docomo',
-      img_url: 'https://www.docomo.ne.jp/english/images_osp/common/header/logo_header_01_pc.png',
+      img_url: 'https://images.macrumors.com/t/vW4Rc_bBeXetxY8w2Ww_beBjlRg=/800x0/article-new/2011/11/ntt_docomo_logo.jpg?lossy',
       description: "NTT DOCOMO is Japan's largest telecommunications company. Their plans can include 5G. They offer home wifi via a 5G mobile hotspot. They offer an English support hotline.",
       english_support: true,
       site_url: 'https://www.docomo.ne.jp/english/product/?icid=CRP_en_common_header_to_CRP_en_PRD'
@@ -33,7 +33,7 @@ exports.seed = async function(knex) {
     {
       id: 4, 
       name: 'Softbank',
-      img_url: 'https://www.softbank.jp/site/set/data/top/img/shared/logo-sb-white.png',
+      img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Softbank_mobile_logo.svg/2560px-Softbank_mobile_logo.svg.png',
       description: "Softbank is one of the largest mobile service provides in Japan. They offer a range of services with stores around Japan. Many of their stores offer English assistence (check the website for a list of stores with English support). Softbank also offers Internet services, but their website has limited English support for their internet services.",
       english_support: true,
       site_url: 'https://www.softbank.jp/en/'
@@ -41,7 +41,7 @@ exports.seed = async function(knex) {
     {
       id: 5, 
       name: 'Rakuten Mobile',
-      img_url: 'https://corp.mobile.rakuten.co.jp/?l-id=corp_header_logo',
+      img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Rakuten_Mobile_logo.svg/2560px-Rakuten_Mobile_logo.svg.png',
       description: 'Rakuten is one of the largest online merchantile companies in Japan with many services. They offer mobile and home internet plans. While they have an English page the offers general information, if you click a page for more information, it will take you to a Japanese page. Also they only offer their stores and telephone help lines as Japanese only.',
       english_support: false,
       site_url: 'https://corp.mobile.rakuten.co.jp/english/about/service/?l-id=corp_gnavi_service_lang_en'
@@ -49,7 +49,7 @@ exports.seed = async function(knex) {
     {
       id: 6, 
       name: 'LINEMO',
-      img_url: 'https://mobile.line.me/common/img/logo.png',
+      img_url: 'https://d.line-scdn.net/stf/linecorp/ja/pr/LINEMOBILE_1_logo.png',
       description: "LINE is on of the most popular messaging services in Japan. In addition to their messaging services, they provide other services, including manga, LINE Pay, and of course a mobile phone plan. Their page doesn't include a English page or mention English customer service.",
       english_support: false,
       site_url: 'https://mobile.line.me/'
