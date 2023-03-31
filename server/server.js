@@ -82,21 +82,21 @@ function setupServer () {
         .where('provider_id', provideId)
         .timeout(1500);
   
-      let averageOverall = average(reviews.map((element) => {
+      let averageOverall = Number(average(reviews.map((element) => {
         return element.overall;
-      })).toFixed(2);
-      let averageEOU = average(reviews.map((element) => {
+      })).toFixed(2));
+      let averageEOU = Number(average(reviews.map((element) => {
         return element.ease_of_use;
-      })).toFixed(2);
-      let averageCoverage = average(reviews.map((element) => {
+      })).toFixed(2));
+      let averageCoverage = Number(average(reviews.map((element) => {
         return element.coverage;
-      })).toFixed(2);
-      let averagePrice = average(reviews.map((element) => {
+      })).toFixed(2));
+      let averagePrice = Number(average(reviews.map((element) => {
         return element.price;
-      })).toFixed(2);
-      let averageService = average(reviews.map((element) => {
+      })).toFixed(2));
+      let averageService = Number(average(reviews.map((element) => {
         return element.customer_service;
-      })).toFixed(2);
+      })).toFixed(2));
   
       providerInfo.overall = averageOverall;
       providerInfo.ease_of_use = averageEOU;
