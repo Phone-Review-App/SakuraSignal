@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     element: <Docomo />
   },
   {
-    path: "/GTN%20Mobile",
+    path: "/GTN Mobile",
     element: <GTN />
   },
   {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
     element: <Mobal />
   },
   {
-    path: "/Rakuten%20Mobile",
+    path: "/Rakuten Mobile",
     element: <Rakuten />
   },
   {
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
     element: <Softbank/>
   },
   {
-    path: "/UQ%20Mobile",
+    path: "/UQ Mobile",
     element: <UQ />
   },
   {
