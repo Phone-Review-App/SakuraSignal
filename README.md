@@ -30,3 +30,51 @@ example:
   },
   ...
 ]
+
+## /api/provider/:providerid
+This endpoint requires the providerid parameter as a number (1-9). This number corrolates to the providers location in the provider table.
+
+This endpoint returns an array of two values
+[providerInfo, reviews]
+where:
+providerInfo is an object 
+reviews is an array of review objects.
+
+The first element (providerInfo) has all the same keys as in /api/providers, as well as (ease_of_use, coverage, price, customer_service). Each of these keys are the average scores of their respective reviewer criteria.
+
+reviews is an array of objects where each object contains the following keys (reviewer_name, overall, ease_of_use, coverage, price, customer_service,customer_review).
+
+reviewer_name (string) is the name of the reviewer to display
+overall (number) is the reviewer's overall score
+ease_of_use (number) is the reviewer's Ease of Use score
+coverage (number) is the reviewer's coverage score
+price (number) is the reviewer's price score
+customer_service (number) is the reviewer's customer service score
+customer_review (string) is the reviews written review of the company.
+
+## /api/review 
+This endpoint is to add a new customers review. This endpoint takes the review in the body, test if that email had been used prior to review that company, and if it hasn't adds it to the database.
+
+This endpoint expects the body to contain the following information:
+provider_id (number)
+reviewer_name(string)
+email (string)
+overall (number)
+ease_of_use (number)
+coverage (number)
+price (number)
+customer_service (number)
+customer_review (string)
+
+example body:
+{
+    "provider_id":2,
+    "reviewer_name": "Todd Rogers",
+    "email": "godslayerXD@hotmail.com",
+    "overall": 8,
+    "ease_of_use": 6,
+    "coverage": 9,
+    "price": 7,
+    "customer_service": 9,
+    "customer_review": "Creating an account and getting the SIM card is a little annoying, and once you put the SIM card in your phone, there is a bit of annoyance in setting up the data plan on your phone. However, once you finish the setup, I haven't had an issue with the server and everytime I contacted customer service, my issue was quickly addressed."
+}
