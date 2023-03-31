@@ -84,19 +84,19 @@ function setupServer () {
   
       let averageOverall = average(reviews.map((element) => {
         return element.overall;
-      }));
+      })).toFixed(2);
       let averageEOU = average(reviews.map((element) => {
         return element.ease_of_use;
-      }));
+      })).toFixed(2);
       let averageCoverage = average(reviews.map((element) => {
         return element.coverage;
-      }));
+      })).toFixed(2);
       let averagePrice = average(reviews.map((element) => {
         return element.price;
-      }));
+      })).toFixed(2);
       let averageService = average(reviews.map((element) => {
         return element.customer_service;
-      }));
+      })).toFixed(2);
   
       providerInfo.overall = averageOverall;
       providerInfo.ease_of_use = averageEOU;
