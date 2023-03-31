@@ -1,0 +1,19 @@
+.provider-hero-div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 300px;
+  background-color: aqua;
+}
+
+.provider-info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  
+}
+
+.provider-logo {
+  width: 50%;
+
+}
