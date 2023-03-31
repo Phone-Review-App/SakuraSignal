@@ -12,11 +12,11 @@ function setupServer () {
 
   // add endpoints here
 
-  app.get('/hello', (req, res) => {
+  app.get('/api/hello', (req, res) => {
     res.send('world')
   });
 
-  app.get('/providers', async (req, res) => {
+  app.get('/api/providers', async (req, res) => {
     const providerInfo = await db('provider')
       .select('*')
       .timeout(1500);
@@ -63,58 +63,103 @@ function setupServer () {
     }
 
     res.send(providerInfo); 
-  })
+  });
 
-  app.get('/provider/:providerid', async (req, res) => {
+  app.get('/api/provider/:providerid', async (req, res) => {
     const provideId = Number(req.params.providerid);
     let providerInfo = await db('provider')
       .select('*')
       .where('id', provideId)
       .timeout(1500);
 
-    providerInfo = providerInfo[0]
-    const reviews = await db('review_detail')
-      .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
-      .where('provider_id', provideId)
-      .timeout(1500);
+      console.log('🍒', providerInfo)
+    if (providerInfo.length === 0) {
+      res.status(404).send("providerId not found")
+    } else {
+      providerInfo = providerInfo[0]
+      const reviews = await db('review_detail')
+        .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
+        .where('provider_id', provideId)
+        .timeout(1500);
+  
+      let averageOverall = average(reviews.map((element) => {
+        return element.overall;
+      }));
+      let averageEOU = average(reviews.map((element) => {
+        return element.ease_of_use;
+      }));
+      let averageCoverage = average(reviews.map((element) => {
+        return element.coverage;
+      }));
+      let averagePrice = average(reviews.map((element) => {
+        return element.price;
+      }));
+      let averageService = average(reviews.map((element) => {
+        return element.customer_service;
+      }));
+  
+      providerInfo.overall = averageOverall;
+      providerInfo.ease_of_use = averageEOU;
+      providerInfo.coverage = averageCoverage;
+      providerInfo.price = averagePrice;
+      providerInfo.customer_service = averageService;
+      
+      // console.log(provideId);
+      // console.log(providerInfo);
+      // console.log(reviews);
+      // console.log(averageOverall);
+  
+      res.send([providerInfo, reviews]);
 
-    let averageOverall = average(reviews.map((element) => {
-      return element.overall;
-    }));
-    let averageEOU = average(reviews.map((element) => {
-      return element.ease_of_use;
-    }));
-    let averageCoverage = average(reviews.map((element) => {
-      return element.coverage;
-    }));
-    let averagePrice = average(reviews.map((element) => {
-      return element.price;
-    }));
-    let averageService = average(reviews.map((element) => {
-      return element.customer_service;
-    }));
+    }
+  });
 
-    providerInfo.overall = averageOverall;
-    providerInfo.ease_of_use = averageEOU;
-    providerInfo.coverage = averageCoverage;
-    providerInfo.price = averagePrice;
-    providerInfo.customer_service = averageService;
-    
-    // console.log(provideId);
-    // console.log(providerInfo);
-    // console.log(reviews);
-    // console.log(averageOverall);
-
-    res.send([providerInfo, reviews]);
-  })
-
-  app.get('/review_detail', async (req, res) => {
+  app.get('/api/review_detail', async (req, res) => {
     const providerInfo = await db('review_detail')
       .select('*')
       .timeout(1500);
     
     res.send(providerInfo); 
-  })
+  });
+
+  app.post('/api/review', async (req,res) => {
+    const review = req.body
+    const testEmail = await db('review_detail')
+      .select('*')
+      .where('email', review.email)
+      .timeout(1500);
+
+    // console.log(testEmail);
+    // console.log(review.email);
+    if(testEmail.length === 0) { // this email has never been used
+      const insertion = await db('review_detail')
+        .insert(review);
+
+        // console.log(review);
+        // console.log(insertion);
+
+        res.status(200).send("You review has been added");
+    } else {
+        // console.log('line 143', review.provider_id, testEmail[0].provider_id);
+
+        let wasUsedWithProvider = false;
+
+        for (let i = 0; i < testEmail.length; i++) {
+          if(review.provider_id === testEmail[i].provider_id) {
+            wasUsedWithProvider = true
+          }
+        }
+
+      if(wasUsedWithProvider) { // this email has already been used to review the current provider.
+        res.status(400).send("This email has already been used for this provider");
+      } else { // this email has been used, but for a different provider
+        const insertion = await db('review_detail')
+          .insert(review);
+      
+        res.status(200).send("You review has been added");
+      }
+    }
+  });
   
   return app;
 }
