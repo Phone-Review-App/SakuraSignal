@@ -1,8 +1,14 @@
 import React from "react";
+import DropdownMenu from '../components/DropdownMenu'
 
 const Form = () => {
     return (
-        <div></div>
+
+        <div>
+            <div>
+                <DropdownMenu />
+            </div>
+        </div>
     );
 }
 
