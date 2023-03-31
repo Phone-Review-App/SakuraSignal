@@ -1,7 +1,5 @@
 const { faker } = require('@faker-js/faker');
 
-console.log(faker.datatype.number(9))
-
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> } 
@@ -17,7 +15,7 @@ class Review {
     this.coverage = faker.datatype.number(10);
     this.price = faker.datatype.number(10);
     this.customer_service = faker.datatype.number(10);
-    this.customer_review = faker.lorem.paragraphs(2, '<br/>\n');
+    this.customer_review = faker.lorem.paragraphs(1);
   }
 }
 
