@@ -2,7 +2,6 @@ import './index.css';
 import React from 'react';
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-// import Layout from './pages/Layout';
 import Homepage from "./pages/Homepage";
 import Form from "./pages/Form";
 import AU from "./pages/AU";
@@ -14,6 +13,8 @@ import Rakuten from "./pages/Rakuten";
 import Softbank from "./pages/Softbank";
 import UQ from "./pages/UQ";
 import Ymobile from "./pages/Ymobile";
+
+// the code below creates the routes for each separate page
 
 const router = createBrowserRouter([
   {
