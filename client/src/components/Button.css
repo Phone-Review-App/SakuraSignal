@@ -1,0 +1,7 @@
+.home-button {
+  padding: 5px;
+  align-self: flex-end;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+}

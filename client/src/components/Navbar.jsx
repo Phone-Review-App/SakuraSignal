@@ -1,18 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from './Button';
+import "./Navbar.css"
 
 const Navbar = (props) => {
-  const { className, text, description, support, src, alt } = props;
+  const { className, text, description, support } = props;
   const navigate = useNavigate();
+  
   return (
     <div className={className}>
-      <Button 
-        text="Home"
-        onClick={() => navigate('/')}
-      />
-      <h1>{ text }</h1>
-      <img src={ src } alt={ alt }/>       
+      <Button className="home-button" text="Home" onClick={() => navigate('/')}/>
+      <h1>{ text }</h1>      
       <p>{ description }</p>
       <p>{ support }</p>
     </div>
@@ -24,8 +22,6 @@ Navbar.defaultProps = {
   text: "",
   description: "",
   support: "",
-  src: "",
-  alt: "",
 };
 
 export default Navbar;

@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import DropdownMenu from '../components/DropdownMenu';
 import Radio from '../components/Radio';
 import "./Form.css";
@@ -123,14 +124,15 @@ const Form = () => {
         isSubmitted
         ? (
           <>    
-            <Header text="Thank you for your feedback!" secondary_text={serverResponse}/>
+            <Header className="header" text="Thank you for your feedback!" secondary_text={serverResponse}/>
             <Button text="Home" onClick={() => navigate('/')} />
+            <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
           </>
         )
 
         : (
           <>
-            <Navbar text="We appreciate your reviews"/>
+            <Navbar className="navbar" text="We appreciate your reviews"/>
             <Input 
                 placeholder="Nickname"
                 value ={ nickname } 
@@ -185,6 +187,7 @@ const Form = () => {
               text="Submit"
               onClick = { handleSubmission }
             />
+            <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
         </>
         )
       }
