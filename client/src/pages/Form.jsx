@@ -136,22 +136,27 @@ const Form = () => {
             <div className="wrapper">
               <div className="scores">
                 Overall:<Radio 
+                  className="radio"
                   radioName="overall"
                   scoreSetter={setOverAllScore} 
                 />
                 Ease of Use:<Radio 
+                  className="radio"
                   radioName="easeOfUse"
                   scoreSetter={setEOUScore}
                 />
                 Coverage:<Radio 
+                  className="radio"
                   radioName="coverage"
                   scoreSetter={setCoverageScore}
                 />
-                Price:<Radio 
+                Price:<Radio
+                  className="radio" 
                   radioName="price"
                   scoreSetter={setPriceScore}
                 />
-                Customer Service:<Radio 
+                Customer Service:<Radio
+                  className="radio" 
                   radioName="customerService"
                   scoreSetter={setCustomerServiceScore}
                 />
@@ -171,7 +176,8 @@ const Form = () => {
                   onChange={ handleEmailInput }
                 />
 
-                {<DropdownMenu  
+                {<DropdownMenu
+                  className="menu"  
                   setProviderId={setCompName}/>}
                 
               </div>

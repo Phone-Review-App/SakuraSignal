@@ -8,7 +8,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .wrapper {
@@ -21,18 +20,16 @@ body {
 }
 
 .scores {
-  padding: 10px;
-  margin: 0px;
-  font-size: 20px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: baseline;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  font-size: 18px;
 }
 
 .inputs {
-  margin: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -40,11 +37,11 @@ body {
 }
 
 textarea {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: larger;
-  text-align: center;
-  background-color: #EAF6F6;
   margin: 10px;
   border-radius: 10px;
   border-style: hidden;
+  background-color: #EAF6F6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
+  text-align: center;
 }

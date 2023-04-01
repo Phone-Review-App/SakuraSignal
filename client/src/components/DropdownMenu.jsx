@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Select from 'react-select';
 // import Button from './Button';
+import "./DropdownMenu.css";
 
 const options = [
   {value: "", text:"--- Select a phone provider ---"},
@@ -16,7 +17,7 @@ const options = [
 ];
 
 function DropdownMenu ( props ) {
-  const { htmlFor, labelName, selectName, selectid, required, disabled, size, setProviderId } = props;
+  const { className, htmlFor, labelName, selectName, selectid, required, disabled, size, setProviderId } = props;
 
 
   const [selected, setSelected ] = useState(options[0].value);
@@ -41,7 +42,8 @@ function DropdownMenu ( props ) {
     <>
       <div>
       <label htmlFor={htmlFor}>{labelName}</label>
-        <select 
+        <select
+          className={ className } 
           value={selected} 
           onChange={handleChange} 
           name={selectName}
@@ -99,6 +101,7 @@ function DropdownMenu ( props ) {
 // }
 
 DropdownMenu.defaultProps ={
+    className: "",
     htmlFor: "",
     labelName:"",
     selectName:"", 

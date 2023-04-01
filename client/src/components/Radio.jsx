@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import "./Radio.css";
 
 const inputs = [];
 // const inputs = [
