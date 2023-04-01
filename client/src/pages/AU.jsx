@@ -8,6 +8,7 @@ import Button from '../components/Button';
 import "./Provider.css";
 
 
+
 const AU = () => {
   const navigate = useNavigate();
 
@@ -24,6 +25,10 @@ const AU = () => {
   }
     return (
         <div>
+          <Button 
+                text="Home"
+                onClick={() => navigate('/')}
+                ></Button>
           <ProviderInfo provider={provider[0]} />
           <div className="main-content">
           <div>

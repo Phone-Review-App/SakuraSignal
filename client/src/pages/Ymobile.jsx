@@ -23,6 +23,10 @@ const Ymobile = () => {
   }
     return (
         <div>
+          <Button 
+                text="Home"
+                onClick={() => navigate('/')}
+                ></Button>
           <ProviderInfo provider={provider[0]} />
           <div className="main-content">
           <div>
