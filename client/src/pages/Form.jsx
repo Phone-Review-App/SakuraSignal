@@ -21,6 +21,24 @@ const reviewData = {
     customer_service: "", 
     customer_review: ""
 };
+import Button from '../components/Button';
+import Header from '../components/Header';
+import DropdownMenu from '../components/DropdownMenu';
+import Radio from '../components/Radio';
+import "./Form.css";
+
+// this object will get sent to the server with data for database
+const reviewData = {
+    provider_id: "", 
+    reviewer_name: "", 
+    email: "", 
+    overall: "", 
+    ease_of_use: "", 
+    coverage: "", 
+    price: "", 
+    customer_service: "", 
+    customer_review: ""
+};
 
 const Form = () => {
     const navigate = useNavigate();
@@ -61,6 +79,16 @@ const Form = () => {
         reviewData.customer_service= Number(score);
     }
     
+    // NICKNAME STATE
+    const [nickname, setNickname] = useState('');
+
+    const handleNicknameInput = (event) => {
+        const value = event.target.value;
+        setNickname(value);
+        reviewData.reviewer_name = value;
+    }
+
+    // EMAIL STATE
     // NICKNAME STATE
     const [nickname, setNickname] = useState('');
 
@@ -122,9 +150,7 @@ const Form = () => {
             // }, 5000);
         }
     },);
-    useEffect(()=>{
-        console.log("😬",overAllScore);
-    },[overAllScore])
+
     
     return (
         <div>  
@@ -145,7 +171,30 @@ const Form = () => {
                             value ={ nickname } 
                             onChange={ handleNicknameInput }
                         />
+        <div>  
+            {
+                isSubmitted
+                ? (
+                    <>    
+                        <Header text="Thank you for your feedback!" secondary_text={serverResponse}/>
+                        <Button text="Home" onClick={() => navigate('/')} />
+                    </>
+                )
 
+                : (
+                    <>
+                        <Navbar text="We appreciate your reviews"/>
+                        <Input 
+                            placeholder="Nickname"
+                            value ={ nickname } 
+                            onChange={ handleNicknameInput }
+                        />
+
+                        <Input 
+                            placeholder="Email" 
+                            value={ email }
+                            onChange={ handleEmailInput }
+                        />
                         <Input 
                             placeholder="Email" 
                             value={ email }

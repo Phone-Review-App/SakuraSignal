@@ -2,6 +2,11 @@
 
 Link to Deployed Site : https://phone-review-app.onrender.com/
 
+## Frontend
+
+### CSS Styles
+Color Palette : https://colorhunt.co/palette/66bfbfeaf6f6ffffffff0063
+
 ## API endpoints
 The express server contains 4 /api endpoints, though one is just used for testing ('/api/hello').
 
@@ -33,7 +38,7 @@ example:
   ...
 ]
 
-## /api/provider/:providerid
+### /api/provider/:providerid
 This endpoint requires the providerid parameter as a number (1-9). This number corrolates to the providers location in the provider table.
 
 This endpoint returns an array of two values
@@ -54,7 +59,7 @@ price (number) is the reviewer's price score
 customer_service (number) is the reviewer's customer service score
 customer_review (string) is the reviews written review of the company.
 
-## /api/review 
+### /api/review 
 This endpoint is to add a new customers review. This endpoint takes the review in the body, test if that email had been used prior to review that company, and if it hasn't adds it to the database.
 
 This endpoint expects the body to contain the following information:

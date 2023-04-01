@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 const inputs = [];
+const inputs = [];
 // const inputs = [
 //     {value:0},
 //     {value:1},
@@ -8,6 +9,7 @@ const inputs = [];
 // ];
 
 for(let i =0; i<= 10; i++){
+    inputs.push({type:"radio", value: i.toString()})
     inputs.push({type:"radio", value: i.toString()})
 }
 //console.log("😀",inputs);
@@ -31,13 +33,18 @@ const Radio = ( props ) => {
         <div className={ className } >
             {
             inputs.map((input, index) => {
+            inputs.map((input, index) => {
                 return (
+                    <label htmlFor={label} 
+                    key={index}>
                     <label htmlFor={label} 
                     key={index}>
                         {input.value}
                         <input 
                         
+                        
                     type={input.type}
+                    name={radioName}
                     name={radioName}
                     value={input.value}
                     checked={isRadioSelected(input.value)}
