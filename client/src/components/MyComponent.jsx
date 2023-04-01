@@ -15,18 +15,17 @@ const options = [
 ]
 
 function MyComponent ( props ) {
-    const {onClick} = props;
-    return (
+  const {onClick} = props;
+  return (
     <>
-    <Select options= {options} 
-    />
-    <Button text="MyComponentsSubmit" onClick={onClick}/>
-    </>
-    
-)}
+      <Select options= {options} />
+      <Button text="MyComponentsSubmit" onClick={onClick} />
+    </>    
+  )
+}
 
 MyComponent.defaultProps ={
-    onClick: ()=> {}
+  onClick: ()=> {}
 }
 
 export default MyComponent;

@@ -20,21 +20,21 @@ const Linemo = () => {
   async function getProvider() {
 
     const fetchedProvider = await axios.get('/api/provider/6'); 
-    setProvider(fetchedProvider.data)
+    setProvider(fetchedProvider.data);
   }
-    return (
+  return (
+    <div>
+      <ProviderInfo provider={provider[0]} />
+      <div className="main-content">
         <div>
-          <ProviderInfo provider={provider[0]} />
-          <div className="main-content">
-          <div>
-            <AvgScores scores={provider[0]} />
-            <span>Have you used this company?</span>
-            <Button text="Write a Review" onClick={() => navigate('/Form')} />
-          </div>
-            <ReviewCard reviews={provider[1]}></ReviewCard>
-          </div>
+          <AvgScores scores={provider[0]} />
+          <span>Have you used this company?</span>
+          <Button text="Write a Review" onClick={() => navigate('/Form')} />
         </div>
-    );
+        <ReviewCard reviews={provider[1]}></ReviewCard>
+      </div>
+    </div>
+  );
 }
 
 export default Linemo;

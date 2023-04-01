@@ -9,11 +9,9 @@
 .provider-info {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  
+  width: 50%; 
 }
 
 .provider-logo {
   width: 50%;
-
 }

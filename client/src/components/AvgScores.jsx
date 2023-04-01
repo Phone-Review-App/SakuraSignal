@@ -10,21 +10,21 @@ overall": 5.705882352941177,
 */
 
 const AvgScores = (props) => {
-    const { scores } = props;
-    return (
-        <div className="scores-card"> 
-           <p>Overall:{scores.overall}</p>
-           <p>Ease of Use:{scores.ease_of_use}</p>
-           <p>Coverage:{scores.coverage}</p>
-           <p>Price:{scores.price}</p>
-           <p>Customer Service:{scores.customer_service}</p>
-        </div>
-    )
+  const { scores } = props;
+  return (
+    <div className="scores-card"> 
+      <p>Overall:{scores.overall}</p>
+      <p>Ease of Use:{scores.ease_of_use}</p>
+      <p>Coverage:{scores.coverage}</p>
+      <p>Price:{scores.price}</p>
+      <p>Customer Service:{scores.customer_service}</p>
+    </div>
+  )
 };
 
 AvgScores.defaultProps = {
-    className: "",
-    text: ""
+  className: "",
+  text: ""
 };
 
 export default AvgScores;

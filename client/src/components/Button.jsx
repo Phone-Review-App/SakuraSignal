@@ -1,22 +1,22 @@
 import React from "react";
 
 const Button = (props) => {
-    const { className, onClick, text } = props;
+  const { className, onClick, text } = props;
 
-    return (
-        <div>
-            <button
-                className={className}
-                onClick={onClick}
-                >{ text }</button>
-        </div>
-    );
+  return (
+    <div>
+      <button
+        className={className}
+        onClick={onClick}
+        >{ text }</button>
+    </div>
+  );
 };
 
 Button.defaultProps = {
-    className: "",
-    onClick: () => {},
-    text: "",
+  className: "",
+  onClick: () => {},
+  text: "",
 };
 
 export default Button;

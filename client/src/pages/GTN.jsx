@@ -22,17 +22,17 @@ const GTN = () => {
     setProvider(fetchedProvider.data)
   }
     return (
-        <div>
-          <ProviderInfo provider={provider[0]} />
-          <div className="main-content">
+      <div>
+        <ProviderInfo provider={provider[0]} />
+        <div className="main-content">
           <div>
             <AvgScores scores={provider[0]} />
             <span>Have you used this company?</span>
             <Button text="Write a Review" onClick={() => navigate('/Form')} />
           </div>
-            <ReviewCard reviews={provider[1]}></ReviewCard>
-          </div>
+          <ReviewCard reviews={provider[1]}></ReviewCard>
         </div>
+      </div>
     );
 }
 
