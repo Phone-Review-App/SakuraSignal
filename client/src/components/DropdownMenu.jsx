@@ -15,7 +15,7 @@ const options = [
     {value:"Ymobile", text:"Ymobile" },
 ]
 
-function DropdownMenu ( props ) {
+function DropdownMenu ( company, props ) {
 const { htmlFor, labelName, selectName, selectid, required, disabled, size } = props;
 
 
@@ -32,6 +32,8 @@ const { htmlFor, labelName, selectName, selectid, required, disabled, size } = p
    const handleChange = (event) => {
     // console.log(event.target.value);
     setSelected(event.target.value);
+    company=event.target.value;
+    console.log("company:",company);
    };
    return (
     <>
