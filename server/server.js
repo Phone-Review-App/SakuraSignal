@@ -77,9 +77,11 @@ function setupServer () {
       res.status(404).send("providerId not found")
     } else {
       providerInfo = providerInfo[0]
-      const reviews = await db('review_detail')
+      const reviews = await db
         .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
+        .from('review_detail')
         .where('provider_id', provideId)
+        .orderBy('id', 'desc')
         .timeout(1500);
   
       let averageOverall = Number(average(reviews.map((element) => {
