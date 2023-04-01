@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
 const inputs = [];
-const inputs = [];
 // const inputs = [
 //     {value:0},
 //     {value:1},
@@ -9,34 +8,31 @@ const inputs = [];
 // ];
 
 for(let i =0; i<= 10; i++){
-    inputs.push({type:"radio", value: i.toString()})
-    inputs.push({type:"radio", value: i.toString()})
+  inputs.push({type:"radio", value: i.toString()})
 }
 //console.log("😀",inputs);
 
 const Radio = ( props ) => {
-    const { className, label, radioName, scoreSetter } = props;
-    const [selectedRadioButton, setSelectedRadioButton] = useState('0');
+  const { className, label, radioName, scoreSetter } = props;
+  const [selectedRadioButton, setSelectedRadioButton] = useState('0');
 
-    const isRadioSelected = (value) => { 
-        return selectedRadioButton === value;
-    }
+  const isRadioSelected = (value) => { 
+    return selectedRadioButton === value;
+  }
 
-    const handleRadioSelect = (event) => {
-        setSelectedRadioButton(event.target.value)
-        let score = event.target.value;
-        scoreSetter(score);
+  const handleRadioSelect = (event) => {
+    setSelectedRadioButton(event.target.value)
+    let score = event.target.value;
+    scoreSetter(score);
         
-        console.log("👽",score);
-    }
+    console.log("👽",score);
+  }
     return (
         <div className={ className } >
             {
-            inputs.map((input, index) => {
+            
             inputs.map((input, index) => {
                 return (
-                    <label htmlFor={label} 
-                    key={index}>
                     <label htmlFor={label} 
                     key={index}>
                         {input.value}
@@ -44,7 +40,6 @@ const Radio = ( props ) => {
                         
                         
                     type={input.type}
-                    name={radioName}
                     name={radioName}
                     value={input.value}
                     checked={isRadioSelected(input.value)}
