@@ -1,4 +1,10 @@
-/* .header {
-    background-color: brown;
+.header {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #66BFBF;
     color: white;
-} */
+}
