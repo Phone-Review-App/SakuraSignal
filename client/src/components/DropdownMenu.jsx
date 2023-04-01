@@ -4,18 +4,18 @@ import Button from './Button';
 
 const options = [
     {value: "", text:"--- Select a phone provider ---"},
-    {value:"AU", text:"AU" },
-    {value:"Docomo", text:"Docomo" },
-    {value:"GTN", text:"GTN" },
-    {value:"LINEMO", text:"LINEMO" },
-    {value:"Mobal", text:"Mobal" },
-    {value:"Rakuten", text:"Rakuten" },
-    {value:"Softbank", text:"Softbank" },
-    {value:"UQ", text:"UQ" },
-    {value:"Ymobile", text:"Ymobile" },
+    {value:"AU", text:"AU", id: 1 },
+    {value:"Docomo", text:"Docomo" , id: 2 },
+    {value:"GTN", text:"GTN", id: 3 },
+    {value:"LINEMO", text:"LINEMO", id: 4 },
+    {value:"Mobal", text:"Mobal", id: 5 },
+    {value:"Rakuten", text:"Rakuten" , id: 6},
+    {value:"Softbank", text:"Softbank" , id: 7},
+    {value:"UQ", text:"UQ" , id: 8},
+    {value:"Ymobile", text:"Ymobile" , id: 9},
 ]
 
-function DropdownMenu ( company, props ) {
+function DropdownMenu ( props ) {
 const { htmlFor, labelName, selectName, selectid, required, disabled, size } = props;
 
 
@@ -32,7 +32,7 @@ const { htmlFor, labelName, selectName, selectid, required, disabled, size } = p
    const handleChange = (event) => {
     // console.log(event.target.value);
     setSelected(event.target.value);
-    company=event.target.value;
+    let company=event.target.value;
     console.log("company:",company);
    };
    return (
@@ -51,7 +51,7 @@ const { htmlFor, labelName, selectName, selectid, required, disabled, size } = p
             {options.map((option) => (
                 <option 
                 key={option.value}
-                value={option.value} >
+                value={option.id} >
                     { option.text }
                 </option> 
             ))}
