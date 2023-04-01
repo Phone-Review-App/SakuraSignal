@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import './Homepage.css';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Card from '../components/Card';
 
 
@@ -45,6 +46,7 @@ const Homepage = () => {
           })
         }
       </div>
+      <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
     </>
   );
 };
