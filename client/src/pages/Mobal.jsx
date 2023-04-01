@@ -1,12 +1,16 @@
 import React, { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
 import ProviderInfo from "../components/ProviderInfo";
 import AvgScores from "../components/AvgScores";
+import Button from '../components/Button';
 import "./Provider.css";
 
 
 const Mobal = () => {
+  const navigate = useNavigate();
+
   const [provider, setProvider] = useState([{},[]]);
 
   useEffect(() => {
@@ -22,7 +26,11 @@ const Mobal = () => {
         <div>
           <ProviderInfo provider={provider[0]} />
           <div className="main-content">
-            <AvgScores scores={provider[0]} />
+          <div>
+              <AvgScores scores={provider[0]} />
+              <span>Have you used this company?</span>
+              <Button text="Write a Review" onClick={() => navigate('/Form')} />
+            </div>
             <ReviewCard reviews={provider[1]}></ReviewCard>
           </div>
         </div>
