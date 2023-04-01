@@ -186,7 +186,7 @@ const Form = () => {
                   onChange={ handleCommentInput }
                 />
             <Button
-            className="button"
+            className="button submit"
               text="Submit"
               onClick = { handleSubmission }
             />

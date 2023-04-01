@@ -1,7 +1,13 @@
 .button {
-  padding: 5px;
+  width: 100px;
+  padding: 10px;
   align-self: flex-end;
   color: white;
   background-color: black;
   border-radius: 10px;
+}
+
+.submit {
+  width: 100px;
+  align-self: center;
 }
