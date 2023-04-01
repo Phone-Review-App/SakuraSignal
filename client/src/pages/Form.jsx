@@ -9,23 +9,6 @@ import DropdownMenu from '../components/DropdownMenu';
 import Radio from '../components/Radio';
 import "./Form.css";
 
-// this object will get sent to the server with data for database
-const reviewData = {
-    provider_id: "", 
-    reviewer_name: "", 
-    email: "", 
-    overall: "", 
-    ease_of_use: "", 
-    coverage: "", 
-    price: "", 
-    customer_service: "", 
-    customer_review: ""
-};
-import Button from '../components/Button';
-import Header from '../components/Header';
-import DropdownMenu from '../components/DropdownMenu';
-import Radio from '../components/Radio';
-import "./Form.css";
 
 // this object will get sent to the server with data for database
 const reviewData = {
@@ -79,16 +62,6 @@ const Form = () => {
         reviewData.customer_service= Number(score);
     }
     
-    // NICKNAME STATE
-    const [nickname, setNickname] = useState('');
-
-    const handleNicknameInput = (event) => {
-        const value = event.target.value;
-        setNickname(value);
-        reviewData.reviewer_name = value;
-    }
-
-    // EMAIL STATE
     // NICKNAME STATE
     const [nickname, setNickname] = useState('');
 
@@ -153,95 +126,77 @@ const Form = () => {
 
     
     return (
-        <div>  
-            {
-                isSubmitted
-                ? (
-                    <>    
-                        <Header text="Thank you for your feedback!" secondary_text={serverResponse}/>
-                        <Button text="Home" onClick={() => navigate('/')} />
-                    </>
-                )
+      <div>  
+        {
+          isSubmitted
+          ? (
+            <>    
+              <Header text="Thank you for your feedback!" secondary_text={serverResponse}/>
+              <Button text="Home" onClick={() => navigate('/')} />
+            </>
+          )
 
-                : (
-                    <>
-                        <Navbar text="We appreciate your reviews"/>
-                        <Input 
-                            placeholder="Nickname"
-                            value ={ nickname } 
-                            onChange={ handleNicknameInput }
-                        />
-        <div>  
-            {
-                isSubmitted
-                ? (
-                    <>    
-                        <Header text="Thank you for your feedback!" secondary_text={serverResponse}/>
-                        <Button text="Home" onClick={() => navigate('/')} />
-                    </>
-                )
+            : (
+                <>
+                    <Navbar text="We appreciate your reviews"/>
+                    <Input 
+                        placeholder="Nickname"
+                        value ={ nickname } 
+                        onChange={ handleNicknameInput }
+                    />
 
-                : (
-                    <>
-                        <Navbar text="We appreciate your reviews"/>
-                        <Input 
-                            placeholder="Nickname"
-                            value ={ nickname } 
-                            onChange={ handleNicknameInput }
-                        />
+                    <Input 
+                        placeholder="Email" 
+                        value={ email }
+                        onChange={ handleEmailInput }
+                    />
+                    <Input 
+                        placeholder="Email" 
+                        value={ email }
+                        onChange={ handleEmailInput }
+                    />
 
-                        <Input 
-                            placeholder="Email" 
-                            value={ email }
-                            onChange={ handleEmailInput }
+                    {<DropdownMenu  
+                    setProviderId={setCompName}/>}
+                    Overall:<Radio 
+                        radioName="overall"
+                        // onClick= {getOverAllScore} 
+                        scoreSetter={setOverAllScore} 
                         />
-                        <Input 
-                            placeholder="Email" 
-                            value={ email }
-                            onChange={ handleEmailInput }
-                        />
-
-                        {<DropdownMenu  
-                        setProviderId={setCompName}/>}
-                        Overall:<Radio 
-                            radioName="overall"
-                            // onClick= {getOverAllScore} 
-                            scoreSetter={setOverAllScore} 
-                            />
-                        Ease of Use:<Radio 
-                        radioName="easeOfUse"
-                        scoreSetter={setEOUScore}
-                        />
-                        Coverage:<Radio radioName="coverage"
-                        scoreSetter={setCoverageScore}/>
-                        Price:<Radio radioName="price"
-                        scoreSetter={setPriceScore}
-                        />
-                        Customer Service:<Radio radioName="customerService"
-                        scoreSetter={setCustomerServiceScore}/>
-                        
-                        <textarea 
-                            name="" 
-                            id="" 
-                            cols="60" 
-                            rows="10" 
-                            placeholder="Type your review here!"
-                            value={ comment }
-                            onChange={ handleCommentInput }></textarea>
-                        {/* <Input 
-                            placeholder="Type your review here!"
-                            value={ comment }
-                            onChange={ handleCommentInput }
-                        /> */}
-                        
-                        <Button
-                            text="Submit"
-                            onClick = { handleSubmission }
-                        />
-                    </>
-                )
-            }
-        </div>
+                    Ease of Use:<Radio 
+                    radioName="easeOfUse"
+                    scoreSetter={setEOUScore}
+                    />
+                    Coverage:<Radio radioName="coverage"
+                    scoreSetter={setCoverageScore}/>
+                    Price:<Radio radioName="price"
+                    scoreSetter={setPriceScore}
+                    />
+                    Customer Service:<Radio radioName="customerService"
+                    scoreSetter={setCustomerServiceScore}/>
+                    
+                    <textarea 
+                        name="" 
+                        id="" 
+                        cols="60" 
+                        rows="10" 
+                        placeholder="Type your review here!"
+                        value={ comment }
+                        onChange={ handleCommentInput }></textarea>
+                    {/* <Input 
+                        placeholder="Type your review here!"
+                        value={ comment }
+                        onChange={ handleCommentInput }
+                    /> */}
+                    
+                    <Button
+                        text="Submit"
+                        onClick = { handleSubmission }
+                    />
+                </>
+            )
+        }
+      </div>
     );
 }
 
