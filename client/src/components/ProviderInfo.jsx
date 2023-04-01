@@ -9,6 +9,7 @@ const ProviderInfo = (props) => {
         <h2>{provider.name}</h2>
         <p>English Support: {provider.english_support === true ? '✅' : '❌'}</p>
         <p>{provider.description}</p>
+        <a href={provider.site_url}>Click here for the provider website.</a>
 
       </div>
       <div className="provider-logo">

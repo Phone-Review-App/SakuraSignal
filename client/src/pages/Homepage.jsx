@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import './Homepage.css';
-import Card from '../components/Card'
-import DropdownMenu from '../components/DropdownMenu'; // Remove me after test
-import MyComponent from '../components/MyComponent'; // Remove me after test
-import Radio from '../components/Radio'; // Remove me after test
+import Header from '../components/Header';
+import Card from '../components/Card';
 
 
 const Homepage = () => {
@@ -24,30 +22,30 @@ const Homepage = () => {
 
   return (
     <>
-    <div className="grid-container">
-    {
-      providers.map((provider) => {
-        return (
-          <Card 
-            cardName={provider.name}
-            img_url={provider.img_url}
-            averageScore={provider.overall}
-            english_support={provider.english_support}
-            site_url={provider.site_url}
-            description={provider.description}
-              onClick={() => navigate('/' + provider.name)}
-          />
-        )
-      })
-    }
-  </div>
-  
-  <DropdownMenu /> 
-  <MyComponent />
-  <Radio className="test" radioName="groupA"/>
-  <Radio className="testa" radioName="groupB"/>
+      <Header 
+        className="header" 
+        text="Need a Phone Provider?" 
+        secondary_text="Check these out!">
+      </Header>
+
+      <div className="grid-container">
+        {
+          providers.map((provider) => {
+            return (
+              <Card 
+                cardName={provider.name}
+                img_url={provider.img_url}
+                averageScore={provider.overall}
+                english_support={provider.english_support}
+                site_url={provider.site_url}
+                description={provider.description}
+                onClick={() => navigate('/' + provider.name)}
+              />
+            )
+          })
+        }
+      </div>
     </>
-    
   );
 };
 

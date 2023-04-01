@@ -1,17 +1,18 @@
 import React, {useState, useEffect} from 'react';
 
+const inputs = [];
 // const inputs = [
 //     {value:0},
 //     {value:1},
 //     {value:2}.
 // ];
-const inputs = [];
+
 for(let i =0; i<= 10; i++){
     inputs.push({type:"radio", value: i.toString()})
 }
 //console.log("😀",inputs);
 
-const Radio = ( props ) => {
+const Radio = ( {score, onClick}, props ) => {
     const { className, label, radioName } = props
 
     const [selectedRadioButton, setSelectedRadioButton] = useState('0');
@@ -22,6 +23,8 @@ const Radio = ( props ) => {
 
     const handleRadioSelect = (event) => {
         setSelectedRadioButton(event.target.value)
+        score = event.target.value;
+        console.log(score);
     }
     return (
         <div className={ className } >
