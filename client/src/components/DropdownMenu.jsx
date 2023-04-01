@@ -4,19 +4,19 @@ import Button from './Button';
 
 const options = [
     {value: "", text:"--- Select a phone provider ---"},
-    {value:"AU", text:"AU" },
-    {value:"Docomo", text:"Docomo" },
-    {value:"GTN", text:"GTN" },
-    {value:"LINEMO", text:"LINEMO" },
-    {value:"Mobal", text:"Mobal" },
-    {value:"Rakuten", text:"Rakuten" },
-    {value:"Softbank", text:"Softbank" },
-    {value:"UQ", text:"UQ" },
-    {value:"Ymobile", text:"Ymobile" },
+    {value:"AU", text:"AU", provider_id:3 },
+    {value:"Docomo", text:"Docomo" , provider_id:2},
+    {value:"GTN", text:"GTN", provider_id:9 },
+    {value:"LINEMO", text:"LINEMO",provider_id:6 },
+    {value:"Mobal", text:"Mobal", provider_id:1 },
+    {value:"Rakuten", text:"Rakuten", provider_id:5 },
+    {value:"Softbank", text:"Softbank", provider_id:4 },
+    {value:"UQ", text:"UQ", provider_id:8 },
+    {value:"Ymobile", text:"Ymobile", provider_id:7 },
 ]
 
-function DropdownMenu ( company, props ) {
-const { htmlFor, labelName, selectName, selectid, required, disabled, size } = props;
+function DropdownMenu ( props ) {
+const { htmlFor, labelName, selectName, selectid, required, disabled, size, setProviderId } = props;
 
 
    const [selected, setSelected ] = useState(options[0].value);
@@ -32,8 +32,10 @@ const { htmlFor, labelName, selectName, selectid, required, disabled, size } = p
    const handleChange = (event) => {
     // console.log(event.target.value);
     setSelected(event.target.value);
-    company=event.target.value;
+    let company=event.target.value;
     console.log("company:",company);
+    setProviderId(company);
+    
    };
    return (
     <>
@@ -48,10 +50,11 @@ const { htmlFor, labelName, selectName, selectid, required, disabled, size } = p
         disabled={disabled}
         size={size}
         >
-            {options.map((option) => (
+            {options.map((option, index) => (
                 <option 
-                key={option.value}
-                value={option.value} >
+                key={index}
+                value={option.provider_id} 
+                provider_id={option.provider_id}>
                     { option.text }
                 </option> 
             ))}

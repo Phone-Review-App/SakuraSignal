@@ -24,39 +24,41 @@ const reviewData = {
 
 const Form = () => {
     const navigate = useNavigate();
+    
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     // SCORE INPUT STATE // Overall, Ease of Use, Coverage
     const [overAllScore, getOverAllScore] = useState(0);
-    const setOverAllScore = (event) =>{
-        getOverAllScore(event.target.value);
+    const setOverAllScore = (score) =>{
+        getOverAllScore(score);
         console.log("😊",overAllScore);
-        //reviewData.overall
+        reviewData.overall = Number(score);
+        console.log("👋",reviewData);
     }
 
-    const [EOUscore, getEOUScore] = useState(0);
+    const [EOUScore, getEOUScore] = useState(0);
     const setEOUScore = (score) =>{
         getEOUScore(score);
-        //reviewData.ease_of_use
+        reviewData.ease_of_use = Number(score);
     }
 
     const [coverageScore, getCoverageScore] = useState(0);
     const setCoverageScore = (score) =>{
         getCoverageScore(score);
-        //reviewData.coverage
+        reviewData.coverage = Number(score);
     }
 
     const [priceScore, getPriceScore] = useState(0);
     const setPriceScore = (score) =>{
         getPriceScore(score);
-        //reviewData.price
+        reviewData.price = Number(score);
     }
 
-    const [customerServicescore, getCustomerServiceScore] = useState(0);
+    const [customerServiceScore, getCustomerServiceScore] = useState(0);
     const setCustomerServiceScore = (score) =>{
         getCustomerServiceScore(score);
-        //reviewData.
+        reviewData.customer_service= Number(score);
     }
     
     // NICKNAME STATE
@@ -80,7 +82,10 @@ const Form = () => {
     // DROP DOWN MENU STATE
     const [companyName, getCompName] = useState('');
     const setCompName = (compName) => {
+        console.log("💛",compName);
         getCompName(compName);
+        reviewData.provider_id = Number(compName);
+        console.log("🌺",reviewData)
     }
     
     // COMMENT STATE
@@ -100,6 +105,7 @@ const Form = () => {
         event.preventDefault();
         if (setIsSubmitted(!isSubmitted)) {
             // sends data to server after submit button is clicked
+            console.log(reviewData);
             const response = await axios.post('/api/review', reviewData)
                 .then((response) => console.log(response))
                 .catch((error) => console.log(error));  
@@ -115,7 +121,9 @@ const Form = () => {
             // }, 5000);
         }
     },);
-
+    useEffect(()=>{
+        console.log("😬",overAllScore);
+    },[overAllScore])
     
     return (
         <div>  
@@ -143,12 +151,24 @@ const Form = () => {
                             onChange={ handleEmailInput }
                         />
 
-                        {<DropdownMenu />}
-                        Overall:<Radio radioName="overall" onClick={setOverAllScore(overAllScore)} score={score}/>
-                        Ease of Use:<Radio radioName="easeOfUse"/>
-                        Coverage:<Radio radioName="coverage"/>
-                        Price:<Radio radioName="price"/>
-                        Customer Service:<Radio radioName="customerService"/>
+                        {<DropdownMenu  
+                        setProviderId={setCompName}/>}
+                        Overall:<Radio 
+                            radioName="overall"
+                            // onClick= {getOverAllScore} 
+                            scoreSetter={setOverAllScore} 
+                            />
+                        Ease of Use:<Radio 
+                        radioName="easeOfUse"
+                        scoreSetter={setEOUScore}
+                        />
+                        Coverage:<Radio radioName="coverage"
+                        scoreSetter={setCoverageScore}/>
+                        Price:<Radio radioName="price"
+                        scoreSetter={setPriceScore}
+                        />
+                        Customer Service:<Radio radioName="customerService"
+                        scoreSetter={setCustomerServiceScore}/>
                         
                         <textarea 
                             name="" 
