@@ -103,14 +103,15 @@ const Form = () => {
     // HANDLER FUNCTION
     const handleSubmission = async (event) => {
         event.preventDefault();
-        if (setIsSubmitted(!isSubmitted)) {
-            // sends data to server after submit button is clicked
-            console.log(reviewData);
-            const response = await axios.post('/api/review', reviewData)
-                .then((response) => console.log(response))
-                .catch((error) => console.log(error));  
-            setServerResponse(response);
-        }
+        setIsSubmitted(!isSubmitted)
+        console.log(reviewData);
+        const response = await axios.post('/api/review', reviewData)
+          .catch((error) => console.log(error));  
+        console.log(response.data);
+        setServerResponse(response.data);
+        // if (isSubmitted) {
+        //     // sends data to server after submit button is clicked
+        // }
     };
 
     useEffect(() => {

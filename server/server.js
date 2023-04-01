@@ -80,6 +80,7 @@ function setupServer () {
       const reviews = await db('review_detail')
         .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
         .where('provider_id', provideId)
+        .orderBy('id', 'desc')
         .timeout(1500);
   
       let averageOverall = Number(average(reviews.map((element) => {
@@ -115,7 +116,7 @@ function setupServer () {
   });
 
   app.post('/api/review', async (req,res) => {
-    const review = req.body
+    const review = req.body;
     const testEmail = await db('review_detail')
       .select('*')
       .where('email', review.email)
