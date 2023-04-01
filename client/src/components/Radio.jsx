@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 const inputs = [];
+const inputs = [];
 // const inputs = [
 //     {value:0},
 //     {value:1},
@@ -9,12 +10,12 @@ const inputs = [];
 
 for(let i =0; i<= 10; i++){
     inputs.push({type:"radio", value: i.toString()})
+    inputs.push({type:"radio", value: i.toString()})
 }
 //console.log("😀",inputs);
 
-const Radio = ( {score, onClick}, props ) => {
-    const { className, label, radioName } = props
-
+const Radio = ( props ) => {
+    const { className, label, radioName, scoreSetter } = props;
     const [selectedRadioButton, setSelectedRadioButton] = useState('0');
 
     const isRadioSelected = (value) => { 
@@ -23,24 +24,33 @@ const Radio = ( {score, onClick}, props ) => {
 
     const handleRadioSelect = (event) => {
         setSelectedRadioButton(event.target.value)
-        score = event.target.value;
-        console.log(score);
+        let score = event.target.value;
+        scoreSetter(score);
+        
+        console.log("👽",score);
     }
     return (
         <div className={ className } >
             {
             inputs.map((input, index) => {
+            inputs.map((input, index) => {
                 return (
+                    <label htmlFor={label} 
+                    key={index}>
                     <label htmlFor={label} 
                     key={index}>
                         {input.value}
                         <input 
                         
+                        
                     type={input.type}
+                    name={radioName}
                     name={radioName}
                     value={input.value}
                     checked={isRadioSelected(input.value)}
                     onChange={handleRadioSelect}
+                    
+                    
                     >
                     </input>
                     </label>
@@ -92,6 +102,9 @@ Radio.defaultProps = {
     className:"",
     label:"",
     radioName:"",
+    onClick: ()=> {},
+    
+    scoreSetter:()=>{}
 }
 
 export default Radio;

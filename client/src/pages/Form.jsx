@@ -21,9 +21,28 @@ const reviewData = {
     customer_service: "", 
     customer_review: ""
 };
+import Button from '../components/Button';
+import Header from '../components/Header';
+import DropdownMenu from '../components/DropdownMenu';
+import Radio from '../components/Radio';
+import "./Form.css";
+
+// this object will get sent to the server with data for database
+const reviewData = {
+    provider_id: "", 
+    reviewer_name: "", 
+    email: "", 
+    overall: "", 
+    ease_of_use: "", 
+    coverage: "", 
+    price: "", 
+    customer_service: "", 
+    customer_review: ""
+};
 
 const Form = () => {
     const navigate = useNavigate();
+    
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -31,28 +50,45 @@ const Form = () => {
     const [overAllScore, getOverAllScore] = useState(0);
     const setOverAllScore = (score) =>{
         getOverAllScore(score);
+        console.log("😊",overAllScore);
+        reviewData.overall = Number(score);
+        console.log("👋",reviewData);
     }
 
-    const [EOUscore, getEOUScore] = useState(0);
+    const [EOUScore, getEOUScore] = useState(0);
     const setEOUScore = (score) =>{
         getEOUScore(score);
+        reviewData.ease_of_use = Number(score);
     }
 
-    const [coveragescore, getCoverageScore] = useState(0);
+    const [coverageScore, getCoverageScore] = useState(0);
     const setCoverageScore = (score) =>{
         getCoverageScore(score);
+        reviewData.coverage = Number(score);
     }
 
     const [priceScore, getPriceScore] = useState(0);
     const setPriceScore = (score) =>{
         getPriceScore(score);
+        reviewData.price = Number(score);
     }
 
-    const [customerServicescore, getCustomerServiceScore] = useState(0);
+    const [customerServiceScore, getCustomerServiceScore] = useState(0);
     const setCustomerServiceScore = (score) =>{
         getCustomerServiceScore(score);
+        reviewData.customer_service= Number(score);
     }
     
+    // NICKNAME STATE
+    const [nickname, setNickname] = useState('');
+
+    const handleNicknameInput = (event) => {
+        const value = event.target.value;
+        setNickname(value);
+        reviewData.reviewer_name = value;
+    }
+
+    // EMAIL STATE
     // NICKNAME STATE
     const [nickname, setNickname] = useState('');
 
@@ -72,9 +108,12 @@ const Form = () => {
     }
 
     // DROP DOWN MENU STATE
-    const [compName, getCompName] = useState('');
-    const setCompName = () => {
+    const [companyName, getCompName] = useState('');
+    const setCompName = (compName) => {
+        console.log("💛",compName);
         getCompName(compName);
+        reviewData.provider_id = Number(compName);
+        console.log("🌺",reviewData)
     }
     
     // COMMENT STATE
@@ -92,13 +131,15 @@ const Form = () => {
     // HANDLER FUNCTION
     const handleSubmission = async (event) => {
         event.preventDefault();
-        if (setIsSubmitted(!isSubmitted)) {
-            // sends data to server after submit button is clicked
-            const response = await axios.post('/api/review', reviewData)
-                .then((response) => console.log(response))
-                .catch((error) => console.log(error));  
-            setServerResponse(response);
-        }
+        setIsSubmitted(!isSubmitted)
+        console.log(reviewData);
+        const response = await axios.post('/api/review', reviewData)
+          .catch((error) => console.log(error));  
+        console.log(response.data);
+        setServerResponse(response.data);
+        // if (isSubmitted) {
+        //     // sends data to server after submit button is clicked
+        // }
     };
 
     useEffect(() => {
@@ -130,19 +171,54 @@ const Form = () => {
                             value ={ nickname } 
                             onChange={ handleNicknameInput }
                         />
+        <div>  
+            {
+                isSubmitted
+                ? (
+                    <>    
+                        <Header text="Thank you for your feedback!" secondary_text={serverResponse}/>
+                        <Button text="Home" onClick={() => navigate('/')} />
+                    </>
+                )
+
+                : (
+                    <>
+                        <Navbar text="We appreciate your reviews"/>
+                        <Input 
+                            placeholder="Nickname"
+                            value ={ nickname } 
+                            onChange={ handleNicknameInput }
+                        />
 
                         <Input 
                             placeholder="Email" 
                             value={ email }
                             onChange={ handleEmailInput }
                         />
+                        <Input 
+                            placeholder="Email" 
+                            value={ email }
+                            onChange={ handleEmailInput }
+                        />
 
-                        {<DropdownMenu />}
-                        Overall:<Radio radioName="overall"/>
-                        Ease of Use:<Radio radioName="easeOfUse"/>
-                        Coverage:<Radio radioName="coverage"/>
-                        Price:<Radio radioName="price"/>
-                        Customer Service:<Radio radioName="customerService"/>
+                        {<DropdownMenu  
+                        setProviderId={setCompName}/>}
+                        Overall:<Radio 
+                            radioName="overall"
+                            // onClick= {getOverAllScore} 
+                            scoreSetter={setOverAllScore} 
+                            />
+                        Ease of Use:<Radio 
+                        radioName="easeOfUse"
+                        scoreSetter={setEOUScore}
+                        />
+                        Coverage:<Radio radioName="coverage"
+                        scoreSetter={setCoverageScore}/>
+                        Price:<Radio radioName="price"
+                        scoreSetter={setPriceScore}
+                        />
+                        Customer Service:<Radio radioName="customerService"
+                        scoreSetter={setCustomerServiceScore}/>
                         
                         <textarea 
                             name="" 
