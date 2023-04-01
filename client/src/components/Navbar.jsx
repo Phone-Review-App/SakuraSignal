@@ -9,7 +9,7 @@ const Navbar = (props) => {
   
   return (
     <div className={className}>
-      <Button className="home-button" text="Home" onClick={() => navigate('/')}/>
+      <Button className="button" text="Home" onClick={() => navigate('/')}/>
       <h1>{ text }</h1>      
       <p>{ description }</p>
       <p>{ support }</p>

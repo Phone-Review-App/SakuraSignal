@@ -125,70 +125,73 @@ const Form = () => {
         ? (
           <>    
             <Header className="header" text="Thank you for your feedback!" secondary_text={serverResponse}/>
-            <Button text="Home" onClick={() => navigate('/')} />
+            <Button className="button" text="Home" onClick={() => navigate('/')} />
             <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
           </>
         )
 
         : (
-          <>
+          <div className="main">
             <Navbar className="navbar" text="We appreciate your reviews"/>
-            <Input 
-                placeholder="Nickname"
-                value ={ nickname } 
-                onChange={ handleNicknameInput }
-            />
+            <div className="wrapper">
+              <div className="scores">
+                Overall:<Radio 
+                  radioName="overall"
+                  scoreSetter={setOverAllScore} 
+                />
+                Ease of Use:<Radio 
+                  radioName="easeOfUse"
+                  scoreSetter={setEOUScore}
+                />
+                Coverage:<Radio 
+                  radioName="coverage"
+                  scoreSetter={setCoverageScore}
+                />
+                Price:<Radio 
+                  radioName="price"
+                  scoreSetter={setPriceScore}
+                />
+                Customer Service:<Radio 
+                  radioName="customerService"
+                  scoreSetter={setCustomerServiceScore}
+                />
+              </div>
+              <div className="inputs">
+                <Input
+                  className="input" 
+                  placeholder="Nickname"
+                  value ={ nickname } 
+                  onChange={ handleNicknameInput }
+                />
 
-            <Input 
-                placeholder="Email" 
-                value={ email }
-                onChange={ handleEmailInput }
-            />
-            <Input 
-                placeholder="Email" 
-                value={ email }
-                onChange={ handleEmailInput }
-            />
+                <Input
+                  className="input"  
+                  placeholder="Email" 
+                  value={ email }
+                  onChange={ handleEmailInput }
+                />
 
-            {<DropdownMenu  
-              setProviderId={setCompName}/>}
-              Overall:<Radio 
-                radioName="overall"
-                scoreSetter={setOverAllScore} 
-              />
-              Ease of Use:<Radio 
-                radioName="easeOfUse"
-                scoreSetter={setEOUScore}
-              />
-              Coverage:<Radio 
-                radioName="coverage"
-                scoreSetter={setCoverageScore}
-              />
-              Price:<Radio 
-                radioName="price"
-                scoreSetter={setPriceScore}
-              />
-              Customer Service:<Radio 
-                radioName="customerService"
-                scoreSetter={setCustomerServiceScore}
-            />
-            
-            <textarea 
-              name="" 
-              id="" 
-              cols="60" 
-              rows="10" 
-              placeholder="Type your review here!"
-              value={ comment }
-              onChange={ handleCommentInput }
-            />
-              
+                {<DropdownMenu  
+                  setProviderId={setCompName}/>}
+                
+              </div>
+            </div>
+                <textarea 
+                  name="" 
+                  id="" 
+                  cols="60" 
+                  rows="10" 
+                  placeholder="Type your review here!"
+                  value={ comment }
+                  onChange={ handleCommentInput }
+                />
             <Button
+            className="button"
               text="Submit"
               onClick = { handleSubmission }
             />
             <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
-        </>
+        </div>
         )
       }
     </div>

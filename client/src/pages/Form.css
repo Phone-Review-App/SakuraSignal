@@ -2,3 +2,23 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.scores {
+  padding: 10px;
+  margin: 10px;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
