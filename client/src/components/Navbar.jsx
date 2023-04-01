@@ -6,7 +6,7 @@ const Navbar = (props) => {
     const { className, text, description, support, src, alt } = props;
     const navigate = useNavigate();
     return (
-        <div>
+        <div className={className}>
             <Button 
                 text="Home"
                 onClick={() => navigate('/')}
