@@ -1,11 +1,26 @@
 .card {
+  margin: 20px;
+  background-color: white;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: space-around;
   align-items: center;
   width: 400px;
 }
 
 img {
-  width: 100%;
+  width: 25vw;
+  height: 20vw;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+p {
+  margin: 10px;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
 }

@@ -1,4 +1,5 @@
 .grid-container {
+  background-color: #EAF6F6;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
