@@ -3,7 +3,7 @@ import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
 import ProviderInfo from "../components/ProviderInfo";
 import AvgScores from "../components/AvgScores";
-import "./Provider.css"
+import "./Provider.css";
 
 
 const Mobal = () => {
