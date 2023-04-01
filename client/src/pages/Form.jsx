@@ -9,6 +9,7 @@ import DropdownMenu from '../components/DropdownMenu';
 import Radio from '../components/Radio';
 import "./Form.css";
 
+// this object will get sent to the server with data for database
 const reviewData = {
     provider_id: "", 
     reviewer_name: "", 
@@ -26,10 +27,30 @@ const Form = () => {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    // SCORE INPUT STATE
-    const [score, getScore] = useState(0);
-    const setScore = () =>{
-        getScore(score);
+    // SCORE INPUT STATE // Overall, Ease of Use, Coverage
+    const [overAllScore, getOverAllScore] = useState(0);
+    const setOverAllScore = (score) =>{
+        getOverAllScore(score);
+    }
+
+    const [EOUscore, getEOUScore] = useState(0);
+    const setEOUScore = (score) =>{
+        getEOUScore(score);
+    }
+
+    const [coveragescore, getCoverageScore] = useState(0);
+    const setCoverageScore = (score) =>{
+        getCoverageScore(score);
+    }
+
+    const [priceScore, getPriceScore] = useState(0);
+    const setPriceScore = (score) =>{
+        getPriceScore(score);
+    }
+
+    const [customerServicescore, getCustomerServiceScore] = useState(0);
+    const setCustomerServiceScore = (score) =>{
+        getCustomerServiceScore(score);
     }
     
     // NICKNAME STATE
@@ -65,14 +86,18 @@ const Form = () => {
         reviewData.customer_review = value;
     }
 
+    // SERVER RESPONSE STATE
+    const [serverResponse, setServerResponse] = useState('Pending')
+
     // HANDLER FUNCTION
     const handleSubmission = async (event) => {
         event.preventDefault();
         if (setIsSubmitted(!isSubmitted)) {
             // sends data to server after submit button is clicked
-            await axios.post('/api/review', reviewData)
-            .then((response) => console.log(response))
-            .catch((error) => console.log(error));  
+            const response = await axios.post('/api/review', reviewData)
+                .then((response) => console.log(response))
+                .catch((error) => console.log(error));  
+            setServerResponse(response);
         }
     };
 
@@ -83,7 +108,7 @@ const Form = () => {
 
             // }, 5000);
         }
-    }, [email]);
+    },);
 
     
     return (
@@ -92,7 +117,7 @@ const Form = () => {
                 isSubmitted
                 ? (
                     <>    
-                        <Header text="Thank you for your feedback!"/>
+                        <Header text="Thank you for your feedback!" secondary_text={serverResponse}/>
                         <Button text="Home" onClick={() => navigate('/')} />
                     </>
                 )
@@ -100,8 +125,6 @@ const Form = () => {
                 : (
                     <>
                         <Navbar text="We appreciate your reviews"/>
-                        {<DropdownMenu />}
-                        <Radio />
                         <Input 
                             placeholder="Nickname"
                             value ={ nickname } 
@@ -114,11 +137,26 @@ const Form = () => {
                             onChange={ handleEmailInput }
                         />
 
-                        <Input 
+                        {<DropdownMenu />}
+                        Overall:<Radio radioName="overall"/>
+                        Ease of Use:<Radio radioName="easeOfUse"/>
+                        Coverage:<Radio radioName="coverage"/>
+                        Price:<Radio radioName="price"/>
+                        Customer Service:<Radio radioName="customerService"/>
+                        
+                        <textarea 
+                            name="" 
+                            id="" 
+                            cols="60" 
+                            rows="10" 
+                            placeholder="Type your review here!"
+                            value={ comment }
+                            onChange={ handleCommentInput }></textarea>
+                        {/* <Input 
                             placeholder="Type your review here!"
                             value={ comment }
                             onChange={ handleCommentInput }
-                        />
+                        /> */}
                         
                         <Button
                             text="Submit"
