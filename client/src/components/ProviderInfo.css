@@ -1,19 +1,39 @@
+body {
+  font-size: larger;
+}
+
 .provider-hero-div {
+  font-weight: 600;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   height: 300px;
   background-color: #66BFBF;
   color: white;
-  font-size: larger;
 }
 
 .provider-info {
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 50%; 
 }
 
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-evenly;
+}
+
 .provider-logo {
-  width: 50%;
+  background-color: #EAF6F6;
+  border-radius: 10px;
+  width: 100%;
+}
+
+img {
+  width: 50%
 }

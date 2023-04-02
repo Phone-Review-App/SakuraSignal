@@ -9,15 +9,17 @@ const ProviderInfo = (props) => {
 
   return (
     <div className='provider-hero-div'>
-      <Button className="button" text="Home" onClick={() => navigate('/')}/>
       <div className='provider-info'>
         <h2>{provider.name}</h2>
         <p>English Support: {provider.english_support === true ? '✅' : '❌'}</p>
         <p>{provider.description}</p>
         <a href={provider.site_url}>Click here for the provider website.</a>
       </div>
-      <div className="provider-logo">
-        <img src={provider.img_url} alt="" />
+      <div className="hero-right">
+        <Button className="button" text="Home" onClick={() => navigate('/')}/>
+        <div className="provider-logo">
+          <img src={provider.img_url} alt="" />
+        </div>
       </div>
     </div>
   )
