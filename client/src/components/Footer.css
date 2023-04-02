@@ -4,3 +4,7 @@
   background-color: #FF0063;
   color: white;
 }
+
+.thanks {
+  justify-content: flex-end;
+}

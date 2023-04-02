@@ -1,10 +1,15 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import "./ProviderInfo.css";
+import Button from "../components/Button";
 
 const ProviderInfo = (props) => {
   const { provider } = props
+  const navigate = useNavigate();
+
   return (
     <div className='provider-hero-div'>
+      <Button className="button" text="Home" onClick={() => navigate('/')}/>
       <div className='provider-info'>
         <h2>{provider.name}</h2>
         <p>English Support: {provider.english_support === true ? '✅' : '❌'}</p>

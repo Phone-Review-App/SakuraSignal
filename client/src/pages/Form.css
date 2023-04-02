@@ -45,3 +45,8 @@ textarea {
   font-size: large;
   text-align: center;
 }
+
+.thanks {
+  display: flex;
+  flex-direction: column;
+}
