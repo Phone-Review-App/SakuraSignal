@@ -29,17 +29,21 @@ body {
 }
 
 .provider-logo {
+  padding: 10px;
   background-color: white;
   border-radius: 10px;
-  width: 100%;
 }
 
 img {
   width: 50%
 }
 
-.main_left {
+.main-content {
   background-color: #EAF6F6;
+  padding: 10px;
+}
+
+.main_left {
   display: flex;
   flex-direction: column;
   justify-content: center;

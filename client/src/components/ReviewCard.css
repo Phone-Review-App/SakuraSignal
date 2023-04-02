@@ -1,13 +1,18 @@
 .reviews-div {
+  padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .review-card {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: aquamarine;
+  background-color: #66BFBF;
+  font-size: large;
+  color: white;
+  font-weight: 600;
   margin: 10px auto;
 }
 
