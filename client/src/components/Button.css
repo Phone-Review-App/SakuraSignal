@@ -10,6 +10,7 @@
 
 .review {
   width: 150px;
+  align-self: center;
 }
 
 .submit {
