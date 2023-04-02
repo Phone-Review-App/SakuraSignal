@@ -4,6 +4,7 @@ import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
 import ProviderInfo from "../components/ProviderInfo";
 import AvgScores from "../components/AvgScores";
+import Footer from "../components/Footer";
 import Button from '../components/Button';
 import "./Provider.css";
 
@@ -30,10 +31,11 @@ const AU = () => {
         <div>
           <AvgScores scores={provider[0]} />
           <span>Have you used this company?</span>
-          <Button text="Write a Review" onClick={() => navigate('/Form')} />
+          <Button className="button review" text="Write a Review" onClick={() => navigate('/Form')} />
         </div>
         <ReviewCard reviews={provider[1]}></ReviewCard>
       </div>
+      <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
     </div>
   );
 }

@@ -41,6 +41,7 @@ const Homepage = () => {
                 site_url={provider.site_url}
                 description={provider.description}
                 onClick={() => navigate('/' + provider.name)}
+                buttonClassName="button"
               />
             )
           })
