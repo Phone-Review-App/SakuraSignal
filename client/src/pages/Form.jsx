@@ -135,29 +135,29 @@ const Form = () => {
             <Navbar className="navbar" text="We appreciate your reviews"/>
             <div className="wrapper">
               <div className="scores">
-                Overall:<Radio 
+                <Radio 
                   className="radio"
-                  radioName="overall"
+                  radioName="Overall"
                   scoreSetter={setOverAllScore} 
                 />
-                Ease of Use:<Radio 
+                <Radio 
                   className="radio"
-                  radioName="easeOfUse"
+                  radioName="Ease Of Use"
                   scoreSetter={setEOUScore}
                 />
-                Coverage:<Radio 
+                <Radio 
                   className="radio"
-                  radioName="coverage"
+                  radioName="Coverage"
                   scoreSetter={setCoverageScore}
                 />
-                Price:<Radio
+                <Radio
                   className="radio" 
-                  radioName="price"
+                  radioName="Price"
                   scoreSetter={setPriceScore}
                 />
-                Customer Service:<Radio
+                <Radio
                   className="radio" 
-                  radioName="customerService"
+                  radioName="Customer Service"
                   scoreSetter={setCustomerServiceScore}
                 />
               </div>

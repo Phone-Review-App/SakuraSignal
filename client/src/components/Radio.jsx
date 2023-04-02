@@ -29,17 +29,21 @@ const Radio = ( props ) => {
     console.log("👽",score);
   }
     return (
+      <><div>{radioName}: {selectedRadioButton}</div>
         <div className={ className } >
             {
-            
             inputs.map((input, index) => {
                 return (
+                <>
+                  <span className={className}>
+                    {input.value}
+                    <br />
                     <label htmlFor={label} 
                     key={index}>
-                        {input.value}
+                        
                         <input 
                         
-                        
+                        id={label}
                     type={input.type}
                     name={radioName}
                     value={input.value}
@@ -50,11 +54,17 @@ const Radio = ( props ) => {
                     >
                     </input>
                     </label>
-                    
+                    </span>
+                    </>
                 )
                 
-            })}
-        </div>
+            })
+            
+            }
+            </div>
+        
+        
+        </>
     )
 }
 
