@@ -1,5 +1,7 @@
 body {
+  padding: 0px;
   font-size: larger;
+  background-color: #EAF6F6;
 }
 
 .provider-hero-div {
@@ -46,15 +48,13 @@ img {
   overflow: hidden;
 }
 
-
 .main-content {
-  background-color: #EAF6F6;
   padding: 10px;
 }
 
 .main_left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
