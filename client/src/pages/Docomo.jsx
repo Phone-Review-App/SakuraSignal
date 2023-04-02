@@ -5,6 +5,7 @@ import ReviewCard from "../components/ReviewCard";
 import ProviderInfo from "../components/ProviderInfo";
 import AvgScores from "../components/AvgScores";
 import Button from '../components/Button';
+import Footer from "../components/Footer";
 import "./Provider.css";
 
 
@@ -33,6 +34,7 @@ const Docomo = () => {
         </div>
         <ReviewCard reviews={provider[1]}></ReviewCard>
       </div>
+      <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
     </div>
   );
 }
