@@ -19,7 +19,7 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
-.scores {
+.scores-div {
   padding: 8px;
   display: flex;
   flex-direction: column;
