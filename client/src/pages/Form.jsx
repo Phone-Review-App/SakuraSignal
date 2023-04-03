@@ -123,11 +123,11 @@ const Form = () => {
       {
         isSubmitted
         ? (
-          <>    
+          <div className="thanks">    
             <Header className="header" text="Thank you for your feedback!" secondary_text={serverResponse}/>
-            <Button className="button" text="Home" onClick={() => navigate('/')} />
+            <Button className="button submit" text="Home" onClick={() => navigate('/')} />
             <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
-          </>
+          </div>
         )
 
         : (

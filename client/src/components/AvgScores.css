@@ -1,7 +1,15 @@
 .scores-card {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width: 600px;
-  height: 400px;
-  background-color: lightcoral;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 250px;
+  font-size: large;
+  background-color: #FF0063;
+  color: white;
+  font-weight: 600;
 }
