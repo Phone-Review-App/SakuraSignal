@@ -16,11 +16,11 @@ const reviewData = {
   provider_id: "", 
   reviewer_name: "", 
   email: "", 
-  overall: "", 
-  ease_of_use: "", 
-  coverage: "", 
-  price: "", 
-  customer_service: "", 
+  overall: 0, 
+  ease_of_use: 0, 
+  coverage: 0, 
+  price: 0, 
+  customer_service: 0, 
   customer_review: ""
 };
 
