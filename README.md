@@ -4,6 +4,23 @@ Link to Deployed Site : https://phone-review-app.onrender.com/
 
 ## Frontend
 
+## Frontend
+
+### client/src/index.js
+This file contains the routes and the client side endpoints for each separate page
+
+### Components
+AvgScores - displays all of the average scores on the carrier profile pages (the pink card).
+Button - a template for most of the buttons on the app.
+Card - the cards that are displayed for each carrier on the Homepage.
+Dropdown Menu - the dropdown menu that allows user to select which carrier they are reviewing on the Forms page.
+Footer - the footer that is displayed on all pages
+Header - the header that is displayed on the Homepage and the thank you message after submission
+Input - a template for the input fiels on the Forms page
+Navbar - alternate version of the Header component; this one has a home button in the upper right corner
+ProviderInfo - displays the hero at the top of each carrier profile page
+
+
 ### CSS Styles
 Color Palette : https://colorhunt.co/palette/66bfbfeaf6f6ffffffff0063
 
