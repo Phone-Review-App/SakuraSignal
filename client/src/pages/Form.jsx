@@ -33,9 +33,9 @@ const Form = () => {
   const [overAllScore, getOverAllScore] = useState(0);
   const setOverAllScore = (score) =>{
       getOverAllScore(score);
-      console.log("😊",overAllScore);
+      
       reviewData.overall = Number(score);
-      console.log("👋",reviewData);
+      
   }
 
   const [EOUScore, getEOUScore] = useState(0);
@@ -83,10 +83,10 @@ const Form = () => {
   // DROP DOWN MENU STATE
   const [companyName, getCompName] = useState('');
   const setCompName = (compName) => {
-    console.log("💛",compName);
+    
     getCompName(compName);
     reviewData.provider_id = Number(compName);
-    console.log("🌺",reviewData);
+    
   }
     
   // COMMENT STATE
@@ -111,11 +111,7 @@ const Form = () => {
   };
 
   // USE EFFECT
-  useEffect(() => {
-    if(isSubmitted) {
-      console.log(reviewData);
-    }
-  });
+  
 
     
   return (
