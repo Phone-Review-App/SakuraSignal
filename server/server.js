@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const db = require('../db/index');
+const providerModel = require('./model/provider.model');
+const review_detailModel = require('./model/review_detail.model');
 const average = require('./utils/average');
 
 
@@ -17,39 +18,9 @@ function setupServer () {
   });
 
   app.get('/api/providers', async (req, res) => {
-    const providerInfo = await db('provider')
-      .select('*')
-      .timeout(1500);
+    const providerInfo = await providerModel.providerInfo();
 
-    const overallScores = await Promise.all([
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 1),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 2),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 3),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 4),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 5),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 6),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 7),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 8),
-      db('review_detail')
-        .select('overall')
-        .where('provider_id', 9)
-    ]).catch((err) => console.error(err));
+    const overallScores = await review_detailModel.overallScores().catch((err) => console.error(err));
 
     const arrOfArrOfOverallScores = overallScores.map((element) => {
       return element.map((subelement) => subelement['overall'])
@@ -67,21 +38,14 @@ function setupServer () {
 
   app.get('/api/provider/:providerid', async (req, res) => {
     const provideId = Number(req.params.providerid);
-    let providerInfo = await db('provider')
-      .select('*')
-      .where('id', provideId)
-      .timeout(1500);
+    let providerInfo = await providerModel.providerInfoByID(provideId);
 
       // console.log('🍒', providerInfo)
     if (providerInfo.length === 0) {
       res.status(404).send("providerId not found")
     } else {
       providerInfo = providerInfo[0]
-      const reviews = await db('review_detail')
-        .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
-        .where('provider_id', provideId)
-        .orderBy('id', 'desc')
-        .timeout(1500);
+      const reviews = await review_detailModel.reviews(provideId);
   
       let averageOverall = Number(average(reviews.map((element) => {
         return element.overall;
@@ -117,16 +81,12 @@ function setupServer () {
 
   app.post('/api/review', async (req,res) => {
     const review = req.body;
-    const testEmail = await db('review_detail')
-      .select('*')
-      .where('email', review.email)
-      .timeout(1500);
+    const testEmail = await review_detailModel.testEmail(review.email);
 
     // console.log(testEmail);
     // console.log(review.email);
     if(testEmail.length === 0) { // this email has never been used
-      const insertion = await db('review_detail')
-        .insert(review);
+      const insertion = await review_detailModel.insertion(review);
 
         // console.log(review);
         // console.log(insertion);
@@ -146,8 +106,7 @@ function setupServer () {
       if(wasUsedWithProvider) { // this email has already been used to review the current provider.
         res.status(400).send("This email has already been used for this provider.");
       } else { // this email has been used, but for a different provider
-        const insertion = await db('review_detail')
-          .insert(review);
+        const insertion = await review_detailModel.insertion(review);
       
         res.status(200).send("Your review has been added.");
       }
