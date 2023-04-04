@@ -26,6 +26,8 @@ Navbar - alternate version of the Header component; this one has a home button i
 
 ProviderInfo - displays the hero at the top of each carrier profile page
 
+Radio - Score system for user to choose 0 - 10
+
 ## Pages
 Form - the page where the user will input their scores and write their review 
 
@@ -118,6 +120,60 @@ example body:
     "customer_review": "Creating an account and getting the SIM card is a little annoying, and once you put the SIM card in your phone, there is a bit of annoyance in setting up the data plan on your phone. However, once you finish the setup, I haven't had an issue with the server and everytime I contacted customer service, my issue was quickly addressed."
 }
 ```
+
+## Radio.jsx
+```
+<span className={className}>
+   {input.value}
+    <br />
+   <label htmlFor={label} 
+      key={index}>
+                        
+      <input 
+        id={label}
+        type={input.type}
+        name={radioName}
+        value={input.value}
+        checked={isRadioSelected(input.value)}
+        onChange={handleRadioSelect}
+        >
+        </input>
+        </label>
+```
+```
+<Radio 
+className = {string}, label={string}, radioName={string}, scoreSetter={function}/>
+```
+
+radioName is the radio name for all those name for radio, in this example, it is bob
+
+React in radio button uses a boolean method call “checked” to determine which buttons in the radio set are selected.
+```
+<input checked={ true } name=”bob” value=”0”>{ /* commercial secret */ }</input>
+<input checked={ false } name=”bob” value=”1”>{ /* commercial secret */ }</input>
+<input checked={ false } name=”bob” value=”2”>{ /* commercial secret */ }</input>
+```
+
+We have a `useState` that default the selected button to 0 score. And the same `useState` has function to change that selected button value. 
+```
+	const [selectRadioButton, setSelectRadioButton] = useState(‘0’)
+
+```
+Another function ,`isRadioSelected`, is created to determine true/false by comparing the current value and the `useState` variable. 
+```
+  const isRadioSelected = (value) => selectRadioButton === value
+```
+This `isRadioSelected` function is placed on each button and linked to each button’s “checked” . When the `useState` function changes value (ie. user changing its score), the `isRadioSelected` return false, which make current button checked become false and since the value at the selected button is that given value, this make isRadioSelected which pointed to button checked became true.
+We used another function which handle Radio select (`handleRadioSelect`).
+```
+	const handleRadioSelect = (event) => setSelectRadioButton(event.target.value);
+```
+When radio button is change, selectRadioButton changes as onChange is linked to `handleRadioSelect`. Every button has this function at onChange, so when a button status change, it will follow:
+```
+	<input checked={isRadioSelected(input.value) onChange={handleRadioSelect}>} </input>
+```
+When user decided to select other score, the function changed useState variable `selectRadioButton`, thereby causing previous selected button checked become false, the user now selected button has “checked” become true.
+
 
 ## Helpful Resources
 [React Router Docs](https://reactrouter.com/en/main) 
