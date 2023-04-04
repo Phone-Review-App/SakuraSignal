@@ -2,12 +2,12 @@
 
 Link to Deployed Site : https://phone-review-app.onrender.com/
 
-## Frontend
+# The Frontend
 
-### client/src/index.js
+## client/src/index.js
 This file contains the routes and the client side endpoints for each separate page
 
-### Components
+## Components
 AvgScores - displays all of the average scores on the carrier profile pages (the pink card)  
 
 Button - a template for most of the buttons on the app 
@@ -26,15 +26,15 @@ Navbar - alternate version of the Header component; this one has a home button i
 
 ProviderInfo - displays the hero at the top of each carrier profile page
 
-### Pages
+## Pages
 Form - the page where the user will input their scores and write their review 
 
 Homepage - the homepage; this is the root path ("/"). 
 
 Additonally, there is a page for each of the nine carriers and a Provider.css page for styling these pages.  
 
-### CSS Styles
-Color Palette : https://colorhunt.co/palette/66bfbfeaf6f6ffffffff0063
+
+# The Backend 
 
 ## API endpoints
 The express server contains 4 /api endpoints, though one is just used for testing ('/api/hello').
@@ -114,3 +114,10 @@ example body:
     "customer_service": 9,
     "customer_review": "Creating an account and getting the SIM card is a little annoying, and once you put the SIM card in your phone, there is a bit of annoyance in setting up the data plan on your phone. However, once you finish the setup, I haven't had an issue with the server and everytime I contacted customer service, my issue was quickly addressed."
 }
+
+## Helpful Resources
+[React Router Docs](https://reactrouter.com/en/main) 
+
+[Faker JS Docs](https://fakerjs.dev/) 
+
+[Our Color Palette](https://colorhunt.co/palette/66bfbfeaf6f6ffffffff0063)
