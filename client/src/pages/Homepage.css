@@ -1,10 +1,16 @@
 body {
   margin: 0px;
   padding: 0px;
+  font-family: Helvetica,Arial,sans-serif;
 }
 
 .grid-container {
   background-color: #EAF6F6;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, 460px);
+  grid-template-rows: repeat(auto-fit);
+  row-gap: 10px;
+  column-gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
