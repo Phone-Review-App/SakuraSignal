@@ -7,4 +7,8 @@ function isString(input) {
     return typeof input === "string";
 }
 
+function isNotEmpty(input) {
+    return isString(input) && input.length > 0;
+}
+
 module.exports = { validEmail }
