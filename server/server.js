@@ -26,10 +26,11 @@ function setupServer () {
       return element.map((subelement) => subelement['overall'])
     })
 
+    
+
     const arrOfAverageScores = arrOfArrOfOverallScores.map((element) => Number(average(element).toFixed(2)));
 
     for (let i = 0; i < arrOfAverageScores.length; i++) {
-
       providerInfo[i].overall = arrOfAverageScores[i]
     }
 
