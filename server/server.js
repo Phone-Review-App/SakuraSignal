@@ -3,6 +3,7 @@ const path = require('path');
 const providerModel = require('./model/provider.model');
 const review_detailModel = require('./model/review_detail.model');
 const average = require('./utils/average');
+const { validEmail, isNotEmpty, validScore } = require('./utils/inputValidation');
 
 
 function setupServer () {
@@ -82,6 +83,20 @@ function setupServer () {
   app.post('/api/review', async (req,res) => {
     const review = req.body;
     const testEmail = await review_detailModel.testEmail(review.email);
+
+    if (
+      !isNotEmpty(review.provider_id) ||
+      !isNotEmpty(review.reviewer_name) ||
+      !validEmail(review.email) ||
+      !validScore(review.overall) ||
+      !validScore(review.ease_of_use) ||
+      !validScore(review.coverage) ||
+      !validScore(review.price) ||
+      !validScore(review.customer_service) ||
+      !isNotEmpty(review.customer_review)
+    ) {
+      return res.status(400).send("Invalid request.")
+    }
 
     // console.log(testEmail);
     // console.log(review.email);
