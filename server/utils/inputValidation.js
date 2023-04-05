@@ -3,4 +3,8 @@ function validEmail(input) {
         .test(input); // Regex version of HTML5 spec
 }
 
+function isString(input) {
+    return typeof input === "string";
+}
+
 module.exports = { validEmail }
