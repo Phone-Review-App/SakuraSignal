@@ -36,10 +36,10 @@ const Card = (props) => {
           alt={altValue}
         />
          
-         <span className={background}> { averageScore.toFixed(1) }</span>
+         <span className={background}> { averageScore.toFixed(1) * 10 }</span>
         
         <p className="description">{description}</p>
-        <button className = {buttonClassName} onClick = {onClick} onChange = {onChange}>Details</button>
+        <button className ="detailsButton" onClick = {onClick} onChange = {onChange}>Learn More</button>
       </div>
     </>
   );
