@@ -11,4 +11,12 @@ function isNotEmpty(input) {
     return isString(input) && input.length > 0;
 }
 
-module.exports = { validEmail }
+function isInteger(input) {
+    return typeof input === "number" && Number.isInteger(input);
+}
+
+function validScore(input) {
+    return isInteger(input) && input >= 0 && input < 11;
+}
+
+module.exports = { validEmail, isNotEmpty, validScore }
