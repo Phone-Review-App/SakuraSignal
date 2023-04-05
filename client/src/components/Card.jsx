@@ -27,8 +27,7 @@ const Card = (props) => {
  
   return (
     <>
-      <div
-        className="card">
+      <div className="card">
        
         <img className ="imgClassName"
           src={img_url} 
@@ -36,8 +35,8 @@ const Card = (props) => {
         />
          
          <div className="avgContainer">
-         <span className={background}> { averageScore.toFixed(1) * 10 }</span>
-         <p className="avgDescription"> Average as decided{"\n"}by our reviewers</p>
+          <span className={background}> { averageScore.toFixed(1) * 10 }</span>
+          <p className="avgDescription"> Average as decided by our reviewers</p>
          </div>
 
         
