@@ -23,16 +23,8 @@ function setupServer () {
 
     const overallScores = await review_detailModel.overallScores().catch((err) => console.error(err));
 
-    const arrOfArrOfOverallScores = overallScores.map((element) => {
-      return element.map((subelement) => subelement['overall'])
-    })
-
-    
-
-    const arrOfAverageScores = arrOfArrOfOverallScores.map((element) => Number(average(element).toFixed(2)));
-
-    for (let i = 0; i < arrOfAverageScores.length; i++) {
-      providerInfo[i].overall = arrOfAverageScores[i]
+    for (let i = 0; i < overallScores.length; i++) {
+      providerInfo[i].overall = Number(overallScores[i].overall)
     }
 
     res.send(providerInfo); 
