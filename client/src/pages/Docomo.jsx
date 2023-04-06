@@ -20,7 +20,7 @@ const Docomo = () => {
 
   async function getProvider() {
 
-    const fetchedProvider = await axios.get('/api/provider/2'); 
+    const fetchedProvider = await axios.get('/api/providers/2'); 
     setProvider(fetchedProvider.data)
   }
   return (
