@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const review_detailModel = require('../model/review_detail.model');
-const { validEmail, isNotEmpty, validScore } = require('../utils/inputValidation');
+const { validEmail, isNotEmpty, isInteger, validScore } = require('../utils/inputValidation');
 
 router.post('/', async (req,res) => {
   const review = req.body;
   const testEmail = await review_detailModel.testEmail(review.email);
 
   if (
-    !isNotEmpty(review.provider_id) ||
+    !isInteger(review.provider_id) ||
     !isNotEmpty(review.reviewer_name) ||
     !validEmail(review.email) ||
     !validScore(review.overall) ||
