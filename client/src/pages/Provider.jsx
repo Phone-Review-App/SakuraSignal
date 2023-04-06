@@ -11,9 +11,9 @@ import "./Provider.css";
 
 const Provider = (props) => {
 
-  const { ProviderId } = props;
-
-  // rooting 
+  const {providerId} = props;
+  
+  // rooting
   const navigate = useNavigate();
   
   const [provider, setProvider] = useState([{},[]]);
@@ -28,7 +28,7 @@ const Provider = (props) => {
    * @returns {[{ProviderInfo}, {reviews}]}
    */
   async function getProvider() {
-    const fetchedProvider = await axios.get(`/api/provider/${ProviderId}`); 
+    const fetchedProvider = await axios.get(`/api/provider/${providerId}`); 
     setProvider(fetchedProvider.data)
   }
 

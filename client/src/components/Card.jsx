@@ -9,8 +9,6 @@ const Card = (props) => {
   You can also console.log(props) to see what object passed
   
   */
-  //console.log("😀",value);
-  //console.log("😍",props);
 
   const [background, setBackground] = useState('red');
 
