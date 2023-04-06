@@ -14,5 +14,11 @@ module.exports = {
             .select('*')
             .where('id', provideId)
             .timeout(1500);
+    },
+    providerIdByName(providerName) {
+        return knex(PROVIDER_TABLE)
+            .select('id')
+            .where('name', providerName)
+            .timeout(1500);
     }
 }

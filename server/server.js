@@ -30,11 +30,22 @@ function setupServer () {
     res.send(providerInfo); 
   });
 
-  app.get('/api/provider/:providerid', async (req, res) => {
-    const provideId = Number(req.params.providerid);
-    let providerInfo = await providerModel.providerInfoByID(provideId);
+  app.get('/api/provider/:providerIdOrName', async (req, res) => {
+    let provideId;
+    let queryParam = req.params.providerIdOrName;
 
-      // console.log('🍒', providerInfo)
+    if (isNaN(queryParam)) {
+      let arrayOfId = await providerModel.providerIdByName(queryParam);
+      provideId = arrayOfId[0]['id'];
+      if (!provideId) {
+        res.status(404).send("The provider does't exist in the review website.");
+      }
+    } else {
+      provideId = Number(queryParam);
+    }
+
+    let providerInfo = await providerModel.providerInfoByID(provideId);
+    
     if (providerInfo.length === 0) {
       res.status(404).send("providerId not found")
     } else {
@@ -69,7 +80,6 @@ function setupServer () {
       // console.log(averageOverall);
   
       res.send([providerInfo, reviews]);
-
     }
   });
 
