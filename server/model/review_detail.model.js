@@ -17,7 +17,7 @@ module.exports = {
             .orderBy('id', 'desc')
             .timeout(1500);
     },
-    getTestEmail(email) {
+    getTestEmails(email) {
         return knex(REVIEW_DETAIL_TABLE)
             .select('*')
             .where('email', email)
