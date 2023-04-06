@@ -53,7 +53,7 @@ function setupServer () {
       return res.status(404).send("providerId not found")
     } else {
       providerInfo = providerInfo[0]
-      const reviews = await review_detailModel.getReviewsInfo(providerId);
+      const reviews = await review_detailModel.getReviewInfo(providerId);
   
       let averageOverall = Number(average(reviews.map((element) => {
         return element.overall;
@@ -107,7 +107,7 @@ function setupServer () {
     // console.log(testEmail);
     // console.log(review.email);
     if(testEmail.length === 0) { // this email has never been used
-      const insertion = await review_detailModel.insertion(review);
+      const insertion = await review_detailModel.insertReview(review);
 
         // console.log(review);
         // console.log(insertion);

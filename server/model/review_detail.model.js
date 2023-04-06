@@ -10,7 +10,7 @@ module.exports = {
             .groupBy('provider_id')
             .orderBy('provider_id');
     },
-    getReviewsInfo(provideId) {
+    getReviewInfo(provideId) {
         return knex(REVIEW_DETAIL_TABLE)
             .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
             .where('provider_id', provideId)
@@ -23,7 +23,7 @@ module.exports = {
             .where('email', email)
             .timeout(1500);
     },
-    insertion(review) {
+    insertReview(review) {
         return knex(REVIEW_DETAIL_TABLE)
             .insert(review);
     }
