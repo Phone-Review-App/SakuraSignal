@@ -2,15 +2,16 @@ const express = require('express');
 const path = require('path');
 const providerModel = require('./model/provider.model');
 const review_detailModel = require('./model/review_detail.model');
+const reviewsController = require('./controllers/reviewsController');
 const average = require('./utils/average');
-const { validEmail, isNotEmpty, validScore } = require('./utils/inputValidation');
 
 
 function setupServer () {
   const app = express();
 
   app.use(express.json());
-  app.use(express.static(path.resolve(__dirname, '../client/build')))
+  app.use(express.static(path.resolve(__dirname, '../client/build')));
+  app.use('/api/reviews', reviewsController);
 
   // add endpoints here
 
@@ -70,54 +71,6 @@ function setupServer () {
   
       res.send([providerInfo, reviews]);
 
-    }
-  });
-
-  app.post('/api/review', async (req,res) => {
-    const review = req.body;
-    const testEmail = await review_detailModel.testEmail(review.email);
-
-    if (
-      !isNotEmpty(review.provider_id) ||
-      !isNotEmpty(review.reviewer_name) ||
-      !validEmail(review.email) ||
-      !validScore(review.overall) ||
-      !validScore(review.ease_of_use) ||
-      !validScore(review.coverage) ||
-      !validScore(review.price) ||
-      !validScore(review.customer_service) ||
-      !isNotEmpty(review.customer_review)
-    ) {
-      return res.status(400).send("Invalid request.")
-    }
-
-    // console.log(testEmail);
-    // console.log(review.email);
-    if(testEmail.length === 0) { // this email has never been used
-      const insertion = await review_detailModel.insertion(review);
-
-        // console.log(review);
-        // console.log(insertion);
-
-        res.status(200).send("Your review has been added.");
-    } else {
-        // console.log('line 143', review.provider_id, testEmail[0].provider_id);
-
-        let wasUsedWithProvider = false;
-
-        for (let i = 0; i < testEmail.length; i++) {
-          if(review.provider_id === testEmail[i].provider_id) {
-            wasUsedWithProvider = true
-          }
-        }
-
-      if(wasUsedWithProvider) { // this email has already been used to review the current provider.
-        res.status(400).send("This email has already been used for this provider.");
-      } else { // this email has been used, but for a different provider
-        const insertion = await review_detailModel.insertion(review);
-      
-        res.status(200).send("Your review has been added.");
-      }
     }
   });
   
