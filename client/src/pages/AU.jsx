@@ -20,7 +20,7 @@ const AU = () => {
 
   async function getProvider() {
     // for a general provider page. replace the path with axios.get(`/api/provider/${provider_id}`)
-    const fetchedProvider = await axios.get('/api/provider/3'); 
+    const fetchedProvider = await axios.get('/api/providers/3'); 
     setProvider(fetchedProvider.data)
   }
 

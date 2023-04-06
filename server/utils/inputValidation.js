@@ -19,4 +19,4 @@ function validScore(input) {
     return isInteger(input) && input >= 0 && input < 11;
 }
 
-module.exports = { validEmail, isNotEmpty, validScore }
+module.exports = { validEmail, isNotEmpty, isInteger, validScore }

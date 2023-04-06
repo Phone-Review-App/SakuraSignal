@@ -19,7 +19,7 @@ const Ymobile = () => {
 
   async function getProvider() {
 
-    const fetchedProvider = await axios.get('/api/provider/7'); 
+    const fetchedProvider = await axios.get('/api/providers/7'); 
     setProvider(fetchedProvider.data)
   }
   return (
