@@ -19,7 +19,7 @@ const UQ = () => {
 
   async function getProvider() {
 
-    const fetchedProvider = await axios.get('/api/provider/8'); 
+    const fetchedProvider = await axios.get('/api/providers/8'); 
     setProvider(fetchedProvider.data)
   }
   return (

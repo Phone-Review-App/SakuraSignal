@@ -19,7 +19,7 @@ const Rakuten = () => {
 
   async function getProvider() {
 
-    const fetchedProvider = await axios.get('/api/provider/5'); 
+    const fetchedProvider = await axios.get('/api/providers/5'); 
     setProvider(fetchedProvider.data)
   }
   return (
