@@ -3,7 +3,7 @@ const path = require('path');
 const providerModel = require('./model/provider.model');
 const review_detailModel = require('./model/review_detail.model');
 const average = require('./utils/average');
-const { validEmail, isNotEmpty, validScore } = require('./utils/inputValidation');
+const { validEmail, isNotEmpty, isInteger, validScore } = require('./utils/inputValidation');
 
 
 function setupServer () {
@@ -78,7 +78,7 @@ function setupServer () {
     const testEmail = await review_detailModel.testEmail(review.email);
 
     if (
-      !isNotEmpty(review.provider_id) ||
+      !isInteger(review.provider_id) ||
       !isNotEmpty(review.reviewer_name) ||
       !validEmail(review.email) ||
       !validScore(review.overall) ||
