@@ -21,7 +21,7 @@ function setupServer () {
   app.get('/api/providers', async (req, res) => {
     const providerInfo = await providerModel.getProviderInfo();
 
-    const overallScores = await review_detailModel.overallScores().catch((err) => console.error(err));
+    const overallScores = await review_detailModel.getOverallScores().catch((err) => console.error(err));
 
     for (let i = 0; i < overallScores.length; i++) {
       providerInfo[i].overall = Number(overallScores[i].overall)

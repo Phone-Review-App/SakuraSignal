@@ -4,7 +4,7 @@ const REVIEW_DETAIL_TABLE = 'review_detail';
 
 module.exports = {
     REVIEW_DETAIL_TABLE,
-    overallScores() {
+    getOverallScores() {
         return knex(REVIEW_DETAIL_TABLE)
             .avg('overall as overall')
             .groupBy('provider_id')
