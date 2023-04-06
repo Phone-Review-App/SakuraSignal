@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
 import ProviderInfo from "../components/ProviderInfo";
 import AvgScores from "../components/AvgScores";
@@ -8,21 +8,30 @@ import Button from '../components/Button';
 import Footer from "../components/Footer";
 import "./Provider.css";
 
-const GTN = () => {
-  const navigate = useNavigate();
 
+const Provider = (props) => {
+
+  const { ProviderId } = props;
+
+  // rooting 
+  const navigate = useNavigate();
+  
   const [provider, setProvider] = useState([{},[]]);
 
   useEffect(() => {
     getProvider();
   },)
 
+  /**
+   * Returns the providerInfo and reviews
+   * @param 
+   * @returns {[{ProviderInfo}, {reviews}]}
+   */
   async function getProvider() {
-
-    const fetchedProvider = await axios.get('/api/provider/9'); 
+    const fetchedProvider = await axios.get(`/api/provider/${ProviderId}`); 
     setProvider(fetchedProvider.data)
-    
   }
+
     return (
       <div>
         <ProviderInfo provider={provider[0]} />
@@ -39,4 +48,4 @@ const GTN = () => {
     );
 }
 
-export default GTN;
+export default Provider;

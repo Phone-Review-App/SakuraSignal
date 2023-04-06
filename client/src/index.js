@@ -14,6 +14,16 @@ import Softbank from "./pages/Softbank";
 import UQ from "./pages/UQ";
 import Ymobile from "./pages/Ymobile";
 
+
+const mobiles = {
+  provider:["au", "hoge", "foo", "Rakuten", "Line"]
+}
+
+const ProviderComponents = mobiles.provider.map((path,index) => { 
+  return <Provider key={index} provider_name={path}/>
+});
+  
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,46 +32,59 @@ const router = createBrowserRouter([
   {
     path: "/Form",
     element: <Form />
-  },
-  {
-    path: "/AU",
-    element: <AU />
-  },
-  {
-    path: "/Docomo",
-    element: <Docomo />
-  },
-  {
-    path: "/GTN Mobile",
-    element: <GTN />
-  },
-  {
-    path: "/Linemo",
-    element: <Linemo />
-  },
-  {
-    path: "/Mobal",
-    element: <Mobal />
-  },
-  {
-    path: "/Rakuten Mobile",
-    element: <Rakuten />
-  },
-  {
-    path: "/Softbank",
-    element: <Softbank/>
-  },
-  {
-    path: "/UQ Mobile",
-    element: <UQ />
-  },
-  {
-    path: "/Y!mobile",
-    element: <Ymobile />
-  },
+  }
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <RouterProvider router={ router } />
 );
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Homepage />
+//   },
+//   {
+//     path: "/Form",
+//     element: <Form />
+//   },
+//   {
+//     path: "/AU",
+//     element: <AU />
+//   },
+//   {
+//     path: "/Docomo",
+//     element: <Docomo />
+//   },
+//   {
+//     path: "/GTN Mobile",
+//     element: <GTN />
+//   },
+//   {
+//     path: "/Linemo",
+//     element: <Linemo />
+//   },
+//   {
+//     path: "/Mobal",
+//     element: <Mobal />
+//   },
+//   {
+//     path: "/Rakuten Mobile",
+//     element: <Rakuten />
+//   },
+//   {
+//     path: "/Softbank",
+//     element: <Softbank/>
+//   },
+//   {
+//     path: "/UQ Mobile",
+//     element: <UQ />
+//   },
+//   {
+//     path: "/Y!mobile",
+//     element: <Ymobile />
+//   },
+// ]);
+

@@ -18,7 +18,7 @@ const Homepage = () => {
     const fetchedProviders = await axios.get('/api/providers');
     setProviders(fetchedProviders.data);
   }
-
+ 
   const navigate = useNavigate();
 
   return (

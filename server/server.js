@@ -63,13 +63,7 @@ function setupServer () {
       providerInfo.price = averagePrice;
       providerInfo.customer_service = averageService;
       
-      // console.log(provideId);
-      // console.log(providerInfo);
-      // console.log(reviews);
-      // console.log(averageOverall);
-  
       res.send([providerInfo, reviews]);
-
     }
   });
 
