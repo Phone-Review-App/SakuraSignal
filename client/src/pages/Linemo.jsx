@@ -20,7 +20,7 @@ const Linemo = () => {
 
   async function getProvider() {
 
-    const fetchedProvider = await axios.get('/api/provider/6'); 
+    const fetchedProvider = await axios.get('/api/providers/6'); 
     setProvider(fetchedProvider.data);
   }
   return (
