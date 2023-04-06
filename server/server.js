@@ -53,7 +53,7 @@ function setupServer () {
       return res.status(404).send("providerId not found")
     } else {
       providerInfo = providerInfo[0]
-      const reviews = await review_detailModel.reviews(providerId);
+      const reviews = await review_detailModel.getReviewsInfo(providerId);
   
       let averageOverall = Number(average(reviews.map((element) => {
         return element.overall;

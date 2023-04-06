@@ -10,7 +10,7 @@ module.exports = {
             .groupBy('provider_id')
             .orderBy('provider_id');
     },
-    reviews(provideId) {
+    getReviewsInfo(provideId) {
         return knex(REVIEW_DETAIL_TABLE)
             .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
             .where('provider_id', provideId)
