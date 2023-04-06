@@ -1,6 +1,6 @@
 .header {
   margin: 0px;
-  padding: 0px;
+  padding-bottom: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;

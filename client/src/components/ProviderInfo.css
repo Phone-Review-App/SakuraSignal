@@ -13,6 +13,7 @@ body {
   height: 300px;
   background-color: white;
   color: black;
+  padding-bottom: 15px;
 }
 
 .provider-info {

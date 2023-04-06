@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useEffect} from "react";
 import "./AvgScores.css"
 
 /*
@@ -9,11 +9,14 @@ overall": 5.705882352941177,
         "customer_service"
 */
 
+
+
 const AvgScores = (props) => {
   const { scores } = props;
   return (
     <div className="scores-card"> 
-      <p>Overall: {scores.overall}</p>
+      <p className='overall'>Overall:</p>
+        <p className='overall-score'>{scores.overall}</p>
       <p>Ease of Use: {scores.ease_of_use}</p>
       <p>Coverage: {scores.coverage}</p>
       <p>Price: {scores.price}</p>
