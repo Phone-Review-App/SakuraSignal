@@ -25,13 +25,14 @@ const Homepage = () => {
     <>
       <Header 
         className="header" 
-        text="Need a Phone Provider?" 
-        secondary_text="Check these out!">
+        text="Mobile Review Japan" 
+        secondary_text="Grading the mobile providers in Japan">
       </Header>
 
       <div className="grid-container">
         {
           providers.map((provider) => {
+          
             return (
               <Card 
                 cardName={provider.name}
