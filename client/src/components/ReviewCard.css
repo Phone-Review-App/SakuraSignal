@@ -10,12 +10,13 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   background-color: rgb(221, 220, 220);
   font-size: large;
   color: black;
   font-weight: 600;
   margin: 10px auto;
+  
 }
 
 .name {
@@ -24,18 +25,22 @@
 
 .ease_of_use {
   font-size: 15px;
+  padding-top: 15px;
 }
 
 .coverage {
   font-size: 15px;
+  padding-top: 15px;
 }
 
 .price {
   font-size: 15px;
+  padding-top: 15px;
 }
 
 .customer-service {
   font-size: 15px;
+  padding-top: 15px;
 }
 
 .details {
@@ -56,12 +61,12 @@ span {
 .red {
   font-weight: bold;
   font-size: 30px;
-  border-radius: 25px;
+  border-radius: 50px;
   background-color: #FF0000;
   color: white;
   height: 40px;
   width: 50px;
-  padding: 5px;
+  
   text-align: center;
   justify-content: center;
 }
@@ -69,12 +74,12 @@ span {
 .yellow {
   font-weight: bold;
   font-size: 30px;
-  border-radius: 25px;
+  border-radius: 50px;
   background-color: #FFCC33;
   color: white;
   height: 40px;
   width: 50px;
-  padding: 5px;
+  
   text-align: center;
   justify-content: center;
 }
@@ -82,12 +87,11 @@ span {
 .green {
   font-weight: bold;
   font-size: 30px;
-  border-radius: 25px;
+  border-radius: 50px;
   background-color: #66CC33;
   color: white;
   height: 40px;
   width: 50px;
-  padding: 5px;
   text-align: center;
   justify-content: center;
 }

@@ -1,11 +1,10 @@
 body {
-  padding: 0px;
+  width: 100%;
   font-size: larger;
   background-color: #EAF6F6;
 }
 
 .provider-hero-div {
-  padding: 20px;
   font-weight: 600;
   display: flex;
   overflow:auto;
@@ -36,7 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+ 
   background-color: white;
   border-radius: 10px;
   width: 100%;

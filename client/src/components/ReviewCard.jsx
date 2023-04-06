@@ -7,8 +7,10 @@ const ReviewCard = (props) => {
   
 
   const [background, setBackground] = useState('red');
+  const [width, setWidth] = useState('60px')
   
   let overall;
+
 
  
   useEffect(() => {
@@ -20,6 +22,14 @@ const ReviewCard = (props) => {
       setBackground('red');
     }
   }, [overall]);
+
+  useEffect(() => {
+    if (overall === 10) {
+      setWidth('60px')
+    }
+  },[overall])
+
+
   
 
   return (
@@ -30,15 +40,15 @@ const ReviewCard = (props) => {
           return (
             <div className='review-card'>
               <h3 className='name'>{review.reviewer_name}</h3>
-              <div>
+              <div className='details'>
                 {overall === review.overall}
-                <span className={reviewOverall > 7 ? 'green' : reviewOverall > 5 ? 'yellow' : 'red'}>
-                {reviewOverall * 10}
+                <span className={reviewOverall > 7 ? 'green' : reviewOverall > 5 ? 'yellow' : 'red'} style = {{width: reviewOverall === 10 ? width :'50px'}}>
+                {reviewOverall * 10} 
               </span>
                 <span className='ease_of_use'>Ease Of Use: {review.ease_of_use}</span>
                 <span className='coverage'>Coverage: {review.coverage}</span>
                 <span className='price'>Price: {review.price}</span>
-                <span className='customer-service'>Customer service: {review.customer_service}</span>
+                <span className='customer-service'>Customer Service: {review.customer_service}</span>
               </div>
          
               <Divider/>
