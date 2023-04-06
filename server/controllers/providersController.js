@@ -4,7 +4,7 @@ const providerModel = require('../model/provider.model');
 const review_detailModel = require('../model/review_detail.model');
 const average = require('../utils/average');
 
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   const providerInfo = await providerModel.getProviderInfo();
 
   const overallScores = await review_detailModel.overallScores().catch((err) => console.error(err));
@@ -16,7 +16,7 @@ app.get('/', async (req, res) => {
   res.send(providerInfo); 
 });
 
-app.get('/:providerIdOrName', async (req, res) => {
+router.get('/:providerIdOrName', async (req, res) => {
   let providerIdOrName = req.params.providerIdOrName;
   let providerId;
 
