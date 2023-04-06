@@ -21,17 +21,11 @@ router.post('/', async (req,res) => {
     return res.status(400).send("Invalid request.")
   }
 
-  // console.log(testEmail);
-  // console.log(review.email);
-  if(testEmail.length === 0) { // this email has never been used
+  if (testEmail.length === 0) { // if email has never been used
     const insertion = await review_detailModel.insertion(review);
-
-    // console.log(review);
-    // console.log(insertion);
 
     res.status(200).send("Your review has been added.");
   } else {
-    // console.log('line 143', review.provider_id, testEmail[0].provider_id);
 
     let wasUsedWithProvider = false;
 
@@ -41,9 +35,9 @@ router.post('/', async (req,res) => {
       }
     }
 
-    if(wasUsedWithProvider) { // this email has already been used to review the current provider.
+    if (wasUsedWithProvider) { // if email has already been used to review the current provider.
       res.status(400).send("This email has already been used for this provider.");
-    } else { // this email has been used, but for a different provider
+    } else { // else, this email has been used, but for a different provider
       const insertion = await review_detailModel.insertion(review);
       
       res.status(200).send("Your review has been added.");

@@ -20,7 +20,6 @@ app.get('/:providerid', async (req, res) => {
   const provideId = Number(req.params.providerid);
   let providerInfo = await providerModel.providerInfoByID(provideId);
 
-    // console.log('🍒', providerInfo)
   if (providerInfo.length === 0) {
     res.status(404).send("providerId not found")
   } else {
@@ -48,14 +47,8 @@ app.get('/:providerid', async (req, res) => {
     providerInfo.coverage = averageCoverage;
     providerInfo.price = averagePrice;
     providerInfo.customer_service = averageService;
-    
-    // console.log(provideId);
-    // console.log(providerInfo);
-    // console.log(reviews);
-    // console.log(averageOverall);
 
     res.send([providerInfo, reviews]);
-
   }
 });
 

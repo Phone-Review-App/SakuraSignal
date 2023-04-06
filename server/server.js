@@ -3,7 +3,6 @@ const path = require('path');
 const providersController = require('./controllers/providersController');
 const reviewsController = require('./controllers/reviewsController');
 
-
 function setupServer () {
   const app = express();
 
