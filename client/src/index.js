@@ -12,10 +12,10 @@ const mobiles = {
   provider:["AU","Docomo","GTN Mobile","Linemo","Mobal","Rakuten Mobile","Softbank","UQ Mobile","Y!mobile"]
 }
 
+// get provider ID
 const fetchProviderNameAndID = async() => { 
   const providerIDandName = await axios.get("/api/providers/");
 }
-
 
 
 const ProviderComponents = mobiles.provider.map((path,index) => { 
@@ -29,9 +29,12 @@ root.render(
     <Routes>
       <Route path="/" element={<Homepage/>} />
       <Route path="/Form" element={<Form />} />
-      {mobiles["provider"].map((path, index) => (
+      {
+        // each providers routes
+        mobiles["provider"].map((path, index) => (
         <Route key={path} path={"/"+path} element={ProviderComponents[index]} />
-      ))}
+        ))
+      }
     </Routes>
   </Router>
 );

@@ -23,7 +23,7 @@ const Homepage = () => {
 
   return (
     <>
-      <Header 
+      <Header
         className="header" 
         text="Mobile Review Japan" 
         secondary_text="Grading the mobile providers in Japan">
