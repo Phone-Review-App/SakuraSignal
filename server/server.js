@@ -88,7 +88,7 @@ function setupServer () {
 
   app.post('/api/review', async (req,res) => {
     const review = req.body;
-    const testEmail = await review_detailModel.testEmail(review.email);
+    const testEmail = await review_detailModel.getTestEmails(review.email);
 
     if (
       !isNotEmpty(review.provider_id) ||
