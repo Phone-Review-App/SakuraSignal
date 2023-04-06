@@ -105,7 +105,7 @@ const Form = () => {
   const handleSubmission = async (event) => {
     event.preventDefault();
     setIsSubmitted(!isSubmitted);
-    const response = await axios.post('/api/review', reviewData)
+    const response = await axios.post('/api/reviews', reviewData)
       .catch((error) => console.log(error));  
     setServerResponse(response.data);
   };

@@ -19,7 +19,7 @@ const GTN = () => {
 
   async function getProvider() {
 
-    const fetchedProvider = await axios.get('/api/provider/9'); 
+    const fetchedProvider = await axios.get('/api/providers/9'); 
     setProvider(fetchedProvider.data)
     
   }

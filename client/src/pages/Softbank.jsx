@@ -20,7 +20,7 @@ const Softbank = () => {
 
   async function getProvider() {
 
-    const fetchedProvider = await axios.get('/api/provider/4'); 
+    const fetchedProvider = await axios.get('/api/providers/4'); 
     setProvider(fetchedProvider.data)
   }
   return (
