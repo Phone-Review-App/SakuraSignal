@@ -5,7 +5,7 @@ const review_detailModel = require('../model/review_detail.model');
 const average = require('../utils/average');
 
 app.get('/', async (req, res) => {
-  const providerInfo = await providerModel.providerInfo();
+  const providerInfo = await providerModel.getProviderInfo();
 
   const overallScores = await review_detailModel.overallScores().catch((err) => console.error(err));
 
@@ -16,15 +16,30 @@ app.get('/', async (req, res) => {
   res.send(providerInfo); 
 });
 
-app.get('/:providerid', async (req, res) => {
-  const provideId = Number(req.params.providerid);
-  let providerInfo = await providerModel.providerInfoByID(provideId);
+app.get('/:providerIdOrName', async (req, res) => {
+  let providerIdOrName = req.params.providerIdOrName;
+  let providerId;
 
+  if (isNaN(providerIdOrName)) {
+    let arrayOfId = await providerModel.getProviderIdByName(providerIdOrName);
+
+    if (arrayOfId.length === 0) {
+      return res.status(404).send("The provider does't exist in the review website.");
+    } else {
+      providerId = arrayOfId[0]['id'];
+    }
+  } else {
+    providerId = Number(providerIdOrName);
+  }
+
+  let providerInfo = await providerModel.getProviderInfoByID(providerId);
+  
+  
   if (providerInfo.length === 0) {
-    res.status(404).send("providerId not found")
+    return res.status(404).send("providerId not found")
   } else {
     providerInfo = providerInfo[0]
-    const reviews = await review_detailModel.reviews(provideId);
+    const reviews = await review_detailModel.reviews(providerId);
 
     let averageOverall = Number(average(reviews.map((element) => {
       return element.overall;
