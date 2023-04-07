@@ -16,6 +16,12 @@ router.get('/', async (req, res) => {
   res.send(providerInfo); 
 });
 
+router.get('/names', async (req, res) => {
+  const providerNames = await providerModel.getProviderNames();
+
+  res.send(providerNames); 
+});
+
 router.get('/:providerIdOrName', async (req, res) => {
   let providerIdOrName = req.params.providerIdOrName;
   let providerId;
