@@ -5,24 +5,93 @@
 }
 
 .review-card {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding: 15px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  background-color: #66BFBF;
+  width: 90%;
+  background-color: rgb(221, 220, 220);
   font-size: large;
-  color: white;
+  color: black;
   font-weight: 600;
   margin: 10px auto;
+  
 }
 
-.scores {
+.name {
+  font-size: 15px;
+}
+
+.ease_of_use {
+  font-size: 15px;
+  padding-top: 15px;
+}
+
+.coverage {
+  font-size: 15px;
+  padding-top: 15px;
+}
+
+.price {
+  font-size: 15px;
+  padding-top: 15px;
+}
+
+.customer-service {
+  font-size: 15px;
+  padding-top: 15px;
+}
+
+.details {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: -10px;
+}
+
+.overall {
+  margin-left: 0px;
 }
 
 span {
   margin: 10px;
+}
+
+.red {
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 50px;
+  background-color: #FF0000;
+  color: white;
+  height: 40px;
+  width: 50px;
+  
+  text-align: center;
+  justify-content: center;
+}
+
+.yellow {
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 50px;
+  background-color: #FFCC33;
+  color: white;
+  height: 40px;
+  width: 50px;
+  
+  text-align: center;
+  justify-content: center;
+}
+
+.green {
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 50px;
+  background-color: #66CC33;
+  color: white;
+  height: 40px;
+  width: 50px;
+  text-align: center;
+  justify-content: center;
 }

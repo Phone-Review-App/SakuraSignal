@@ -1,4 +1,27 @@
 .main-content {
   display: flex;
-  
 }
+
+.button-review {
+  background-color: #66BFBF;
+  height: 70px;
+  width: 170px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  border-color: 1px solid #66a7bf;
+  align-content: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 150px;
+}
+
+button:hover {
+  background-color: #66a7bf;
+  cursor: pointer;
+}
+
+.write-review-text {
+  margin-left: 100px;
+}
+
