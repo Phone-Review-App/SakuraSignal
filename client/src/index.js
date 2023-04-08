@@ -7,20 +7,30 @@ import Homepage from "./pages/Homepage";
 import Form from "./pages/Form";
 import Provider from './pages/Provider';
 
-const mobiles = {
-  // from DB
-  provider:["AU","Docomo","GTN Mobile","Linemo","Mobal","Rakuten Mobile","Softbank","UQ Mobile","Y!mobile"]
-}
+// const mobiles = {
+//   provider:["AU","Docomo","GTN Mobile","Linemo","Mobal","Rakuten Mobile","Softbank","UQ Mobile","Y!mobile"]
+// }
 
 // get provider ID
-const fetchProviderNameAndID = async() => { 
-  const providerIDandName = await axios.get("/api/providers/");
+async function fetchAllProvidersNamesAndIds() { 
+  return await axios.get("/api/providers/names");
 }
 
+// to make each provider components
+const providerComponents = async () => {
+  const providers = await fetchAllProvidersNamesAndIds();
+  console.log(providers.data);
+  return providers.data.map(provider => {
+    <Route key={provider.name} path={"/" + provider.name}
+      element={<Provider key={provider.id} providerId={provider.id} />}
+    />
+  });
 
-const ProviderComponents = mobiles.provider.map((path,index) => { 
-  return <Provider key={path} providerId={index}/>
-});
+  // mobiles.provider.then(result =>
+  //   result.data.map(provider => {
+  //     return <Provider key={provider.name + provider.id} providerId={provider.id} />
+  //   }))
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,11 +40,21 @@ root.render(
       <Route path="/" element={<Homepage/>} />
       <Route path="/Form" element={<Form />} />
       {
+       
+      }
+      {
+        // mobiles.provider.then(result => { 
+        //   result.data.map((provider,index) => {
+        //     <Route key={provider.name} path={"/" + provider.name} element={providerComponents[index]}/>
+        //   })
+        // })
+      }
+      {/* {
         // each providers routes
         mobiles["provider"].map((path, index) => (
-        <Route key={path} path={"/"+path} element={ProviderComponents[index]} />
+        <Route key={path} path={"/"+path} element={makeProviderComponents[index]} />
         ))
-      }
+      } */}
     </Routes>
   </Router>
 );
