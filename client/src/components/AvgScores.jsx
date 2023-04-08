@@ -3,7 +3,6 @@ import "./AvgScores.css";
 
 const AvgScores = (props) => {
   const { scores } = props;
-  
 
   const [background, setBackground] = useState('red');
   const [width, setWidth] = useState('60px')
@@ -46,7 +45,7 @@ const AvgScores = (props) => {
   return (
     <div className="scores-card">
       <p className="overall">Overall:</p>
-      <p className={props.background} style={{ width: props.width }}>
+      <p className={background} style={{ width: width }}>
         {(props.scores.overall * 10).toFixed(0)}
       </p>
       <p className="additional">Ease of Use: {easeOfUseStars}</p>
