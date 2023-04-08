@@ -7,7 +7,7 @@ const average = require('../utils/average');
 router.get('/', async (req, res) => {
   const providerInfo = await providerModel.getProviderInfo();
 
-  const overallScores = await review_detailModel.overallScores().catch((err) => console.error(err));
+  const overallScores = await review_detailModel.getOverallScores().catch((err) => console.error(err));
 
   for (let i = 0; i < overallScores.length; i++) {
     providerInfo[i].overall = Number(overallScores[i].overall)
@@ -45,7 +45,7 @@ router.get('/:providerIdOrName', async (req, res) => {
     return res.status(404).send("providerId not found")
   } else {
     providerInfo = providerInfo[0]
-    const reviews = await review_detailModel.reviews(providerId);
+    const reviews = await review_detailModel.getReviewInfo(providerId);
 
     let averageOverall = Number(average(reviews.map((element) => {
       return element.overall;

@@ -5,7 +5,7 @@ const { validEmail, isNotEmpty, isInteger, validScore } = require('../utils/inpu
 
 router.post('/', async (req,res) => {
   const review = req.body;
-  const testEmail = await review_detailModel.testEmail(review.email);
+  const testEmail = await review_detailModel.getAlltestEmails(review.email);
 
   if (
     !isInteger(review.provider_id) ||
@@ -22,7 +22,7 @@ router.post('/', async (req,res) => {
   }
 
   if (testEmail.length === 0) { // if email has never been used
-    const insertion = await review_detailModel.insertion(review);
+    const insertion = await review_detailModel.insertReview(review);
 
     res.status(200).send("Your review has been added.");
   } else {
@@ -38,7 +38,7 @@ router.post('/', async (req,res) => {
     if (wasUsedWithProvider) { // if email has already been used to review the current provider.
       res.status(400).send("This email has already been used for this provider.");
     } else { // else, this email has been used, but for a different provider
-      const insertion = await review_detailModel.insertion(review);
+      const insertion = await review_detailModel.insertReview(review);
       
       res.status(200).send("Your review has been added.");
     }
