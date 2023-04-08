@@ -28,7 +28,7 @@ const Provider = (props) => {
    * @returns {[{ProviderInfo}, {reviews}]}
    */
   async function getProvider() {
-    const fetchedProvider = await axios.get(`/api/provider/${providerId}`); 
+    const fetchedProvider = await axios.get(`/api/providers/${providerId}`); 
     setProvider(fetchedProvider.data)
   }
 
