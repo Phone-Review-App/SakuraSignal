@@ -10,14 +10,14 @@ module.exports = {
             .groupBy('provider_id')
             .orderBy('provider_id');
     },
-    getReviewInfo(provideId) {
+    getReviewInfo(providerId) {
         return knex(REVIEW_DETAIL_TABLE)
             .select('reviewer_name', 'overall', 'ease_of_use', 'coverage','price', 'customer_service', 'customer_review')
-            .where('provider_id', provideId)
+            .where('provider_id', providerId)
             .orderBy('id', 'desc')
             .timeout(1500);
     },
-    getTestEmails(email) {
+    getAlltestEmails(email) {
         return knex(REVIEW_DETAIL_TABLE)
             .select('*')
             .where('email', email)
