@@ -38,8 +38,10 @@ const Provider = (props) => {
         <div className="main-content">
           <div>
             <AvgScores scores={provider[0]} />
-            <span>Have you used this company?</span>
-            <Button className="button review" text="Write a Review" onClick={() => navigate('/Form')} />
+            <span className="write-review-text">Have you used this company?</span>
+            <div className="button-container">
+              <Button className="button-review" text="Write a Review" onClick={() => navigate('/Form')} /> 
+              </div>
           </div>
           <ReviewCard reviews={provider[1]}></ReviewCard>
         </div>
