@@ -40,7 +40,6 @@ router.get('/:providerIdOrName', async (req, res) => {
 
   let providerInfo = await providerModel.getProviderInfoByID(providerId);
   
-  
   if (providerInfo.length === 0) {
     return res.status(404).send("providerId not found")
   } else {

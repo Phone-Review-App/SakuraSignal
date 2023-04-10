@@ -9,7 +9,6 @@ const Card = (props) => {
   You can also console.log(props) to see what object passed
   
   */
-
   const [background, setBackground] = useState('red');
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const Card = (props) => {
     }
   }, [averageScore]);
   
- 
+  
   return (
     <>
       <div className="card">
@@ -53,7 +52,7 @@ Card.defaultProps = {
   img_url: "",
   altValue: "",
   averageScoreClassName: "",
-  averageScore: "",
+  averageScore: 0,
   buttonClassName: "",
 };
 
