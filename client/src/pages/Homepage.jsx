@@ -32,7 +32,6 @@ const Homepage = () => {
       <div className="grid-container">
         {
           providers.map((provider) => {
-          
             return (
               <Card 
                 cardName={provider.name}
