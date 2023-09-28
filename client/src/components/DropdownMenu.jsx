@@ -26,7 +26,6 @@ function DropdownMenu ( props ) {
   
   setSelected(event.target.value);
   let company=event.target.value;
-  console.log("company:",company);
   setProviderId(company);
   
   };

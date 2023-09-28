@@ -1,15 +1,70 @@
 .scores-card {
-  margin: 20px;
-  padding: 10px;
   border-radius: 10px;
+  margin: 20px;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   width: 400px;
-  height: 250px;
+  height: 350px;
   font-size: large;
-  background-color: #FF0063;
+  background-color: #66BFBF;
   color: white;
   font-weight: 600;
+}
+
+.overall {
+  font-size: 26px;
+  padding-top: 20px;
+  margin-bottom: -15px;
+}
+
+p.additional {
+  text-align: center;
+  margin: 10px;
+}
+
+.overall-score {
+  font-size: 45px;
+}
+
+.red {
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 5px;
+  background-color: #FF0000;
+  color: white;
+  height: 40px;
+  width: 50px;
+  padding-top: 5px;
+  text-align: center;
+  justify-content: center;
+}
+
+.yellow {
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 5px;
+  background-color: #FFCC33;
+  color: white;
+  height: 40px;
+  width: 50px;
+  padding-top: 5px;
+  text-align: center;
+  justify-content: center;
+}
+
+.green {
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 5px;
+  background-color: #66CC33;
+  color: white;
+  height: 40px;
+  width: 50px;
+  padding-top: 5px;
+  text-align: center;
+  justify-content: center;
 }

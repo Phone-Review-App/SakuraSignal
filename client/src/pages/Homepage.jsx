@@ -18,15 +18,15 @@ const Homepage = () => {
     const fetchedProviders = await axios.get('/api/providers');
     setProviders(fetchedProviders.data);
   }
-
+ 
   const navigate = useNavigate();
 
   return (
     <>
-      <Header 
+      <Header
         className="header" 
-        text="Need a Phone Provider?" 
-        secondary_text="Check these out!">
+        text="Mobile Review Japan" 
+        secondary_text="Grading the mobile providers in Japan">
       </Header>
 
       <div className="grid-container">

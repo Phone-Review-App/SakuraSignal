@@ -1,18 +1,19 @@
 body {
-  padding: 0px;
+  width: 100%;
   font-size: larger;
   background-color: #EAF6F6;
 }
 
 .provider-hero-div {
-  padding: 20px;
   font-weight: 600;
   display: flex;
+  overflow: hidden;
   justify-content: space-evenly;
   width: 100%;
   height: 300px;
-  background-color: #66BFBF;
-  color: white;
+  background-color: white;
+  color: black;
+  padding-bottom: 15px;
 }
 
 .provider-info {
@@ -28,24 +29,36 @@ body {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  justify-content: space-evenly;
+  justify-content:center;
+}
+
+.button {
+  background-color: #66BFBF;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: white;
+  border-color: 1px solid #66a7bf
+}
+
+button:hover {
+  background-color: #66a7bf;
+  cursor: pointer;
 }
 
 .provider-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
   background-color: white;
   border-radius: 10px;
   width: 100%;
   height: 50%;
 }
 
-
 img {
-  object-fit: contain;
-  overflow: hidden;
+  height: 50px;
 }
 
 .main-content {
