@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import "./ProviderInfo.css";
 import Button from "../components/Button";
+import "./ProviderInfo.css";
 
 const ProviderInfo = (props) => {
-  const { provider } = props
+  //const { provider } = props
+  const {provider, provider_id} = props
   const navigate = useNavigate();
 
   return (
