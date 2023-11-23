@@ -1,0 +1,56 @@
+[
+    {
+        "provider_id":1,
+        "name":"Mobal",
+        "value":"mobal",
+        "path": "/mobal"
+    },
+    {
+        "provider_id":2,
+        "name":"Docomo",
+        "value":"docomo",
+        "path": "/docomo"
+    },
+    {
+        "provider_id":3,
+        "name":"AU",
+        "value":"au",
+        "path": "/au"
+    },
+    {
+        "provider_id":4,
+        "name":"Softbank",
+        "value":"softbank",
+        "path": "/softbank"
+    },
+    {
+        "provider_id":5,
+        "name":"Rakuten Mobile",
+        "value":"rakutenmobile",
+        "path": "/rakutenmobile"
+    },
+    {
+        "provider_id":6,
+        "name":"Linemo",
+        "value":"linemo",
+        "path": "/linemo"
+    },
+    {
+        "provider_id":7,
+        "name":"Y!mobile",
+        "value":"ymobile",
+        "path": "/ymobile"
+    },
+    {
+        "provider_id":8,
+        "name":"UQ Mobile",
+        "value":"uqmobile",
+        "path": "/uqmobile"
+    },
+    {
+        "provider_id":9,
+        "name":"GTN Mobile",
+        "value":"gtnmobile",
+        "path": "/gtnmobile"
+    }
+]
