@@ -115,36 +115,29 @@ const Form = () => {
   // unique components for Form.jsx
   const Notice = ({res}) => {
     // Control redirect homepage action at the Thankyou component
-    const [hasClicked, setHasClicked] = useState(false);
-    const [shouldRedirect, setShouldRedirect] = useState(false)
+    // const [hasClicked, setHasClicked] = useState(false);
+    const [timeLeft, setTimeLeft] = useState(7000)
 
     useEffect(()=>{
       // control clicked home button
-      let myTimeout 
-      if(hasClicked){
-          myTimeout = handleAutoRedirect()
-          // clearTimeout(myTimeout);
-          // navigate('/');
-      }
+      const myTimeout = setTimeout(()=>{
+          //handleAutoRedirect();
+          handleRedirect();
+        },7000);
+      
       return () => {
-        clearTimeout(myTimeout)
-        if(shouldRedirect){
-          navigate('/');
-        }
-      }
+        clearTimeout(myTimeout);
+        //handleRedirect();
+      }  
+    }, []);
 
-    }, [hasClicked]);
+    // Detect button clicked once 
+    // const handleButtonClick = () => {
+    //   setHasClicked(true);
+    // }
 
-    // handle change state for button
-    const handleButtonClick = () => {
-      setHasClicked(true);
-      
-      // navigate('/')
-      
-    }
-
-    const handleAutoRedirect = () => {
-      setTimeout(()=> {setShouldRedirect(true)}, 7000);
+    const handleRedirect = () => {
+      navigate('/');
     }
 
     
@@ -152,8 +145,8 @@ const Form = () => {
     return (
       <div className="thanks">    
             <Header className="header" text="Thank you for your feedback!" secondary_text={res}/>
-            <p align="center">You will be redirected to Home shortly</p>
-            <Button className="button submit" text="Home" onClick={handleButtonClick} />
+            <p align="center">{`You will be redirected to Home shortly`}</p>
+            {/*<Button className="button submit" text="Home" onClick={handleButtonClick} />*/}
             <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
           </div>
     )
