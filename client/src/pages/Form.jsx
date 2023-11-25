@@ -10,7 +10,6 @@ import DropdownMenu from '../components/DropdownMenu';
 import Radio from '../components/Radio';
 import "./Form.css";
 
-
 // this object will get sent to the server with data for database
 const reviewData = {
   provider_id: "", 
@@ -28,8 +27,6 @@ const Form = () => {
   const navigate = useNavigate();
 
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  
 
   // SCORE INPUT STATE // Overall, Ease of Use, Coverage
   const [overAllScore, getOverAllScore] = useState(0);
@@ -115,38 +112,32 @@ const Form = () => {
   // unique components for Form.jsx
   const Notice = ({res}) => {
     // Control redirect homepage action at the Thankyou component
-    // const [hasClicked, setHasClicked] = useState(false);
-    const [timeLeft, setTimeLeft] = useState(7000)
+    const [timeLeft, setTimeLeft] = useState(7)
 
     useEffect(()=>{
       // control clicked home button
       const myTimeout = setTimeout(()=>{
-          //handleAutoRedirect();
           handleRedirect();
         },7000);
       
       return () => {
         clearTimeout(myTimeout);
-        //handleRedirect();
       }  
     }, []);
 
-    // Detect button clicked once 
-    // const handleButtonClick = () => {
-    //   setHasClicked(true);
-    // }
+    useEffect(()=>{
+      const timer = timeLeft > 0 && setInterval(()=> {setTimeLeft(timeLeft -1)}, 1000);
+      return () => clearInterval(timer)
+    },[timeLeft])
 
     const handleRedirect = () => {
       navigate('/');
     }
 
-    
-    
     return (
       <div className="thanks">    
             <Header className="header" text="Thank you for your feedback!" secondary_text={res}/>
-            <p align="center">{`You will be redirected to Home shortly`}</p>
-            {/*<Button className="button submit" text="Home" onClick={handleButtonClick} />*/}
+            <span align="center">{`You will be redirected to Home in ${timeLeft}s`}</span>
             <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
           </div>
     )

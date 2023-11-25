@@ -49,4 +49,7 @@ textarea {
 .thanks {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  background-color: #66a7bf;
+  color:white;
 }
