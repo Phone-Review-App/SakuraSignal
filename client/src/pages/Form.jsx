@@ -118,7 +118,7 @@ const Form = () => {
       // control clicked home button
       const myTimeout = setTimeout(()=>{
           handleRedirect();
-        },7000);
+        }, Number(timeLeft*1000));
       
       return () => {
         clearTimeout(myTimeout);
