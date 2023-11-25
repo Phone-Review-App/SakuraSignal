@@ -29,6 +29,8 @@ const Form = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  
+
   // SCORE INPUT STATE // Overall, Ease of Use, Coverage
   const [overAllScore, getOverAllScore] = useState(0);
   const setOverAllScore = (score) =>{
@@ -110,20 +112,60 @@ const Form = () => {
     setServerResponse(response.data);
   };
 
-  // USE EFFECT
-  
+  // unique components for Form.jsx
+  const Notice = ({res}) => {
+    // Control redirect homepage action at the Thankyou component
+    const [hasClicked, setHasClicked] = useState(false);
+    const [shouldRedirect, setShouldRedirect] = useState(false)
 
+    useEffect(()=>{
+      // control clicked home button
+      let myTimeout 
+      if(hasClicked){
+          myTimeout = handleAutoRedirect()
+          // clearTimeout(myTimeout);
+          // navigate('/');
+      }
+      return () => {
+        clearTimeout(myTimeout)
+        if(shouldRedirect){
+          navigate('/');
+        }
+      }
+
+    }, [hasClicked]);
+
+    // handle change state for button
+    const handleButtonClick = () => {
+      setHasClicked(true);
+      
+      // navigate('/')
+      
+    }
+
+    const handleAutoRedirect = () => {
+      setTimeout(()=> {setShouldRedirect(true)}, 7000);
+    }
+
+    
+    
+    return (
+      <div className="thanks">    
+            <Header className="header" text="Thank you for your feedback!" secondary_text={res}/>
+            <p align="center">You will be redirected to Home shortly</p>
+            <Button className="button submit" text="Home" onClick={handleButtonClick} />
+            <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
+          </div>
+    )
+    
+  }
     
   return (
     <div>  
       {
         isSubmitted
         ? (
-          <div className="thanks">    
-            <Header className="header" text="Thank you for your feedback!" secondary_text={serverResponse}/>
-            <Button className="button submit" text="Home" onClick={() => navigate('/')} />
-            <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
-          </div>
+          <Notice res={serverResponse} />
         )
 
         : (
