@@ -10,7 +10,6 @@ import DropdownMenu from '../components/DropdownMenu';
 import Radio from '../components/Radio';
 import "./Form.css";
 
-
 // this object will get sent to the server with data for database
 const reviewData = {
   provider_id: "", 
@@ -110,20 +109,47 @@ const Form = () => {
     setServerResponse(response.data);
   };
 
-  // USE EFFECT
-  
+  // unique components for Form.jsx
+  const Notice = ({res}) => {
+    // Control redirect homepage action at the Thankyou component
+    const [timeLeft, setTimeLeft] = useState(7)
 
+    useEffect(()=>{
+      // control clicked home button
+      const myTimeout = setTimeout(()=>{
+          handleRedirect();
+        }, Number(timeLeft*1000));
+      
+      return () => {
+        clearTimeout(myTimeout);
+      }  
+    }, []);
+
+    useEffect(()=>{
+      const timer = timeLeft > 0 && setInterval(()=> {setTimeLeft(timeLeft -1)}, 1000);
+      return () => clearInterval(timer)
+    },[timeLeft])
+
+    const handleRedirect = () => {
+      navigate('/');
+    }
+
+    return (
+      <div className="thanks">    
+            <Header className="header" text="Thank you for your feedback!" secondary_text={res}/>
+            <span align="center">{`You will be redirected to Home in ${timeLeft}s`}</span>
+            <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
+          </div>
+    )
+    
+  }
     
   return (
     <div>  
       {
         isSubmitted
         ? (
-          <div className="thanks">    
-            <Header className="header" text="Thank you for your feedback!" secondary_text={serverResponse}/>
-            <Button className="button submit" text="Home" onClick={() => navigate('/')} />
-            <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
-          </div>
+          <Notice res={serverResponse} />
         )
 
         : (
