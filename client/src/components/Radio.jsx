@@ -22,19 +22,19 @@ const Radio = ( props ) => {
   }
     return (
       <><div>{radioName}: {selectedRadioButton}</div>
-        <div className={ className } >
+        <div >
             {
             inputs.map((input, index) => {
                 return (
                 <>
-                  <span className={className}>
+                  <span className={className} >
                     {input.value}
                     <br />
                     <label htmlFor={label} 
-                    key={index}>
+                    key={input.value}>
                         
                         <input 
-                        id={label}
+                        id={String(`${radioName}${index}`)}
                     type={input.type}
                     name={radioName}
                     value={input.value}
