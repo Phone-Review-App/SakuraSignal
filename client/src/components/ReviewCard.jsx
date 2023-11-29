@@ -1,6 +1,6 @@
 import {useState, useEffect, React} from 'react';
 import { Divider } from '@mui/material';
-import "./ReviewCard.css"
+import "../styles/ReviewCard.css"
 
 const ReviewCard = (props) => {
   const { reviews } = props;

@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import DropdownMenu from '../components/DropdownMenu';
 import Radio from '../components/Radio';
-import "./Form.css";
+import "../styles/Form.css";
 
 // this object will get sent to the server with data for database
 const reviewData = {
