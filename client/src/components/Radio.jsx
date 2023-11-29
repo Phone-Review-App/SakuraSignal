@@ -4,11 +4,11 @@ import "./Radio.css";
 const inputs = [];
 
 for(let i =0; i<= 10; i++){
-  inputs.push({type:"radio", value: i.toString()})
+  inputs.push({id:`radio${i}`, type:"radio", value: i.toString()})
 }
 
-const Radio = ( props ) => {
-  const { className, label, radioName, scoreSetter } = props;
+const Radio = ( { className, radioName, scoreSetter } ) => {
+  
   const [selectedRadioButton, setSelectedRadioButton] = useState('0');
 
   const isRadioSelected = (value) => { 
@@ -25,24 +25,25 @@ const Radio = ( props ) => {
         <div >
             {
             inputs.map((input, index) => {
+                
                 return (
                 <>
-                  <span className={className} >
+                  <span className={className} 
+                  key={`input.id${radioName}`}
+                  >
+                    <label htmlFor={radioName}>
                     {input.value}
+                    </label>
                     <br />
-                    <label htmlFor={radioName} 
-                    key={input.value}>
-                        
-                        <input 
-                        id={String(`${radioName}${index}`)}
-                    type={input.type}
-                    name={radioName}
-                    value={input.value}
-                    checked={isRadioSelected(input.value)}
-                    onChange={handleRadioSelect}
+                    <input 
+                      id={`${radioName}${index}`}
+                      type={input.type}
+                      name={radioName}
+                      value={input.value}
+                      checked={isRadioSelected(input.value)}
+                      onChange={handleRadioSelect}
                     >
                     </input>
-                    </label>
                     </span>
                     </>
                 )
@@ -56,7 +57,7 @@ const Radio = ( props ) => {
 
 Radio.defaultProps = {
     className:"",
-    label:"",
+    
     radioName:"",
     onClick: ()=> {},
     
