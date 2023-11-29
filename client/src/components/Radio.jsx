@@ -30,7 +30,7 @@ const Radio = ( props ) => {
                   <span className={className} >
                     {input.value}
                     <br />
-                    <label htmlFor={label} 
+                    <label htmlFor={radioName} 
                     key={input.value}>
                         
                         <input 
