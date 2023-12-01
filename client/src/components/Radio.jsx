@@ -8,7 +8,7 @@ for(let i =0; i<= 10; i++){
 
 const Radio = ( { className, radioName, scoreSetter } ) => {
   
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState('0');
 
   const isRadioSelected = (value) => { 
     return selected === value;
@@ -49,7 +49,6 @@ const Radio = ( { className, radioName, scoreSetter } ) => {
 Radio.defaultProps = {
     className:"",
     radioName:"",
-    onClick: ()=> {},
     scoreSetter:()=>{}
 }
 
