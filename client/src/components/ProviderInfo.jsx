@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import "./ProviderInfo.css";
+import "../styles/ProviderInfo.css";
 
 const ProviderInfo = (props) => {
   const {provider, provider_id} = props
