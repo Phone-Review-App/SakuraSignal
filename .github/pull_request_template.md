@@ -2,6 +2,7 @@
 1. Write down the issue no., if any: #
 
 
+
 2. What you did:
 - Describe your pull request and related issue
 
@@ -11,10 +12,12 @@
 
 
 
-3. Anything you might wish to raise related to this pull request:
+4. Anything you might wish to raise related to this pull request:
+
+
 
 # Checklist
 You have:-
-- [ ] pulled latest version of the main branch
-- [ ] included the issue number(s), if any
-- [ ] write a clear and simple summaries of the Pull Request
+- [ ] pulled the latest version of the main branch
+- [ ] Included the issue number(s), if any
+- [ ] Write a clear and simple summary of the Pull Request
