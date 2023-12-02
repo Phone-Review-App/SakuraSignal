@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "./Radio.css";
+import "../styles/Radio.css";
 
 const inputs = [];
 for(let i =0; i<= 10; i++){

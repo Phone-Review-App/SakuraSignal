@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Select from 'react-select';
 // import Button from './Button';
-import "./DropdownMenu.css";
+import "../styles/DropdownMenu.css";
 
 const options = [
   {value: "", text:"--- Select a phone provider ---"},

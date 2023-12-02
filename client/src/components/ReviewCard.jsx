@@ -1,6 +1,6 @@
 import {useState, useEffect, React} from 'react';
 import { Divider } from '@mui/material';
-import "./ReviewCard.css"
+import "../styles/ReviewCard.css"
 
 const ReviewCard = (props) => {
   const { reviews } = props;
@@ -35,10 +35,10 @@ const ReviewCard = (props) => {
   return (
     <div className='reviews-div'>
       {
-        reviews.map((review) => {
+        reviews.map((review, index) => {
           const reviewOverall = review.overall;
           return (
-            <div className='review-card'>
+            <div className='review-card' key={index+ 30}>
               <h3 className='name'>{review.reviewer_name}</h3>
               <div className='details'>
                 {overall === review.overall}
