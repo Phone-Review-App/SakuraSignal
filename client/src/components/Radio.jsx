@@ -2,52 +2,44 @@ import React, {useState} from 'react';
 import "../styles/Radio.css";
 
 const inputs = [];
-
 for(let i =0; i<= 10; i++){
-  inputs.push({type:"radio", value: i.toString()})
+  inputs.push(`${i}`)
 }
 
-const Radio = ( props ) => {
-  const { className, label, radioName, scoreSetter } = props;
-  const [selectedRadioButton, setSelectedRadioButton] = useState('0');
+const Radio = ( { className, radioName, scoreSetter } ) => {
+  
+  const [selected, setSelected] = useState('0');
 
   const isRadioSelected = (value) => { 
-    return selectedRadioButton === value;
+    return selected === value;
   }
 
   const handleRadioSelect = (event) => {
-    setSelectedRadioButton(event.target.value)
-    let score = event.target.value;
-    scoreSetter(score);
+    setSelected(event.target.value)
+    scoreSetter(event.target.value);
   }
+  
     return (
-      <><div>{radioName}: {selectedRadioButton}</div>
-        <div className={ className } >
-            {
-            inputs.map((input, index) => {
+      <><div>{radioName}: {selected}</div>
+        <div >
+            { 
+              inputs.map((i)=>{
                 return (
-                <>
-                  <span className={className}>
-                    {input.value}
-                    <br />
-                    <label htmlFor={label} 
-                    key={index}>
-                        
-                        <input 
-                        id={label}
-                    type={input.type}
-                    name={radioName}
-                    value={input.value}
-                    checked={isRadioSelected(input.value)}
-                    onChange={handleRadioSelect}
-                    >
-                    </input>
-                    </label>
-                    </span>
-                    </>
+                  <span key={`radio_${i}`} className={className}>
+                <label htmlFor={radioName}>{i}</label>
+                <br />
+                <input
+                  id={`radioName${i}`}
+                  type={"radio"}
+                  name={radioName}
+                  value={`${i}`}
+                  checked={isRadioSelected(i)}
+                  onChange={handleRadioSelect}
+                >
+                </input>
+                </span>
                 )
-            })
-            
+              })
             }
             </div>
         </>
@@ -56,10 +48,7 @@ const Radio = ( props ) => {
 
 Radio.defaultProps = {
     className:"",
-    label:"",
     radioName:"",
-    onClick: ()=> {},
-    
     scoreSetter:()=>{}
 }
 
