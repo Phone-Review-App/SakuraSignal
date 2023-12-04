@@ -25,7 +25,7 @@ const Homepage = () => {
     <>
       <Header
         className="header" 
-        text="Mobile Review Japan" 
+        text="SakuraSignal🌸" 
         secondary_text="Grading the mobile providers in Japan">
       </Header>
 

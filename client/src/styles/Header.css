@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+.title {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: -5px;
+}
+
+.subtitle {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .header {
   margin: 0px;
   padding-bottom: 0px;
@@ -5,6 +16,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #66BFBF;
+  background-color: rgb(254, 120, 142);
   color: white;
 }
