@@ -44,12 +44,12 @@ p.description {
 }
 
 .detailsButton {
-  background-color: #66BFBF;
+  background-color: pink;
   height: 50px;
   width: 100px;
   border-radius: 10px;
   font-size: 15px;
-  color: white;
+  color: rgb(122, 122, 122);;
   border-color: 1px solid #66a7bf
 }
 

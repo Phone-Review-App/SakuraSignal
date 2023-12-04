@@ -3,10 +3,12 @@
 .title {
   font-family: 'Quicksand', sans-serif;
   margin-bottom: -5px;
+  color: rgb(122, 122, 122);
 }
 
 .subtitle {
   font-family: 'Quicksand', sans-serif;
+  color: rgb(122, 122, 122);
 }
 
 .header {
@@ -16,6 +18,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(254, 120, 142);
-  color: white;
+  background-color: pink;
 }
