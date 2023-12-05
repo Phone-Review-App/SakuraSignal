@@ -48,7 +48,7 @@ const Homepage = () => {
           })
         }
       </div>
-      <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
+      <Footer className="footer" text="© 2023 SakuraSignal"/>
     </>
   );
 };
