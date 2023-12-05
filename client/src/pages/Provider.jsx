@@ -15,6 +15,7 @@ const Provider = ({provider_id}) => {
     'Content-Type': 'application/json'
   }
   const [provider, setProvider] = useState([{},[]]);
+  const [noReviews, setNoReview] = useState(true);
 
   useEffect(() => {
     getProvider();
@@ -28,13 +29,23 @@ const Provider = ({provider_id}) => {
   async function getProvider() {
     try{
       const fetchedProvider = await axios.get(`/api/providers/${provider_id}`, header); 
-      setProvider(fetchedProvider.data)
+      setProvider(fetchedProvider.data);
+      if(provider[1]){
+        setNoReview(false);
+      }
 
     } catch (err){
       console.error("🤮", err);
-    }
+    } 
   }
-
+  const NoReview = ({}) => {
+    return (
+      <>
+      <div className="no-review">{`Have you use this provider before? Be the first to review this provider.\n`}</div>
+      <br/>
+      </>
+    )
+  }
     return (
       <div>
         <ProviderInfo provider={provider[0]} provider_id={provider_id}/>
@@ -46,7 +57,7 @@ const Provider = ({provider_id}) => {
               <Button className="button-review" text="Write a Review" onClick={() => navigate(`/Form`)} /> 
               </div>
           </div>
-          <ReviewCard reviews={provider[1]}></ReviewCard>
+          {noReviews ? <NoReview /> : <ReviewCard reviews={provider[1]}></ReviewCard>}
         </div>
         <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
       </div>
