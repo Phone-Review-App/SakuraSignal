@@ -33,7 +33,7 @@ body {
 }
 
 .button {
-  background-color: #66BFBF;
+  background-color: pink;
   height: 50px;
   width: 100px;
   border-radius: 10px;
@@ -43,7 +43,7 @@ body {
 }
 
 button:hover {
-  background-color: #66a7bf;
+  background-color: rgb(255, 152, 170);
   cursor: pointer;
 }
 

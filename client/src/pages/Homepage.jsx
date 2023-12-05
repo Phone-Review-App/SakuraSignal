@@ -25,7 +25,7 @@ const Homepage = () => {
     <>
       <Header
         className="header" 
-        text="Mobile Review Japan" 
+        text="SakuraSignal🌸" 
         secondary_text="Grading the mobile providers in Japan">
       </Header>
 
@@ -48,7 +48,7 @@ const Homepage = () => {
           })
         }
       </div>
-      <Footer className="footer" text="© 2023 Phone Carrier Review App"/>
+      <Footer className="footer" text="© 2023 SakuraSignal"/>
     </>
   );
 };

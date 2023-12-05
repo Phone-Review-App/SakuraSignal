@@ -44,17 +44,17 @@ p.description {
 }
 
 .detailsButton {
-  background-color: #66BFBF;
+  background-color: pink;
   height: 50px;
   width: 100px;
   border-radius: 10px;
   font-size: 15px;
-  color: white;
-  border-color: 1px solid #66a7bf
+  color: rgb(28, 28, 28);
+  border-color: 1px solid pink;
 }
 
 button:hover {
-  background-color: #66a7bf;
+  background-color: rrgb(255, 152, 170);;
   cursor: pointer;
 }
 

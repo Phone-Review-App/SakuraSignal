@@ -3,13 +3,13 @@
 }
 
 .button-review {
-  background-color: #66BFBF;
+  background-color: pink;
   height: 70px;
   width: 170px;
   border-radius: 10px;
   font-size: 20px;
   color: white;
-  border-color: 1px solid #66a7bf;
+  border-color: 1px solid rgb(255, 152, 170);
   align-content: center;
   justify-content: center;
   margin-top: 10px;
@@ -17,7 +17,7 @@
 }
 
 button:hover {
-  background-color: #66a7bf;
+  background-color: rgb(255, 152, 170);
   cursor: pointer;
 }
 

@@ -50,6 +50,6 @@ textarea {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: #66a7bf;
+  background-color: rgb(255, 152, 170);
   color:white;
 }
