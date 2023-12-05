@@ -49,12 +49,12 @@ p.description {
   width: 100px;
   border-radius: 10px;
   font-size: 15px;
-  color: rgb(122, 122, 122);;
-  border-color: 1px solid #66a7bf
+  color: rgb(28, 28, 28);
+  border-color: 1px solid pink;
 }
 
 button:hover {
-  background-color: #66a7bf;
+  background-color: rrgb(255, 152, 170);;
   cursor: pointer;
 }
 

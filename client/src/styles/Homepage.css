@@ -5,7 +5,8 @@ body {
 }
 
 .grid-container {
-  background-color: #EAF6F6;
+  background-color: #ecebeb;
+  /* #FF7794 - the emoji color */
   display: grid;
   grid-template-columns: repeat(auto-fit, 460px);
   grid-template-rows: repeat(auto-fit);
