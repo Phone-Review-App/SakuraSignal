@@ -25,3 +25,8 @@ button:hover {
   margin-left: 100px;
 }
 
+.no-review {
+  align-content: center;
+  color: #0C0C0C;
+  padding: 150px;
+}
