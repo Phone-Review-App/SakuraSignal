@@ -27,10 +27,26 @@ const NavPanel = ({provider_id}) => {
     return (
         <>
         <div className="nav-panel">
+            <span>
             <Button className="button arrow" text={"<"} onClick={handleGoLeft} />
+
+            </span>
+            <span>
             <Button className="button arrow" text={">"} onClick={handleGoRight} />
+                
+            </span>
             <div className="current-provider">
-                <Button className="button provider_name" text={`${providers[provider_data?.current].name}`}/>
+            <span align="center">
+                <Button className="button provider_name" text={
+                <span>
+                    {
+                        `${providers[provider_data?.current].name}`
+                    }
+                </span>
+                    } 
+                    ></Button> 
+                
+            </span>
             </div>
         </div>
         </>
