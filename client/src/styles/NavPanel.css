@@ -1,0 +1,9 @@
+.nav-panel {
+    border: 10px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    color:aqua;
+}
+.arrow {
+    width: 50px;
+}

@@ -9,7 +9,8 @@ const NavPanel = ({provider_id}) => {
         if(provider_id){
             return {
                 "goLeft": provider_id - 2 < 0 ? providers.length - 1 : provider_id - 2,
-                "goRight": provider_id % providers.length
+                "goRight": provider_id % providers.length,
+                "current": provider_id - 1
             }
         }
     },[provider_id]);
@@ -28,6 +29,9 @@ const NavPanel = ({provider_id}) => {
         <div className="nav-panel">
             <Button className="button arrow" text={"<"} onClick={handleGoLeft} />
             <Button className="button arrow" text={">"} onClick={handleGoRight} />
+            <div className="current-provider">
+                <Button className="button provider_name" text={`${providers[provider_data?.current].name}`}/>
+            </div>
         </div>
         </>
     )
