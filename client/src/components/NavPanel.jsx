@@ -8,7 +8,8 @@ const NavPanel = ({provider_id}) => {
     const provider_data = useMemo(()=>{
         if(provider_id){
             return {
-                "goLeft": provider_id - 2 < 0 ? providers.length - 1 : provider_id - 2
+                "goLeft": provider_id - 2 < 0 ? providers.length - 1 : provider_id - 2,
+                "goRight": provider_id % providers.length
             }
         }
     },[provider_id]);
@@ -17,11 +18,16 @@ const NavPanel = ({provider_id}) => {
         e.preventDefault();
         navigate(`${providers[provider_data?.goLeft].path}`)
     }
+    const handleGoRight = (e) => {
+        e.preventDefault();
+        navigate(`${providers[provider_data?.goRight].path}`)
+    }
 
     return (
         <>
         <div className="nav-panel">
-            <Button className="button" text={"<"} onClick={handleGoLeft}/>
+            <Button className="button arrow" text={"<"} onClick={handleGoLeft} />
+            <Button className="button arrow" text={">"} onClick={handleGoRight} />
         </div>
         </>
     )
