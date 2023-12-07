@@ -1,7 +1,8 @@
 import React, {useMemo} from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
-import providers from "../data/providers.json"
+import providers from "../data/providers.json";
+import '../styles/NavPanel.css'
 
 const NavPanel = ({provider_id}) => {
     const navigate = useNavigate();
@@ -27,18 +28,20 @@ const NavPanel = ({provider_id}) => {
     return (
         <>
         <div className="nav-panel">
+            <div className="nav-arrows">
             <span>
             <Button className="button arrow" text={"<"} onClick={handleGoLeft} />
 
             </span>
             <span>
             <Button className="button arrow" text={">"} onClick={handleGoRight} />
-                
             </span>
+
+            </div>
             <div className="current-provider">
-            <span align="center">
-                <Button className="button provider_name" text={
-                <span>
+            <span >
+                <Button className="button" text={
+                <span className="provider_name">
                     {
                         `${providers[provider_data?.current].name}`
                     }

@@ -1,25 +1,32 @@
 .nav-panel {
+    border: 2px solid black;
+    border-radius:12px;
     align-items: center;
-    display: flex;
+    
+    /* display: flex; */
 }
 .arrow {
     align-items: center;
-    padding: 10px;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
 }
-
+.nav-arrows {
+    padding: 20px;
+}
 .current-provider {
     align-items:center;
     padding: 15px;
     display: flex;
-    flex-direction: row;
-    width: 200px;
+    flex-direction: column;
+    /* width: 200px; */
 }
 .provider_name {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width: 250px;
-    margin: 20px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+    /* padding: 0px; */
+    /* height: 0px; */
+    /* width: 100%; */
+    /* margin: 0px; */
+    /* text-align: center; */
 }
