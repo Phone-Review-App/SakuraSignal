@@ -1,11 +1,19 @@
 .button {
+  height:50px;
   width: 100px;
   margin: 15px;
   padding: 10px;
   align-self: flex-end;
   color: white;
-  background-color: black;
+  background-color: pink;
   border-radius: 10px;
+  border-color: 1px solid pink;
+  font-size:15px;
+}
+
+.button:hover {
+  background-color: rrgb(255, 152, 170);;
+  cursor: pointer;
 }
 
 .review {

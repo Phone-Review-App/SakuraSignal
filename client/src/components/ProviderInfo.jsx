@@ -18,10 +18,12 @@ const ProviderInfo = ({provider, provider_id}) => {
         <p>{provider.description}</p>
         <a href={provider.site_url}>Click here for the provider website.</a>
       </div>
-      <div className="hero-right">
-        <Button className="button" text="Home" onClick={() => navigate('/')}/>
-        <div>
-        <NavPanel provider_id={provider_id}/>
+      <div className="utilities-panel">
+        <div className="hero-right">
+            <Button className="button" text="Home" onClick={() => navigate('/')}/>
+          <div>
+            <NavPanel provider_id={provider_id}/>
+          </div>
         </div>
       </div>
     </div>

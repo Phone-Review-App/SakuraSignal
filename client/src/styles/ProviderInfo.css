@@ -24,6 +24,12 @@ body {
   width: 50%; 
 }
 
+.utilities-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .hero-right {
   margin: 10px;
   display: flex;

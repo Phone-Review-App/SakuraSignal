@@ -30,17 +30,17 @@ const NavPanel = ({provider_id}) => {
         <div className="nav-panel">
             <div className="nav-arrows">
             <span>
-            <Button className="button arrow" text={"<"} onClick={handleGoLeft} />
+            <Button className="arrow" text={"<"} onClick={handleGoLeft} />
 
             </span>
             <span>
-            <Button className="button arrow" text={">"} onClick={handleGoRight} />
+            <Button className="arrow" text={">"} onClick={handleGoRight} />
             </span>
 
             </div>
             <div className="current-provider">
             <span >
-                <Button className="button" text={
+                <Button className="provider_btn" text={
                 <span className="provider_name">
                     {
                         `${providers[provider_data?.current].name}`

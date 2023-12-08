@@ -53,11 +53,6 @@ p.description {
   border-color: 1px solid pink;
 }
 
-button:hover {
-  background-color: rrgb(255, 152, 170);;
-  cursor: pointer;
-}
-
 .red {
   font-weight: bold;
   font-size: 30px;
