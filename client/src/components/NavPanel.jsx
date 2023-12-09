@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState, useEffect, useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import providers from "../data/providers.json";
@@ -25,6 +25,68 @@ const NavPanel = ({provider_id}) => {
         navigate(`${providers[provider_data?.goRight].path}`)
     }
 
+    // the menu
+    const [isActive, setIsActive] = useState(true);
+    let menuRef = useRef();
+
+    const handleMenuToogle = (e) => {
+        e.preventDefault();
+        setIsActive(!isActive);
+    }
+
+    const toogleOffMenu = () => {
+        if(isActive){
+            setIsActive(false)
+        }
+    }
+
+    const ProvidersMenu = () => {
+        useEffect(()=>{
+
+        })
+        return (
+            
+            <>
+            <div className={"providers-menu-container"}>
+                <div>
+                    <nav className={`container ${isActive ? 'active' : 'deactive' }`} >
+                        <ul className={"providers-menu"}>
+                            {
+                                providers.map((provider, idx) =>(
+
+                                    <li className={"provider-cell"} 
+                                    value={`${provider.value}`}
+                                    key={`provider_${idx < 10 ? ("0" + String(idx)) : idx}`} 
+                                    ref={menuRef}
+                                    >
+                                        <Button className={"provider-btn"} 
+                                        onClick={(e)=>{
+                                            e.preventDefault();
+                                            if(provider_id !== idx + 1){
+                                                navigate(`${provider.path}`)
+                                            } else {
+                                                console.log(`You are at ${provider.name} page already`)
+                                            }
+                                        }
+                                        } text={
+                                            <span className={"provider-btn-text"}>
+                                                {provider.name}
+                                            </span>
+                                            } />
+                                    </li>
+    
+                                )
+                                )
+    
+                            }
+                        </ul>
+                    </nav>
+                </div>
+    
+            </div>
+            </>
+        )
+    }    
     return (
         <>
         <div className="nav-panel">
@@ -40,7 +102,9 @@ const NavPanel = ({provider_id}) => {
             </div>
             <div className="current-provider">
             <span >
-                <Button className="provider_btn" text={
+                <Button className="provider_btn" 
+                onClick={handleMenuToogle}
+                text={
                 <span className="provider_name">
                     {
                         `${providers[provider_data?.current].name}`
@@ -48,7 +112,7 @@ const NavPanel = ({provider_id}) => {
                 </span>
                     } 
                     ></Button> 
-                
+                <ProvidersMenu />
             </span>
             </div>
         </div>
