@@ -49,7 +49,7 @@ const NavPanel = ({provider_id}) => {
             <>
             <div className={"providers-menu-container"}>
                 <div>
-                    <nav className={`container ${isActive ? 'active' : 'deactive' }`} >
+                    <nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
                         <ul className={"providers-menu"} >
                             {
                                 providers.map((provider, idx) =>(
@@ -57,8 +57,9 @@ const NavPanel = ({provider_id}) => {
                                     <li className={"provider-cell"} 
                                     value={`${provider.value}`}
                                     key={`provider_${idx < 10 ? ("0" + String(idx)) : idx}`} 
-                                    ref={menuRef}
+                                    
                                     >
+                                        <a href={`${provider_id !== idx + 1 ? provider.path : String(`javascript:console.log("You are already on ${provider.name} page")`)}`}>{provider.name}</a><br />
                                         <Button className={"provider-btn"} 
                                         onClick={(e)=>{
                                             e.preventDefault();
