@@ -27,7 +27,7 @@ const NavPanel = ({provider_id}) => {
 
     // the menu
     const [isActive, setIsActive] = useState(true);
-    let menuRef = useRef();
+    let menuRef = useRef(null);
 
     const handleMenuToogle = (e) => {
         e.preventDefault();
@@ -50,7 +50,7 @@ const NavPanel = ({provider_id}) => {
             <div className={"providers-menu-container"}>
                 <div>
                     <nav className={`container ${isActive ? 'active' : 'deactive' }`} >
-                        <ul className={"providers-menu"}>
+                        <ul className={"providers-menu"} >
                             {
                                 providers.map((provider, idx) =>(
 
