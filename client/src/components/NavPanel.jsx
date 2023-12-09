@@ -105,7 +105,7 @@ const NavPanel = ({provider_id}) => {
                 <Button className="provider_btn" 
                 onClick={handleMenuToogle}
                 text={
-                <span className="provider_name">
+                <span className="current_provider_name">
                     {
                         `${providers[provider_data?.current].name}`
                     }
