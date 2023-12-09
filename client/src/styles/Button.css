@@ -12,7 +12,7 @@
 }
 
 .button:hover {
-  background-color: rrgb(255, 152, 170);;
+  background-color: rgb(255, 152, 170);
   cursor: pointer;
 }
 
