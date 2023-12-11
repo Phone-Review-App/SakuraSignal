@@ -26,7 +26,7 @@ const NavPanel = ({provider_id}) => {
     }
 
     // the menu
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
     let menuRef = useRef(null);
 
     const handleMenuToogle = (e) => {
@@ -103,7 +103,7 @@ const NavPanel = ({provider_id}) => {
             </div>
             <div className="current-provider">
             <span >
-                <Button className="provider_btn" 
+                <Button className={`provider_btn ${isActive ? "clicked" : ""}`} 
                 onClick={handleMenuToogle}
                 text={
                 <span className="current_provider_name">

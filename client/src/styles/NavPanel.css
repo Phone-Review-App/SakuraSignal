@@ -37,7 +37,7 @@
     background-color: pink;
     border-radius: 6px;
 }
-.provider_btn:hover {
+.provider_btn:hover, .clicked {
     box-shadow: 5px 10px 10px lightblue;
     background-color: rgb(255, 152, 170);
     cursor: pointer;
