@@ -49,7 +49,7 @@ const NavPanel = ({provider_id}) => {
             <>
             <div className={"providers-menu-container"}>
                 <div>
-                    <nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
+                    <nav className={`container ${isActive ? 'active' : '' }`} ref={menuRef}>
                         <ul className={"providers-menu"} >
                             {
                                 providers.map((provider, idx) =>(
