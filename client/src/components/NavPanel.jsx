@@ -50,8 +50,17 @@ const NavPanel = ({provider_id}) => {
 
     const ProvidersMenu = () => {
         useEffect(()=>{
-
-        })
+            console.log(menuRef.current)
+            const closeDown = (e) =>{
+                if(menuRef.current && !menuRef.current.contains(e.target)){
+                    setIsActive(false)
+                }
+            }
+            document.addEventListener('click', closeDown)
+            return () => {
+                document.removeEventListener('click', closeDown)
+            }
+        },[isActive])
         return (
             
             <>
