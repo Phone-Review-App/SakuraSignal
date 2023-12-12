@@ -67,21 +67,7 @@ const NavPanel = ({provider_id}) => {
                                     key={`provider_${idx < 10 ? ("0" + String(idx)) : idx}`} 
                                     
                                     >
-                                        <a href={`${provider_id !== idx + 1 ? provider.path : "#"}`}>{provider.name}</a><br />
-                                        <Button className={"provider-btn"} 
-                                        onClick={(e)=>{
-                                            e.preventDefault();
-                                            if(provider_id !== idx + 1){
-                                                navigate(`${provider.path}`)
-                                            } else {
-                                                console.log(`You are at ${provider.name} page already`)
-                                            }
-                                        }
-                                        } text={
-                                            <span className={"provider-btn-text"}>
-                                                {provider.name}
-                                            </span>
-                                            } />
+                                        <a href={`${provider_id !== idx + 1 ? provider.path : "#"}`}>{provider.name}</a>
                                     </li>
     
                                         )
