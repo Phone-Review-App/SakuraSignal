@@ -11,7 +11,15 @@ const NavPanel = ({provider_id}) => {
             return {
                 "goLeft": provider_id - 2 < 0 ? providers.length - 1 : provider_id - 2,
                 "goRight": provider_id % providers.length,
-                "current": provider_id - 1
+                "current": provider_id - 1,
+                // "providers_arr": providers.filter((ele) =>{ ele.provider_id !== provider_id})
+            }
+        } else {
+            return {
+                "goLeft":0,
+                "goRight":2,
+                "current":1,
+                // "providers_arr": providers
             }
         }
     },[provider_id]);
@@ -52,7 +60,7 @@ const NavPanel = ({provider_id}) => {
                     <nav className={`container ${isActive ? 'active' : '' }`} ref={menuRef}>
                         <ul className={"providers-menu"} >
                             {
-                                providers.map((provider, idx) =>(
+                                providers.map((provider, idx) =>{if(provider.provider_id !== provider_id)return (
 
                                     <li className={"provider-cell"} 
                                     value={`${provider.value}`}
@@ -76,8 +84,8 @@ const NavPanel = ({provider_id}) => {
                                             } />
                                     </li>
     
-                                )
-                                )
+                                        )
+                                        })
     
                             }
                         </ul>
