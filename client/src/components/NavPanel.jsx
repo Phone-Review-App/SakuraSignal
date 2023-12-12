@@ -49,8 +49,18 @@ const NavPanel = ({provider_id}) => {
     }
 
     const ProvidersMenu = () => {
-        useEffect(()=>{
-            console.log(menuRef.current)
+        useEffect(()=>{ 
+            console.log(menuRef.current);
+            try {
+                const closeDown = (e) => {
+                    if(menuRef.current.contains(e.target)){
+                        console.log(e.target)
+                    }
+                }
+            } catch (err){
+                console.error(err);
+            }
+            /*
             const closeDown = (e) =>{
                 if(menuRef.current && !menuRef.current.contains(e.target)){
                     setIsActive(false)
@@ -60,13 +70,14 @@ const NavPanel = ({provider_id}) => {
             return () => {
                 document.removeEventListener('click', closeDown)
             }
+            */
         },[isActive])
         return (
             
             <>
             <div className={"providers-menu-container"}>
                 <div>
-                    <nav className={`container ${isActive ? 'active' : '' }`} ref={menuRef}>
+                    <nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
                         <ul className={"providers-menu"} >
                             {
                                 providers.map((provider, idx) =>{if(provider.provider_id !== provider_id)return (
