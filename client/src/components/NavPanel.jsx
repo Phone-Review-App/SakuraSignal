@@ -109,8 +109,11 @@ const NavPanel = ({provider_id}) => {
                     ></Button> 
                 <ProvidersMenu />
             </span>
+            
             </div>
+            
         </div>
+        
         </>
     )
 
