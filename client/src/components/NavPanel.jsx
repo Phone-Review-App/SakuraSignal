@@ -42,18 +42,17 @@ const NavPanel = ({provider_id}) => {
         setIsActive(!isActive);
     }
     
-    const handleOutsideClick = (e) => {
-        if(!menuRef.current.contains(e.target)){
-                setIsActive(false)
-            }
-    }
-
     const ProvidersMenu = () => {
         useEffect(()=>{ 
-            console.log("🤣",menuRef.current);
-            if(!isActive){
-                window.addEventListener('click', handleOutsideClick)
+            const handleOutsideClick = (e) => {
+                if(isActive){
+                    window.addEventListener('click', handleOutsideClick)
+                    if(menuRef.current && !menuRef.current.contains(e.target)){
+                        setIsActive(false);
+                    }
+                }
             }
+            console.log("🤣",menuRef.current);
             return () => {
                 window.removeEventListener('click', handleOutsideClick);
             }
@@ -63,12 +62,12 @@ const NavPanel = ({provider_id}) => {
             
             <>
             <div className={"providers-menu-container"}>
-                <div>
-                    <nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
+                <div>{
+                    (<nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
                         <ul className={"providers-menu"} >
                             {
                                 providers.filter(provider_ => provider_.provider_id !== provider_id).map((provider, idx) =>{ return (
-                                    <>
+                                    
                                     <li className={"provider-cell"} 
                                     value={`${provider.value}`}
                                     key={`provider_${idx < 10 ? ("0" + String(idx)) : String(idx)}`} 
@@ -77,13 +76,13 @@ const NavPanel = ({provider_id}) => {
                                         <a href={`${provider_id !== idx + 1 ? provider.path : "#"}`}>{provider.name}</a>
                                     
                                     </li>
-                                    </>
+                                    
                                         )
                                         })
     
                             }
                         </ul>
-                    </nav>
+                    </nav>) }
                 </div>
     
             </div>
@@ -105,9 +104,10 @@ const NavPanel = ({provider_id}) => {
             </div>
             <div className="current-provider">
             <span >
-                <Button className={`provider_btn ${isActive ? "clicked" : ""}`} 
+                <Button className={`provider_btn ${isActive ? "clicked" : "released"}`} 
                 
-                onClick={handleMenuToogle}
+                onClick={
+                    handleMenuToogle}
                 text={
                 <span className="current_provider_name">
                     {
