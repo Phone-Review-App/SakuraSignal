@@ -1,7 +1,7 @@
 import React, {useMemo} from "react";
 import "../styles/Button.css";
 
-const Button = ({ className, onClick, text }) => {
+const Button = ({ className, onClick, text, ref }) => {
   const classNameData = useMemo(()=>{
     if(className){
       return {

@@ -41,37 +41,24 @@ const NavPanel = ({provider_id}) => {
         e.preventDefault();
         setIsActive(!isActive);
     }
-
-    const toogleOffMenu = () => {
-        if(isActive){
-            setIsActive(false)
-        }
+    
+    const handleOutsideClick = (e) => {
+        if(!menuRef.current.contains(e.target)){
+                setIsActive(false)
+            }
     }
 
     const ProvidersMenu = () => {
         useEffect(()=>{ 
-            console.log(menuRef.current);
-            try {
-                const closeDown = (e) => {
-                    if(menuRef.current.contains(e.target)){
-                        console.log(e.target)
-                    }
-                }
-            } catch (err){
-                console.error(err);
+            console.log("🤣",menuRef.current);
+            if(!isActive){
+                window.addEventListener('click', handleOutsideClick)
             }
-            /*
-            const closeDown = (e) =>{
-                if(menuRef.current && !menuRef.current.contains(e.target)){
-                    setIsActive(false)
-                }
-            }
-            document.addEventListener('click', closeDown)
             return () => {
-                document.removeEventListener('click', closeDown)
+                window.removeEventListener('click', handleOutsideClick);
             }
-            */
-        },[isActive])
+        },[isActive]);
+
         return (
             
             <>
@@ -80,16 +67,17 @@ const NavPanel = ({provider_id}) => {
                     <nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
                         <ul className={"providers-menu"} >
                             {
-                                providers.map((provider, idx) =>{if(provider.provider_id !== provider_id)return (
-
+                                providers.filter(provider_ => provider_.provider_id !== provider_id).map((provider, idx) =>{ return (
+                                    <>
                                     <li className={"provider-cell"} 
                                     value={`${provider.value}`}
-                                    key={`provider_${idx < 10 ? ("0" + String(idx)) : idx}`} 
+                                    key={`provider_${idx < 10 ? ("0" + String(idx)) : String(idx)}`} 
                                     
                                     >
                                         <a href={`${provider_id !== idx + 1 ? provider.path : "#"}`}>{provider.name}</a>
+                                    
                                     </li>
-    
+                                    </>
                                         )
                                         })
     
@@ -118,6 +106,7 @@ const NavPanel = ({provider_id}) => {
             <div className="current-provider">
             <span >
                 <Button className={`provider_btn ${isActive ? "clicked" : ""}`} 
+                
                 onClick={handleMenuToogle}
                 text={
                 <span className="current_provider_name">
