@@ -2,7 +2,9 @@ import React, {useMemo, useState, useEffect, useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import providers from "../data/providers.json";
-import '../styles/NavPanel.css'
+import '../styles/NavPanel.css';
+import ArrowLeftCircle from "./icons/ArrowLeftCircle";
+import ArrowRightCircle from "./icons/ArrowRightCircle";
 
 const NavPanel = ({provider_id}) => {
     const navigate = useNavigate();
@@ -35,8 +37,27 @@ const NavPanel = ({provider_id}) => {
 
     // the menu
     const [isActive, setIsActive] = useState(false);
+    const [hasHoveredLeft, setHasHoveredLeft] = useState(false);
+    const [hasHoveredRight, setHasHoveredRight] = useState(false);
     let menuRef = useRef(null);
     // let btnRef = useRef();
+
+    // control hover effect
+    const handleHoverLeft = () => {
+        // onmouseenter is a EventListener type
+        setHasHoveredLeft(true)
+    }
+    const handleLeaveLeft = () => {
+        //onmouseleave is a EventListner type
+        setHasHoveredLeft(false)
+    }
+
+    const handleHoverRight = () => {
+        setHasHoveredRight(true)
+    }
+    const handleLeaveRight = () => {
+        setHasHoveredRight(false)
+    }
 
     const handleMenuToogle = (e) => {
         e.preventDefault();
@@ -59,7 +80,18 @@ const NavPanel = ({provider_id}) => {
                 window.removeEventListener('click', handleOutsideClick);
             }
         },[menuRef]);
-
+        useEffect(()=>{
+            window.addEventListener('onmouseenter', handleHoverLeft );
+            window.addEventListener('onmouseleave', handleLeaveLeft);
+            window.addEventListener('onmouseenter', handleHoverRight);
+            window.addEventListener('onmouseleave', handleLeaveRight);
+            return () => {
+                window.removeEventListener('onmouseenter', handleHoverLeft);
+                window.removeEventListener('onmouseleave', handleLeaveLeft);
+                window.removeEventListener('onmouseenter', handleHoverLeft);
+                window.removeEventListener('onmouseleave', handleLeaveRight);
+            }
+        },[hasHoveredLeft, hasHoveredRight])
         return (
             
             <>
@@ -102,7 +134,9 @@ const NavPanel = ({provider_id}) => {
             <span>
             <Button className="arrow" text={">"} onClick={handleGoRight} />
             </span>
-
+        <span>
+            <ArrowLeftCircle clickHandler={handleGoLeft} hasHovered={hasHoveredLeft} />
+        </span>
             </div>
             <div className="current-provider">
             <span >
