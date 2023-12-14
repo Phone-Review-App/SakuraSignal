@@ -36,6 +36,7 @@ const NavPanel = ({provider_id}) => {
     // the menu
     const [isActive, setIsActive] = useState(false);
     let menuRef = useRef(null);
+    // let btnRef = useRef();
 
     const handleMenuToogle = (e) => {
         e.preventDefault();
@@ -48,15 +49,16 @@ const NavPanel = ({provider_id}) => {
                 if(isActive){
                     window.addEventListener('click', handleOutsideClick)
                     if(menuRef.current && !menuRef.current.contains(e.target)){
-                        setIsActive(false);
+                        setIsActive(false); 
                     }
                 }
             }
             console.log("🤣",menuRef.current);
+            // window.addEventListener('click', handleOutsideClick)
             return () => {
                 window.removeEventListener('click', handleOutsideClick);
             }
-        },[isActive]);
+        },[menuRef]);
 
         return (
             
