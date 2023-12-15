@@ -1,0 +1,17 @@
+.arrow-left {
+    width: 30px;
+    height: 30px;
+    flex-direction: row;
+    align-items: center;
+}
+.arrow_icon_left {
+    position: relative;
+}
+
+.arrow_icon_left.solid {
+    fill: #f1b7ff;
+}
+
+.arrow_icon_left.outline {
+    fill: red;
+}

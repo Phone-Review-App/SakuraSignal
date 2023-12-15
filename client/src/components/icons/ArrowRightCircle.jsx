@@ -3,12 +3,15 @@ import {ArrowRightCircleIcon as ArrowRightCircleOutline} from "@heroicons/react/
 import {ArrowRightCircleIcon as ArrowRightCircleSolid} from "@heroicons/react/24/solid";
 import "../../styles/icons/ArrowRightCircle.css";
 
-function ArrowRightCircle({handleHover}){
+function ArrowRightCircle({hasHovered, clickHandler}){
     return (
         <>
-        <div>
-            <ArrowRightCircleOutline />
-            <ArrowRightCircleSolid />
+        <div role="switch" aria-checked={hasHovered} className={"arrow-right"} onClick={clickHandler}>
+            {
+                hasHovered ? 
+                <ArrowRightCircleOutline role="img" className="arrow_right_icon solid"/> :
+                <ArrowRightCircleSolid role="img" className={"arrow_right_icon outline"} />
+            }
         </div>
         </>
     )

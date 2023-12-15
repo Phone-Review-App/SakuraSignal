@@ -80,18 +80,18 @@ const NavPanel = ({provider_id}) => {
                 window.removeEventListener('click', handleOutsideClick);
             }
         },[menuRef]);
-        useEffect(()=>{
-            window.addEventListener('onmouseenter', handleHoverLeft );
-            window.addEventListener('onmouseleave', handleLeaveLeft);
-            window.addEventListener('onmouseenter', handleHoverRight);
-            window.addEventListener('onmouseleave', handleLeaveRight);
-            return () => {
-                window.removeEventListener('onmouseenter', handleHoverLeft);
-                window.removeEventListener('onmouseleave', handleLeaveLeft);
-                window.removeEventListener('onmouseenter', handleHoverLeft);
-                window.removeEventListener('onmouseleave', handleLeaveRight);
-            }
-        },[hasHoveredLeft, hasHoveredRight])
+        // useEffect(()=>{
+        //     window.addEventListener('onmouseenter', handleHoverLeft );
+        //     window.addEventListener('onmouseleave', handleLeaveLeft);
+        //     window.addEventListener('onmouseenter', handleHoverRight);
+        //     window.addEventListener('onmouseleave', handleLeaveRight);
+        //     return () => {
+        //         window.removeEventListener('onmouseenter', handleHoverLeft);
+        //         window.removeEventListener('onmouseleave', handleLeaveLeft);
+        //         window.removeEventListener('onmouseenter', handleHoverLeft);
+        //         window.removeEventListener('onmouseleave', handleLeaveRight);
+        //     }
+        // },[hasHoveredLeft, hasHoveredRight])
         return (
             
             <>
@@ -136,6 +136,9 @@ const NavPanel = ({provider_id}) => {
             </span>
         <span>
             <ArrowLeftCircle clickHandler={handleGoLeft} hasHovered={hasHoveredLeft} />
+        </span>
+        <span>
+            <ArrowRightCircle clickHandler={handleGoRight} hasHovered={hasHoveredRight} />
         </span>
             </div>
             <div className="current-provider">

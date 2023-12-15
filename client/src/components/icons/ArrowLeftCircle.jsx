@@ -9,8 +9,8 @@ function ArrowLeftCircle({hasHovered, clickHandler}){
         <div role="switch" aria-checked={hasHovered} className={"arrow-left"} onClick={clickHandler}>
             {
             hasHovered ? 
-                <ArrowLeftCircleSolid role="img" className={"arrow_icon solid"}/> :
-                <ArrowLeftCircleOutline role="img" className={"arrow_icon outline"}/>
+                <ArrowLeftCircleSolid role="img" className={"arrow_icon_left solid"}/> :
+                <ArrowLeftCircleOutline role="img" className={"arrow_icon_left outline"}/>
         }
         </div>
         </>

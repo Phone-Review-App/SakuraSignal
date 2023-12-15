@@ -1,0 +1,17 @@
+.arrow-right {
+    width: 30px;
+    height: 30px;
+    flex-direction: row;
+    align-items: center;
+}
+.arrow_right_icon {
+    position: relative;
+}
+
+.arrow_icon_right.solid {
+    fill:#f1b7ff;
+}
+
+.arrow_icon_right.outline {
+    fill: purple;
+}
