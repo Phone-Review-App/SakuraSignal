@@ -40,6 +40,8 @@ const NavPanel = ({provider_id}) => {
     const [hasHoveredLeft, setHasHoveredLeft] = useState(false);
     const [hasHoveredRight, setHasHoveredRight] = useState(false);
     let menuRef = useRef(null);
+    let arrowLeft = useRef(null);
+    let arrowRight = useRef(null);
     // let btnRef = useRef();
 
     // control hover effect
@@ -80,6 +82,7 @@ const NavPanel = ({provider_id}) => {
                 window.removeEventListener('click', handleOutsideClick);
             }
         },[menuRef]);
+        
         // useEffect(()=>{
         //     window.addEventListener('onmouseenter', handleHoverLeft );
         //     window.addEventListener('onmouseleave', handleLeaveLeft);
@@ -127,6 +130,7 @@ const NavPanel = ({provider_id}) => {
         <>
         <div className="nav-panel">
             <div className="nav-arrows">
+                { /*
             <span>
             <Button className="arrow" text={"<"} onClick={handleGoLeft} />
 
@@ -134,12 +138,14 @@ const NavPanel = ({provider_id}) => {
             <span>
             <Button className="arrow" text={">"} onClick={handleGoRight} />
             </span>
-        <span>
-            <ArrowLeftCircle clickHandler={handleGoLeft} hasHovered={hasHoveredLeft} />
-        </span>
-        <span>
-            <ArrowRightCircle clickHandler={handleGoRight} hasHovered={hasHoveredRight} />
-        </span>
+        */
+                }
+        
+            <ArrowLeftCircle clickHandler={handleGoLeft} hasHovered={hasHoveredLeft} ref={arrowLeft} />
+        
+            <ArrowRightCircle clickHandler={handleGoRight} hasHovered={hasHoveredRight} ref={arrowRight} />
+        
+        
             </div>
             <div className="current-provider">
             <span >
