@@ -10,7 +10,7 @@
     border-radius: 12px;
     width: 25px;
     align-items: center;
-    /* display: flex; */
+    display: flex;
     flex-direction: row;
     border-color: 1px solid pink;
     font-size:25px;
@@ -21,13 +21,16 @@
 }
 .nav-arrows {
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-content:flex-start;
 }
 .current-provider {
     align-items:center;
     
     padding: 0px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     /* width: 200px; */
 }
 
@@ -84,7 +87,7 @@
     /* align-items: center; */
     /* justify-content: center; */
     margin:0 5px 0 5px;
-    padding: 15 0 0 0;
+    padding: 5px 0 0 0;
     border-radius: 10px;
     border-bottom: 1px solid #dddddd;
 }
