@@ -42,62 +42,54 @@ const NavPanel = ({provider_id}) => {
     let menuRef = useRef(null);
     let arrowLeft = useRef(null);
     let arrowRight = useRef(null);
-    // let btnRef = useRef();
-
-    // control hover effect
-    const handleHoverLeft = () => {
-        // onmouseenter is a EventListener type
-        setHasHoveredLeft(true)
-    }
-    const handleLeaveLeft = () => {
-        //onmouseleave is a EventListner type
-        setHasHoveredLeft(false)
-    }
-
-    const handleHoverRight = () => {
-        setHasHoveredRight(true)
-    }
-    const handleLeaveRight = () => {
-        setHasHoveredRight(false)
-    }
+    let btnRef = useRef(null);
 
     const handleMenuToogle = (e) => {
         e.preventDefault();
         setIsActive(!isActive);
     }
+    const closeActiveMenuWhenClick = () => {
+        btnRef.current.click();
+        console.log("closeActiveMenuWhenClick")
+        setIsActive(false);
+    }
+    const outsideClickHandle = (e) => {
+        if(
+            menuRef.current  
+            // && menuRef.current.contains(e.target)
+            ){
+            //setIsActive(false); 
+            if(menuRef.current !== "<nav class=container active>"){
+                console.log("outsideClickHandle")
+            console.log("e.target=",e.target);
+            console.log("btnRef:",btnRef, " btnRef.current: ", btnRef.current)
+            }
+            
+        }
+    }
     
     const ProvidersMenu = () => {
         useEffect(()=>{ 
-            const handleOutsideClick = (e) => {
-                if(isActive){
-                    window.addEventListener('click', handleOutsideClick)
-                    if(menuRef.current && !menuRef.current.contains(e.target)){
-                        setIsActive(false); 
-                    }
-                }
+            console.log("menuRef:",menuRef);
+            console.log("menuRef.current:",menuRef.current);
+            console.log("btnRef:", btnRef)
+            if(isActive){
+                window.addEventListener('click', outsideClickHandle)
             }
-            console.log("🤣",menuRef.current);
-            // window.addEventListener('click', handleOutsideClick)
-            return () => {
-                window.removeEventListener('click', handleOutsideClick);
+                return () => {
+                    window.removeEventListener('click', outsideClickHandle)
+
+            
             }
         },[menuRef]);
         
-        // useEffect(()=>{
-        //     window.addEventListener('onmouseenter', handleHoverLeft );
-        //     window.addEventListener('onmouseleave', handleLeaveLeft);
-        //     window.addEventListener('onmouseenter', handleHoverRight);
-        //     window.addEventListener('onmouseleave', handleLeaveRight);
-        //     return () => {
-        //         window.removeEventListener('onmouseenter', handleHoverLeft);
-        //         window.removeEventListener('onmouseleave', handleLeaveLeft);
-        //         window.removeEventListener('onmouseenter', handleHoverLeft);
-        //         window.removeEventListener('onmouseleave', handleLeaveRight);
-        //     }
-        // },[hasHoveredLeft, hasHoveredRight])
+       
         return (
             
             <>
+            
+                
+            
             <div className={"providers-menu-container"}>
                 <div>{
                     (<nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
@@ -128,7 +120,8 @@ const NavPanel = ({provider_id}) => {
     }    
     return (
         <>
-        <div className="nav-panel">
+        <button ref={btnRef} onClick={closeActiveMenuWhenClick} className={"hidden-btn"}>{"Hidden button"}</button>
+        <div className="nav-panel" >
             <div className="nav-arrows">
                 { /*
             <span>
