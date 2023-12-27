@@ -39,57 +39,50 @@ const NavPanel = ({provider_id}) => {
     const [isActive, setIsActive] = useState(false);
     const [hasHoveredLeft, setHasHoveredLeft] = useState(false);
     const [hasHoveredRight, setHasHoveredRight] = useState(false);
-    let menuRef = useRef(null);
+    const menuRef = useRef(null);
     let arrowLeft = useRef(null);
     let arrowRight = useRef(null);
     let btnRef = useRef(null);
+    const handleMenuOutsideClick = useRef(null)
 
     const handleMenuToogle = (e) => {
         e.preventDefault();
         setIsActive(!isActive);
     }
-    const closeActiveMenuWhenClick = () => {
-        btnRef.current.click();
-        console.log("closeActiveMenuWhenClick")
-        setIsActive(false);
-    }
-    const outsideClickHandle = (e) => {
-        if(
-            menuRef.current  
-            // && menuRef.current.contains(e.target)
-            ){
-            //setIsActive(false); 
-            if(menuRef.current !== "<nav class=container active>"){
-                console.log("outsideClickHandle")
-            console.log("e.target=",e.target);
-            console.log("btnRef:",btnRef, " btnRef.current: ", btnRef.current)
-            }
-            
-        }
-    }
     
     const ProvidersMenu = () => {
         useEffect(()=>{ 
             console.log("menuRef:",menuRef);
-            console.log("menuRef.current:",menuRef.current);
+            // console.log("menuRef.current:",menuRef.current);
             console.log("btnRef:", btnRef)
+            handleMenuOutsideClick.current = (e) => {
+                if(!btnRef.current.contains(e.target)){
+                    setIsActive(false);
+                }
+            }
+            const handleClickOutside = (e) => {
+                handleMenuOutsideClick.current(e)
+            }
             if(isActive){
-                window.addEventListener('click', outsideClickHandle)
+                window.addEventListener('click',
+                // closeActiveMenuWhenClick
+                // outsideClickHandle
+                handleClickOutside
+                );
             }
                 return () => {
-                    window.removeEventListener('click', outsideClickHandle)
-
-            
+                    window.removeEventListener('click',
+                    // closeActiveMenuWhenClick
+                    // outsideClickHandle
+                    handleClickOutside
+                    )
             }
-        },[menuRef]);
+        },[isActive]);
+
         
-       
+        
         return (
-            
             <>
-            
-                
-            
             <div className={"providers-menu-container"}>
                 <div>{
                     (<nav className={`container ${isActive ? 'active' : 'deactive' }`} ref={menuRef}>
@@ -120,7 +113,10 @@ const NavPanel = ({provider_id}) => {
     }    
     return (
         <>
-        <button ref={btnRef} onClick={closeActiveMenuWhenClick} className={"hidden-btn"}>{"Hidden button"}</button>
+{/*  
+        <button ref={btnRef} onClick={closeActiveMenuWhenClick} className={"hidden-btn"} disabled={!isActive}>{"Hidden button"}</button>
+*/}
+
         <div className="nav-panel" >
             <div className="nav-arrows">
                 { /*
@@ -143,9 +139,8 @@ const NavPanel = ({provider_id}) => {
             <div className="current-provider">
             <span >
                 <Button className={`provider_btn ${isActive ? "clicked" : "released"}`} 
-                
-                onClick={
-                    handleMenuToogle}
+                ref={btnRef}
+                onClick={handleMenuToogle}
                 text={
                 <span className="current_provider_name">
                     {
