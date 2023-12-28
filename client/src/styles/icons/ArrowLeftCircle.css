@@ -13,7 +13,7 @@
 }
 .arrow_icon_left {
     position: relative;
-    fill: #f1b7ff
+    /* fill: #f1b7ff */
 }
 
 .arrow_icon_left.hover {
