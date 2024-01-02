@@ -24,11 +24,11 @@
     cursor: pointer;
 }
 .nav-arrows {
-    padding: 20px;
+    padding: 5px 10px 5px 10px;
     display: flex;
     flex-direction: row;
     align-content:flex-start;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 .current-provider {
     align-items:center;
@@ -44,7 +44,7 @@
     height: 50px;
     background-color: pink;
     border-radius: 6px;
-    padding: 0px 10px 5px 0px;
+    padding: 0px 10px 0px 10px;
 }
 .provider_btn:hover, .clicked {
     box-shadow: 5px 10px 10px lightblue;
