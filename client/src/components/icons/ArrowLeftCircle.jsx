@@ -2,7 +2,7 @@ import React from 'react';
 import {ArrowLeftCircleIcon as ArrowLeftCircleSolid} from "@heroicons/react/24/solid";
 import "../../styles/icons/ArrowLeftCircle.css";
 
-function ArrowLeftCircle({hasHovered, clickHandler}){
+function ArrowLeftCircle({hasHovered, clickHandler, onMouseEnter, onMouseLeave}){
     return (
         <>
         <div role="switch" aria-checked={hasHovered} className={"arrow-left"} onClick={clickHandler}>

@@ -102,9 +102,9 @@ const NavPanel = ({provider_id}) => {
         <div className="nav-panel" >
             <div className="nav-arrows">
 
-            <ArrowLeftCircle clickHandler={handleGoLeft} hasHovered={hasHoveredLeft} />
+            <ArrowLeftCircle clickHandler={handleGoLeft} hasHovered={hasHoveredLeft} onMouseEnter={()=>{setHasHoveredLeft(true)}} onMouseLeave={()=>{setHasHoveredLeft(false)}}/>
         
-            <ArrowRightCircle clickHandler={handleGoRight} hasHovered={hasHoveredRight} />
+            <ArrowRightCircle clickHandler={handleGoRight} hasHovered={hasHoveredRight} onMouseEnter={()=>{setHasHoveredRight(true)}} onMouseLeave={()=>{setHasHoveredRight(false)}}/>
         
             </div>
             <div className="current-provider">
