@@ -53,8 +53,8 @@ p.description {
   border-color: 1px solid pink;
 }
 
-button:hover {
-  background-color: rrgb(255, 152, 170);;
+.detailsButton:hover {
+  background-color: rgb(255, 152, 170);
   cursor: pointer;
 }
 

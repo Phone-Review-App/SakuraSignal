@@ -24,6 +24,12 @@ body {
   width: 50%; 
 }
 
+.utilities-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .hero-right {
   margin: 10px;
   display: flex;
@@ -32,7 +38,7 @@ body {
   justify-content:center;
 }
 
-.button {
+.button { /*
   background-color: pink;
   height: 50px;
   width: 100px;
@@ -40,12 +46,12 @@ body {
   font-size: 15px;
   color: white;
   border-color: 1px solid #66a7bf
-}
+*/}
 
-button:hover {
+.button:hover { /*
   background-color: rgb(255, 152, 170);
   cursor: pointer;
-}
+*/}
 
 .provider-logo {
   display: flex;

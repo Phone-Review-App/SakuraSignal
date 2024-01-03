@@ -1,0 +1,26 @@
+.arrow-left {
+    width: 30px;
+    height: 30px;
+    border-radius:12px;
+    flex-direction: row;
+    align-items: center;
+    border-color: 1px solid black;
+    background-color:#cc16fa;
+}
+.arrow-left:hover{
+    background-color: purple;
+    border-color: 2px solid black;
+}
+.arrow_icon_left {
+    position: relative;
+    /* fill: #f1b7ff */
+}
+
+.arrow_icon_left.hover {
+    /* fill: #f1b7ff; */
+    fill: purple;
+}
+
+.arrow_icon_left.leave {
+    fill: rgb(255, 152, 170);
+}

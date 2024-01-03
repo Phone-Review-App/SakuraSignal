@@ -1,8 +1,9 @@
 import {React, useState, useEffect} from 'react';
+import Button from './Button';
 import '../styles/Card.css'
 
-const Card = (props) => {
-  const { description, divClassName, onClick, onChange, cardName, imgClassName, img_url, altValue, averageScoreClassName ,averageScore, buttonClassName  } = props;
+const Card = ({ description, divClassName, onClick, onChange, cardName, imgClassName, img_url, altValue, averageScoreClassName ,averageScore, buttonClassName  }) => {
+  
   /*
  
   You can console.log(className) to see what it returns
@@ -38,7 +39,7 @@ const Card = (props) => {
 
         
         <p className="description">{description}</p>
-        <button className ="detailsButton" onClick = {onClick} onChange = {onChange}>Learn More</button>
+        <Button className ="detailsButton" onClick = {onClick} text={"Learn More"}/>
       </div>
     </>
   );

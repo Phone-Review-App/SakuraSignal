@@ -16,7 +16,7 @@
   margin-left: 150px;
 }
 
-button:hover {
+.button-review:hover {
   background-color: rgb(255, 152, 170);
   cursor: pointer;
 }

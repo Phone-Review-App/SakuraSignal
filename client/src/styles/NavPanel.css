@@ -1,0 +1,122 @@
+.nav-panel {
+    border: 2px solid black;
+    border-radius:12px;
+    align-items: center;
+    
+    /* display: flex; */
+}
+.hidden-btn {
+    /* position: absolute;
+    left: -99999999px; */
+}
+.arrow {
+    background-color:pink;
+    border-radius: 12px;
+    width: 25px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    border-color: 1px solid pink;
+    font-size:25px;
+}
+.arrow:hover {
+    background-color: rgb(255, 152, 170);
+    cursor: pointer;
+}
+.nav-arrows {
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-content:flex-start;
+    justify-content:space-between;
+}
+.current-provider {
+    align-items:center;
+    
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    /* width: 200px; */
+}
+
+.provider_btn {
+    width: 175px;
+    height: 50px;
+    background-color: pink;
+    border-radius: 6px;
+    padding: 0px 10px 0px 10px;
+}
+.provider_btn:hover, .clicked {
+    box-shadow: 5px 10px 10px lightblue;
+    background-color: rgb(255, 152, 170);
+    cursor: pointer;
+}
+
+.current_provider_name {
+    display: inline-block;
+    /* cursor: pointer; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+    padding: 0px 0px 0px 0px;
+    /* height: 0px; */
+    /* width: 100%; */
+    /* margin: 0px; */
+    /* text-align: center; */
+    font-size: medium;
+}
+/* menu container */
+.providers-menu-container {
+    position: absolute;
+    
+}
+
+.container {
+    box-shadow: 0 1px 8px solid rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.8s;
+}
+.container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.providers-menu {
+    list-style: none;
+    padding: 0;
+}
+.provider-cell {
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin:0 5px 0 5px;
+    padding: 5px 0 0 0;
+    border-radius: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+.provider-cell:nth-child(even){
+    background-color:#ffb7c5;
+}
+.provider-cell:nth-child(odd){
+    background-color:#f1b7ff;
+}
+
+.provider-cell a {
+    text-decoration: none;
+    text-align: center;
+    
+    color: #555555;
+    /* margin: 0px, 0px, 0px, 10px; */
+    display: block;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.provider-cell:hover {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+

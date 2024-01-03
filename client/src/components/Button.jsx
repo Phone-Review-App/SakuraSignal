@@ -1,19 +1,29 @@
-import React from "react";
+import React, {useMemo} from "react";
 import "../styles/Button.css";
 
-const Button = (props) => {
-  const { className, onClick, text } = props;
-
+const Button = ({ className, onClick, text }) => {
+  const classNameData = useMemo(()=>{
+    if(className){
+      return {
+        "default": `${className}`
+      }
+    } else {
+      return {
+        "default": "button"
+      }
+    }
+  },[className]);
+  
   return (
     <button
-      className={className}
+      className={classNameData?.default}
       onClick={onClick}
       >{ text }</button>
   );
 };
 
 Button.defaultProps = {
-  className: "",
+  className: "default_btn",
   onClick: () => {},
   text: "",
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import Button from "./Button";
+import NavPanel from "./NavPanel";
 import "../styles/ProviderInfo.css";
 
-const ProviderInfo = (props) => {
-  const {provider, provider_id} = props
+const ProviderInfo = ({provider, provider_id}) => {
   const navigate = useNavigate();
 
   return (
@@ -18,9 +18,13 @@ const ProviderInfo = (props) => {
         <p>{provider.description}</p>
         <a href={provider.site_url}>Click here for the provider website.</a>
       </div>
-      <div className="hero-right">
-        <Button className="button" text="Home" onClick={() => navigate('/')}/>
-      
+      <div className="utilities-panel">
+        <div className="hero-right">
+            <Button className="button" text="Home" onClick={() => navigate('/')}/>
+          <div>
+            <NavPanel provider_id={provider_id}/>
+          </div>
+        </div>
       </div>
     </div>
   )
