@@ -70,6 +70,30 @@ Below this red-ish box is the `Write a Review` button. Click the button will red
 (under construction)
 
 # Developer: How to run this project
+
+## Setting up the environment
+
+This project required the following to run:-
+- postgresql
+
+please refer to your own OS and its corresponding guides to install the above necessary tech. 
+
+__Disclaimer__: By installing the above named software, we are not responsible for any losses on breaking your system.
+
+### postgresql required valuable
+You will need the following details:-
+- `DB_NAME` - the database name under postgresql. Create a database in postgresql if you have not already.
+- `DB_USER` - default should be postgres, depends on your setup, use the most appropriate `DB_USER`.
+- `DB_PASSWORD` - the strong password you setup for accessing postgres database
+- `NODE_ENV` - for developer use development: (development | production) 
+
+### setup .env file
+Run the following terminal command at the root level of the project:-
+
+```shell
+cat .env.example > .env
+```
+
 ## The Frontend
 
 ### client/src/index.js
