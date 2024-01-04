@@ -38,7 +38,36 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
 Sakura Signal is a web app for user to review their overall user experiences over the main Japanese phone carriers
 
 # How to use
+## Normal user
+The normal use of this web application does not required user to login, currently. 
 
+The app does required user for an unique email address and an username in oreder to write a review of a particular phone service provider. Reading other users reviews, however, do not required any login.
+
+(We might expend for user login feature in the future for deletion or editing their review)
+
+### Homepage
+When the app is fired, user will be directed to the homepage, each phone providers with a short description are listed on the page inside a cell block. A `Learn More` button is avaliable for each company and user can click on the button to see a more detailed reviews, detail such as, whether the provider has English support and reviews left by the other users are also listed.
+
+### The Provider Page
+When the user clicked on the `Learn More` button at the homepage on that specific provider, the user will be redirected into the Provider Page of that respective phone carrier. Inside the Provider Page there are several interesting elements user can reference themselves to. [A red-ish box](#the-average-provider-score-box) will show user the overall average score of that carrier and followed by reviews left by other individual users. 
+
+#### The average provider score box
+(aka `the red-ish box` referred above)
+| Score Type | Describtion |
+|----|----|
+|Overall Scorce | The average score user given in the overall score field |
+| Ease of Use | The average score user given in the ease of use field|
+| Coverage | The average score user given in the coverage field|
+| Price | The average score user given in the price field|
+| Customer Service | The average score user given in the customer service field|
+|----|----|
+
+Below this red-ish box is the `Write a Review` button. Click the button will redirect user to `the review form page`(see [below](#the-review-form-page)) to input their review survey.
+
+### The Review Form Page
+
+## Admin User
+(under construction)
 
 # Developer: How to run this project
 ## The Frontend
