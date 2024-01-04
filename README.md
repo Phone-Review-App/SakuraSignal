@@ -1,5 +1,6 @@
-# SakuraSignal 🌸
 <div align="center">
+
+# SakuraSignal 🌸
 
 ![LastCommitted](https://img.shields.io/github/last-commit/phone-review-app/sakurasignal
 )
@@ -8,24 +9,44 @@
 
 ![pullrequest](https://img.shields.io/github/issues-pr/phone-review-app/sakurasignal)
 ![issues](https://img.shields.io/github/issues/phone-review-app/sakurasignal)
-![contributors](https://img.shields.io/github/contributors/phone-review-app/sakurasignal)
 ![forks](https://img.shields.io/github/forks/phone-review-app/sakurasignal)
 ![stars](https://img.shields.io/github/stars/phone-review-app/sakurasignal)
 
 ![license](https://img.shields.io/github/license/phone-review-app/sakurasignal)
+![contributors](https://img.shields.io/github/contributors/phone-review-app/sakurasignal)
 
 </div>
 
-Link to Deployed Site : 
-[SakuraSignal](https://phone-review-app.onrender.com/)
+Visit [SakuraSignal](https://phone-review-app.onrender.com/)
 (Currently Not Available)
 
-# The Frontend
+# Table of Contents
+<details><summary>Click here for more details</summary>
 
-## client/src/index.js
+1. [Project Description](#project-description)
+2. [How to Use](#how-to-use)
+3. [Developer: How to run this project](#developer-how-to-run-this-project)
+[Credits](#credits)
+4. [License](#license)
+5. [Helpful Resources](#helpful-resources)
+</details>
+
+<br/>
+
+# Project Description
+## What is Sakura Signal?
+Sakura Signal is a web app for user to review their overall user experiences over the main Japanese phone carriers
+
+# How to use
+
+
+# Developer: How to run this project
+## The Frontend
+
+### client/src/index.js
 This file contains the routes and the client side endpoints for each separate page
 
-## Components
+### Components
 `AvgScores` - displays all of the average scores on the carrier profile pages (the pink card)  
 
 `Button` - a template for most of the buttons on the app 
@@ -46,15 +67,15 @@ This file contains the routes and the client side endpoints for each separate pa
 
 `Radio` - Score system for user to choose 0 - 10
 
-## Pages
+### Pages
 `Form` - the page where the user will input their scores and write their review 
 
 `Homepage` - the homepage; this is the root path ("/"). 
 
 Additonally, there is a page for each of the nine carriers and a `Provider.css` page for styling these pages.  
 
-## Radio.jsx
-```
+### Radio.jsx
+```jsx
 <span className={className}>
    {input.value}
     <br />
@@ -72,7 +93,7 @@ Additonally, there is a page for each of the nine carriers and a `Provider.css` 
         </input>
         </label>
 ```
-```
+```jsx
 <Radio 
 className = {string}, label={string}, radioName={string}, scoreSetter={function}/>
 ```
@@ -80,34 +101,34 @@ className = {string}, label={string}, radioName={string}, scoreSetter={function}
 `radioName` is the radio name for all those name for radio, in this example, it is bob
 
 React in radio button uses a boolean method call `checked` to determine which buttons in the radio set are selected.
-```
+```jsx
 <input checked={ true } name=”bob” value=”0”>{ /* commercial secret */ }</input>
 <input checked={ false } name=”bob” value=”1”>{ /* commercial secret */ }</input>
 <input checked={ false } name=”bob” value=”2”>{ /* commercial secret */ }</input>
 ```
 
 We have a `useState` that default the selected button to 0 score. And the same `useState` has function to change that selected button value. 
-```
+```jsx
 const [selectRadioButton, setSelectRadioButton] = useState(‘0’)
 ```
 Another function ,`isRadioSelected`, is created to determine true/false by comparing the current value and the `useState` variable. 
-```
+```jsx
 const isRadioSelected = (value) => selectRadioButton === value
 ```
 This `isRadioSelected` function is placed on each button and linked to each button’s `checked` . When the `useState` function changes value (ie. user changing its score), the `isRadioSelected` return false, which make current button checked become false and since the value at the selected button is that given value, this make isRadioSelected which pointed to button checked became true.
 We used another function which handle Radio select (`handleRadioSelect`).
-```
+```jsx
 const handleRadioSelect = (event) => setSelectRadioButton(event.target.value);
 ```
 When radio button is change, selectRadioButton changes as onChange is linked to `handleRadioSelect`. Every button has this function at `onChange`, so when a button status change, it will follow:
-```
+```jsx
 <input checked={isRadioSelected(input.value) onChange={handleRadioSelect}>} </input>
 ```
 When user decided to select other score, the function changed useState variable `selectRadioButton`, thereby causing previous selected button checked become false, the user now selected button has `checked` become true.
 
-# The Backend 
+## The Backend 
 
-## API endpoints
+### API endpoints
 The express server contains 4 /api endpoints, though one is just used for testing ('/api/hello').
 
 ### /api/providers
@@ -125,7 +146,7 @@ The endpoint `return`s (`res.send()`) back an array of objects, where each objec
 `overall` (float rounded to 2 decimal places) is the average of all overall scores of that provider.  
 
 example:
-```
+```json
 [
   {
     "id": 1,
@@ -176,7 +197,7 @@ This endpoint expects the body to contain the following information:
 `customer_review` (string) 
 
 example body:
-```
+```json
 {
     "provider_id":2,
     "reviewer_name": "Todd Rogers",
@@ -190,9 +211,11 @@ example body:
 }
 ```
 
-## Helpful Resources
-[React Router Docs](https://reactrouter.com/en/main) 
+# Credits
 
-[Faker JS Docs](https://fakerjs.dev/) 
+# License
 
-[Our Color Palette](https://colorhunt.co/palette/66bfbfeaf6f6ffffffff0063)
+# Helpful Resources
+- [React Router Docs](https://reactrouter.com/en/main) 
+- [Faker JS Docs](https://fakerjs.dev/) 
+- [Our Color Palette](https://colorhunt.co/palette/66bfbfeaf6f6ffffffff0063)
