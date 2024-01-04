@@ -1,6 +1,23 @@
-# Phone-Review-App
+# SakuraSignal 🌸
+<div align="center">
 
-Link to Deployed Site : https://phone-review-app.onrender.com/
+![LastCommitted](https://img.shields.io/github/last-commit/phone-review-app/sakurasignal
+)
+![committed](https://img.shields.io/github/commit-activity/t/phone-review-app/sakurasignal
+)
+
+![pullrequest](https://img.shields.io/github/issues-pr/phone-review-app/sakurasignal)
+![issues](https://img.shields.io/github/issues/phone-review-app/sakurasignal)
+![contributors](https://img.shields.io/github/contributors/phone-review-app/sakurasignal)
+![forks](https://img.shields.io/github/forks/phone-review-app/sakurasignal)
+![stars](https://img.shields.io/github/stars/phone-review-app/sakurasignal)
+
+![license](https://img.shields.io/github/license/phone-review-app/sakurasignal)
+
+</div>
+
+Link to Deployed Site : 
+[SakuraSignal](https://phone-review-app.onrender.com/)
 (Currently Not Available)
 
 # The Frontend
