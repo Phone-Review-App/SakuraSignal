@@ -84,25 +84,74 @@ Below this red-ish box is the `Write a Review` button. Click the button will red
 
 ## Setting up the environment
 
-This project required the following to run:-
-- postgresql
+### Prerequisites
+This project required the following technology to run:-
+- PostgreSQL
+- NodeJS
 
 please refer to your own OS and its corresponding guides to install the above necessary tech. 
 
 __Disclaimer__: By installing the above named software, we are not responsible for any losses on breaking your system.
 
-### postgresql required valuable
-You will need the following details:-
+### 1. Clone the repository
+Clone the repository in your working directory. However, if you decided only to contribute, folk the repository instead.
+
+### 2. Setup .env file
+Run the following terminal command at the root level of the project:-
+
+```shell
+cat .env.example > .env
+```
+#### postgresql required valuable
+You will need the following valuables in order to run the application:-
 - `DB_NAME` - the database name under postgresql. Create a database in postgresql if you have not already.
 - `DB_USER` - default should be postgres, depends on your setup, use the most appropriate `DB_USER`.
 - `DB_PASSWORD` - the strong password you setup for accessing postgres database
 - `NODE_ENV` - for developer use development: (development | production) 
 
-### setup .env file
-Run the following terminal command at the root level of the project:-
+Enter the above stated valuable in the .env file. 
+
+Note that the said .env file should be listed in the .gitignore so that when push to git it will not be exported to github.
+
+### 4. Install the necessary packages
+#### 1. Install the dependancies
+```shell
+npm install -i
+```
+#### 2. Build the application
+```shell
+npm run build
+```
+
+### Problem with migration or seed
+#### Updating or Amending the database
+In case you might needed to update or make amendment to the database tables or seeds, use the following to create migration and seed, or something did not went as expected during install or building the application:
+##### Make migration file
+Replace `new_table` and give a meaningful name that represent your integration.
+
+Create the new empty migration file by execute the following:-
 
 ```shell
-cat .env.example > .env
+npm run make:migration new_table
+```
+Edit the migration accordingly
+
+#### Intergrate the migration file
+Run the following to run the latest migration to the database:-
+```shell
+npm run migrate
+```
+#### Create seed file
+Replace `new_seed` with a name best describe the seed. 
+
+Run the following to create a new seed file:-
+```shell
+npm run make:seed new_seed
+```
+#### Intergrate the seed file
+Run the following to intergrate the seed file:-
+```shell
+npm run seed
 ```
 
 ## The Frontend
