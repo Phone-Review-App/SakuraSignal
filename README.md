@@ -37,6 +37,17 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
 ## What is Sakura Signal?
 Sakura Signal is a web app for user to review their overall user experiences over the main Japanese phone carriers
 
+## Tech Stack
+
+| Tech | Usage |
+| ---- | ---- |
+|![react](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=plastic) | The basic frontend user interface framework interacting with DOM |
+| ![postgresql](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white&style=plastic) | A widely used, reliable and secure database |
+| ![express](https://img.shields.io/badge/ExpressJS-52A62E?logo=express&style=plastic&logoColor=white) | Backend control to database |
+| ![knex](https://img.shields.io/badge/KnexJS-cc2277?logo=knexjs&logoColor=white&style=plastic) | Maintaining tables and necessary seeds for the postgresql database |
+| ![Faker]() | Create dummy reviews for testing purposes |
+
+
 # How to use
 ## Normal user
 The normal use of this web application does not required user to login, currently. 
