@@ -37,6 +37,9 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
 ## What is Sakura Signal?
 Sakura Signal is a web app for user to review their overall user experiences over the main Japanese phone carriers
 
+## Why should anyone use Sakura Signal?
+This app helps foreigners who theirs native language are not Japaneses to quickly adopt some useful infomations over users' review on a dedicated choices of phone carrier in Japan and let any one who might have the experience on the phone carrier to tell his/her user experiences.
+
 ## Tech Stack
 
 | Tech | Usage |
@@ -71,7 +74,6 @@ When the user clicked on the `Learn More` button at the homepage on that specifi
 | Coverage | The average score user given in the coverage field|
 | Price | The average score user given in the price field|
 | Customer Service | The average score user given in the customer service field|
-|----|----|
 
 Below this red-ish box is the `Write a Review` button. Click the button will redirect user to `the review form page`(see [below](#the-review-form-page)) to input their review survey.
 
