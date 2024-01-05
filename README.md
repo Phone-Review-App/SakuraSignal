@@ -123,6 +123,27 @@ npm install -i
 npm run build
 ```
 
+### 5. Run the application
+The app consist of two parts, the server and the client. They are suppose to be in two separate devices or locations. Both client and sever must be running in order for the app to work.
+
+#### server
+At the server, which is the root directory of the folder, run the following command in the terminal:-
+```shell
+npm run start
+```
+Or alternatively, using nodemon:-
+```shell
+npm run dev
+```
+The server occupy port `4000` by default during development
+
+#### client
+At the client folder, run the following command in the terminal:-
+```shell
+npm run start
+```
+The client occupy port `3000` by default during development
+
 ### Problem with migration or seed
 #### Updating or Amending the database
 In case you might needed to update or make amendment to the database tables or seeds, use the following to create migration and seed, or something did not went as expected during install or building the application:
