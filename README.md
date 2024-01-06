@@ -201,6 +201,7 @@ npm run seed
 | file location |Description|
 |----|----|
 |client/src/index.js|This file contains the routes and the client side endpoints for each separate page|
+|client/src/data/providers.json|This file contain an array of object consist of `provider_id`, `name`, `value` and `path` |
 
 #### Components
 | Elements | Description |
