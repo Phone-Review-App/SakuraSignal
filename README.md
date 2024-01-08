@@ -223,7 +223,16 @@ npm run seed
 | `Form` | the page where the user will input their scores and write their review |
 | `Homepage` | the homepage; this is the root path ("/") |
 | `Provider` | the provider page of each provider |
- 
+
+#### Radio.jsx
+`Radio.jsx` is a component by providing a set of 11 dots (0 - 10 radio dot) to represent the score of a given particular score to a given `radioName`.
+
+| props | hints | 
+| ---- | ---- |
+| `ScoreSetter` | This is a function which will update its score to the parent via hook. |
+| `radioName` | The given radioName provided will be shown as the header of the Radio and the radioName must be unique for it to work. |
+| `className` | You can give a className to the radio to control its behavior via css |
+
 ### The Backend 
 
 #### API endpoints
