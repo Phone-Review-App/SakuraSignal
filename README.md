@@ -96,8 +96,11 @@ The navigation panel located below the `Home` Button consist of three visible co
 
 Below the average provider score box is the `Write a Review` button. Click the button will redirect user to `the review form page`(see [below](#the-review-form-page)) to input their review.
 
+#### the Review
+The Review provided by each user are displayed on the provider page. Each reviewer score and feedback are represented inside the Review Card.
 
 ### The Review Form Page
+The Review Form Page consist of a table of Radio button for user to pick their score for each fields: Overall, Ease of use, Coverage, Price and Customer Service. Each score has from a minimum of 0 up to the score of 10. User can create a username and provide a user email. A dropdown menu are present for user to select their company for reviewing. At the buttom of the page, we have a text area for user to input their feedback of the given company.
 
 ## Admin User
 (under construction)
