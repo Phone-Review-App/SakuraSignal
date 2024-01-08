@@ -224,58 +224,6 @@ npm run seed
 | `Homepage` | the homepage; this is the root path ("/") |
 | `Provider` | the provider page of each provider |
  
-#### Radio.jsx
-```jsx
-<span className={className}>
-   {input.value}
-    <br />
-   <label htmlFor={label} 
-      key={index}>
-                        
-      <input 
-        id={label}
-        type={input.type}
-        name={radioName}
-        value={input.value}
-        checked={isRadioSelected(input.value)}
-        onChange={handleRadioSelect}
-        >
-        </input>
-        </label>
-```
-```jsx
-<Radio 
-className = {string}, label={string}, radioName={string}, scoreSetter={function}/>
-```
-
-`radioName` is the radio name for all those name for radio, in this example, it is bob
-
-React in radio button uses a boolean method call `checked` to determine which buttons in the radio set are selected.
-```jsx
-<input checked={ true } name=”bob” value=”0”>{ /* commercial secret */ }</input>
-<input checked={ false } name=”bob” value=”1”>{ /* commercial secret */ }</input>
-<input checked={ false } name=”bob” value=”2”>{ /* commercial secret */ }</input>
-```
-
-We have a `useState` that default the selected button to 0 score. And the same `useState` has function to change that selected button value. 
-```jsx
-const [selectRadioButton, setSelectRadioButton] = useState(‘0’)
-```
-Another function ,`isRadioSelected`, is created to determine true/false by comparing the current value and the `useState` variable. 
-```jsx
-const isRadioSelected = (value) => selectRadioButton === value
-```
-This `isRadioSelected` function is placed on each button and linked to each button’s `checked` . When the `useState` function changes value (ie. user changing its score), the `isRadioSelected` return false, which make current button checked become false and since the value at the selected button is that given value, this make isRadioSelected which pointed to button checked became true.
-We used another function which handle Radio select (`handleRadioSelect`).
-```jsx
-const handleRadioSelect = (event) => setSelectRadioButton(event.target.value);
-```
-When radio button is change, selectRadioButton changes as onChange is linked to `handleRadioSelect`. Every button has this function at `onChange`, so when a button status change, it will follow:
-```jsx
-<input checked={isRadioSelected(input.value) onChange={handleRadioSelect}>} </input>
-```
-When user decided to select other score, the function changed useState variable `selectRadioButton`, thereby causing previous selected button checked become false, the user now selected button has `checked` become true.
-
 ### The Backend 
 
 #### API endpoints
