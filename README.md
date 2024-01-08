@@ -319,7 +319,15 @@ example body:
 ```
 
 # Credits
-
+| Name | github |
+| ---- | ---- |
+| Taylor |  https://github.com/TaylorC19 |
+| Nicole |  https://github.com/nikobatzi1990 |
+| Taiga |  https://github.com/gagataiga |
+| Ikuno |  https://github.com/ikuno815 |
+| Joe |  https://github.com/kappanjoe |
+| Lak |  https://github.com/LakGillJPN |
+| Chadwick |  https://github.com/SirrorsMoore1975 |
 # License
 MIT License
 
