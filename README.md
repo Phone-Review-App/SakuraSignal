@@ -29,7 +29,7 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
     - [Contribution](#contribution)
     - [Tech Stack](#tech-stack)
 2. [How to Use](#how-to-use)
-    - [Noraml User](#normal-user)
+    - [Normal User](#normal-user)
       - [Homepage](#homepage)
       - [The Provider Page](#the-provider-page)
         - [Navigation Panel](#navigation-panel)
@@ -44,7 +44,7 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
         - [2. Setup .env file](#2-setup-env-file)
           - [postgresql required valuable](#postgresql-required-valuable)
         - [3. Install the necessary packages](#3-install-the-necessary-packages)
-          - [install the dependancies](#install-the-dependancies)
+          - [install the dependencies](#install-the-dependencies)
           - [build the application](#build-the-application)
         - [4. Run the application](#4-run-the-application)
           - [server](#server)
@@ -52,9 +52,9 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
         - [Problem with migration or seed](#problem-with-migration-or-seed)
           - [Updating or Amending the database](#updating-or-amending-the-database)
             - [Make migration file](#make-migration-file)
-            - [Intergrate the migration file](#intergrate-the-migration-file)
+            - [Integrate the migration file](#integrate-the-migration-file)
             - [Create seed file](#create-seed-file)
-            - [Intergrate the seed file](#intergrate-the-seed-file)
+            - [Integrate the seed file](#integrate-the-seed-file)
     - [The point of Interest](#the-point-of-interest)
       - [The Frontend](#the-frontend)
         - [special files at developer interest](#special-files-at-developer-interest)
@@ -78,7 +78,7 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
 Sakura Signal is a web app for user to review their overall user experiences over the main Japanese phone carriers
 
 ## Why should anyone use Sakura Signal?
-This app helps foreigners who theirs native language are not Japaneses to quickly adopt some useful infomations over users' review on a dedicated choices of phone carrier in Japan and let any one who might have the experience on the phone carrier to tell his/her user experiences.
+This app helps foreigners who theirs native language are not Japaneses to quickly adopt some useful infomation over users' review on a dedicated choices of phone carrier in Japan and let any one who might have the experience on the phone carrier to tell his/her user experiences.
 
 ## Contribution
 Consider contribute to this projects by:
@@ -106,19 +106,19 @@ Kindly follow our [Contribution guideline](CONTRIBUTION.md) on how to contribute
 ## Normal user
 The normal use of this web application does not required user to login, currently. 
 
-The app does required user for an unique email address and an username in oreder to write a review of a particular phone service provider. Reading other users reviews, however, do not required any login.
+The app does required user for an unique email address and an username in order to write a review of a particular phone service provider. Reading other users reviews, however, do not required any login.
 
 (We might expend for user login feature in the future for deletion or editing their review)
 
 ### Homepage
-When the app is fired, user will be directed to the homepage, each phone providers with a short description are listed on the page inside a cell block. A `Learn More` button is avaliable for each company and user can click on the button to see a more detailed reviews, detail such as, whether the provider has English support and reviews left by the other users are also listed.
+When the app is fired, user will be directed to the homepage, each phone providers with a short description are listed on the page inside a cell block. A `Learn More` button is available for each company and user can click on the button to see a more detailed reviews, detail such as, whether the provider has English support and reviews left by the other users are also listed.
 
 ### The Provider Page
 When the user clicked on the `Learn More` button at the homepage on that specific provider, the user will be redirected into the Provider Page of that respective phone carrier. Inside the Provider Page there are several interesting elements user can reference themselves to. 
 
 | Components | Description |
 | ---- | ---- |
-| Provider Info | At top of the Provider Page, it consist of a breif description of the carrier, whether they provide English support, a link to the carrier page, a Home Button and a [Navigation Panel](#navigation-panel) |
+| Provider Info | At top of the Provider Page, it consist of a brief description of the carrier, whether they provide English support, a link to the carrier page, a Home Button and a [Navigation Panel](#navigation-panel) |
 | [The Average Provider Score Box](#the-average-provider-score-box) | (the pink-red-ish box on the left of The Review) The box show user the overall average score of that carrier and followed by reviews left by other individual users. |
 | The Review | The reviews provided by other user |
 
@@ -141,7 +141,7 @@ Below the average provider score box is the `Write a Review` button. Click the b
 The Review provided by each user are displayed on the provider page. Each reviewer score and feedback are represented inside the Review Card.
 
 ### The Review Form Page
-The Review Form Page consist of a table of Radio button for user to pick their score for each fields: Overall, Ease of use, Coverage, Price and Customer Service. Each score has from a minimum of 0 up to the score of 10. User can create a username and provide a user email. A dropdown menu are present for user to select their company for reviewing. At the buttom of the page, we have a text area for user to input their feedback of the given company.
+The Review Form Page consist of a table of Radio button for user to pick their score for each fields: Overall, Ease of use, Coverage, Price and Customer Service. Each score has from a minimum of 0 up to the score of 10. User can create a username and provide a user email. A dropdown menu are present for user to select their company for reviewing. At the bottom of the page, we have a text area for user to input their feedback of the given company.
 
 [![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#table-of-contents)
 
@@ -181,7 +181,7 @@ Enter the above stated valuable in the .env file.
 Note that the said .env file should be listed in the .gitignore so that when push to git it will not be exported to github.
 
 ### 3. Install the necessary packages
-#### Install the dependancies
+#### Install the dependencies
 ```bash
 npm install -i
 ```
@@ -226,7 +226,7 @@ npm run make:migration new_table
 ```
 Edit the migration accordingly
 
-#### Intergrate the migration file
+#### Integrate the migration file
 Run the following to run the latest migration to the database:-
 ```bash
 npm run migrate
@@ -238,8 +238,8 @@ Run the following to create a new seed file:-
 ```bash
 npm run make:seed new_seed
 ```
-#### Intergrate the seed file
-Run the following to intergrate the seed file:-
+#### Integrate the seed file
+Run the following to integrate the seed file:-
 ```bash
 npm run seed
 ```
@@ -264,7 +264,7 @@ npm run seed
 | `Dropdown Menu` | the dropdown menu that allows user to select which carrier they are reviewing on the Forms page |
 | `Footer` | the footer that is displayed on all pages |
 | `Header` | the header that is displayed on the Homepage and the thank you message after submission |
-| `Input` | a template for the input fiels on the Forms page |
+| `Input` | a template for the input fields on the Forms page |
 | `Navbar` | alternate version of the Header component; this one has a home button in the upper right corner |
 | `ProviderInfo` | displays the hero at the top of each carrier profile page|
 | `Radio` | Score system for user to choose 0 - 10 |
@@ -290,17 +290,17 @@ npm run seed
 ### The Backend 
 
 #### API endpoints
-To test the endpoint, use postman or tech equvilent and use `GET` `POST` `PATCH` `PUT` or `DELETE` request. The default port for the server is `4000` if you are running it from your local machine (eg. `localhost:4000/`)
+To test the endpoint, use postman or tech equivalent and use `GET` `POST` `PATCH` `PUT` or `DELETE` request. The default port for the server is `4000` if you are running it from your local machine (eg. `localhost:4000/`)
 
 | request | api endpoints | Description |
 | ---- | ---- | ---- |
 | `GET` | `/api/hello/` | The endpoints used for testing. Expected to return `world` in the `data` output |
 | `GET` | `/api/providers/names` | The endpoints return providers' `id` and `names` |
 | `GET` | `/api/providers/` | The endpoints return the phone providers details in the form of an array or a list at the `data` output. More details [below](#apiproviders) . |
-| `GET` | `/api/providers/:providerIdOrName` | The endpoints that takes providerId (`number`) or name (`string`) and return the provider's infos and review(s) of that provider. If the `providerIdOrName` is invalid, it will return error (the error will only be noticable in console as an error message). More details [below](#apiprovidersprovideridorname)|
+| `GET` | `/api/providers/:providerIdOrName` | The endpoints that takes providerId (`number`) or name (`string`) and return the provider's infos and review(s) of that provider. If the `providerIdOrName` is invalid, it will return error (the error will only be noticeable in console as an error message). More details [below](#apiprovidersprovideridorname)|
 | `POST` | `/api/reviews` | The endpoint which the review is handled. It provided email checks that one email user can only post their feedback once. The body of the endpoint is expecting the user input such as email, username, the scores and their feedback. See details [below](#apireview)|
 
-(futher endpoints are under conconstruction)
+(futher endpoints are under construction)
 
 #### /api/providers
 
