@@ -100,6 +100,7 @@ Kindly follow our [Contribution guideline](CONTRIBUTION.md) on how to contribute
 | ![knex](https://img.shields.io/badge/KnexJS-cc2277?logo=knexjs&logoColor=white&style=plastic) | Maintaining tables and necessary seeds for the postgresql database |
 | ![Faker](https://img.shields.io/badge/Faker-c6d333?style=plastic) | Create dummy reviews for testing purposes |
 
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
 
 # How to use
 ## Normal user
@@ -141,6 +142,9 @@ The Review provided by each user are displayed on the provider page. Each review
 
 ### The Review Form Page
 The Review Form Page consist of a table of Radio button for user to pick their score for each fields: Overall, Ease of use, Coverage, Price and Customer Service. Each score has from a minimum of 0 up to the score of 10. User can create a username and provide a user email. A dropdown menu are present for user to select their company for reviewing. At the buttom of the page, we have a text area for user to input their feedback of the given company.
+
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
+
 
 ## Admin User
 (under construction)
@@ -199,13 +203,15 @@ Or alternatively, using `nodemon` by running the following:-
 npm run dev
 ```
 
-
 #### client
 At the client folder, run the following command in the terminal:-
 ```bash
 npm run start
 ```
 After this step, your default web browser should open with the app running
+
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
+
 
 ### Problem with migration or seed
 #### Updating or Amending the database
@@ -237,6 +243,9 @@ Run the following to intergrate the seed file:-
 ```bash
 npm run seed
 ```
+
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
+
 ## The point of interest
 ### The Frontend
 
@@ -275,6 +284,8 @@ npm run seed
 | `ScoreSetter` | This is a function which will update its score to the parent via hook. |
 | `radioName` | The given radioName provided will be shown as the header of the Radio and the radioName must be unique for it to work. |
 | `className` | You can give a className to the radio to control its behavior via css |
+
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
 
 ### The Backend 
 
@@ -321,6 +332,7 @@ sample of data output:
   },
 ]
 ```
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
 
 #### /api/providers/:providerIdOrName
 This endpoint requires the providerid parameter as a number (1-9) or provider name (e.g. `Mobal`). This number corrolates to the providers location in the provider table.
@@ -376,6 +388,7 @@ sample of the review body:
     "customer_review": "Creating an account and getting the SIM card is a little annoying, and once you put the SIM card in your phone, there is a bit of annoyance in setting up the data plan on your phone. However, once you finish the setup, I haven't had an issue with the server and everytime I contacted customer service, my issue was quickly addressed."
 }
 ```
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
 
 # Credits
 
@@ -388,6 +401,9 @@ sample of the review body:
 | Joe |  https://github.com/kappanjoe |
 | Lak |  https://github.com/LakGillJPN |
 | Chadwick |  https://github.com/SirrorsMoore1975 |
+
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
+
 # License
 MIT License
 
@@ -415,3 +431,5 @@ SOFTWARE.
 - [React Router Docs](https://reactrouter.com/en/main) 
 - [Faker JS Docs](https://fakerjs.dev/) 
 - [Our Color Palette](https://colorhunt.co/palette/66bfbfeaf6f6ffffffff0063)
+
+[![Back to top](https://img.shields.io/badge/Back%20to%20top-lightgrey?style=flat-square)](#index)
