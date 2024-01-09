@@ -24,8 +24,48 @@ Visit [SakuraSignal](https://phone-review-app.onrender.com/)
 <details><summary>Click here for more details</summary>
 
 1. [Project Description](#project-description)
+    - [What is Sakura Signal](#what-is-sakura-signal)
+    - [Why should anyone use Sakura Signal](#why-should-anyone-use-sakura-signal)
+    - [Contribution](#contribution)
+    - [Tech Stack](#tech-stack)
 2. [How to Use](#how-to-use)
+    - [Noraml User](#normal-user)
+      - [Homepage](#homepage)
+      - [The Provider Page](#the-provider-page)
+        - [Navigation Panel](#navigation-panel)
+        - [The average provider score box](#the-average-provider-score-box)
+        - [The Review](#the-review)
+      - [The Review Form Page](#the-review-form-page)
+    - [Admin User](#admin-user)
 3. [Developer: How to run this project](#developer-how-to-run-this-project)
+    - [Setting up the environment](#setting-up-the-environment)
+      - [Prerequisites](#prerequisites)
+        - [1. Clone the repository](#1-clone-the-repository)
+        - [2. Setup .env file](#2-setup-env-file)
+          - [postgresql required valuable](#postgresql-required-valuable)
+        - [3. Install the necessary packages](#3-install-the-necessary-packages)
+          - [install the dependancies](#install-the-dependancies)
+          - [build the application](#build-the-application)
+        - [4. Run the application](#4-run-the-application)
+          - [server](#server)
+          - [client](#client)
+        - [Problem with migration or seed](#problem-with-migration-or-seed)
+          - [Updating or Amending the database](#updating-or-amending-the-database)
+            - [Make migration file](#make-migration-file)
+            - [Intergrate the migration file](#intergrate-the-migration-file)
+            - [Create seed file](#create-seed-file)
+            - [Intergrate the seed file](#intergrate-the-seed-file)
+    - [The point of Interest](#the-point-of-interest)
+      - [The Frontend](#the-frontend)
+        - [special files at developer interest](#special-files-at-developer-interest)
+        - [Components](#components)
+        - [Pages](#pages)
+        - [Radio.jsx](#radiojsx)
+      - [The Backend](#the-backend)
+        - [API endpoints](#api-endpoints)
+        - [/api/providers](#apiproviders)
+        - [/api/providers/:providerIdOrName](#apiprovidersprovideridorname)
+        - [/api/review](#apireview)
 4. [Credits](#credits)
 5. [License](#license)
 6. [Helpful Resources](#helpful-resources)
@@ -58,7 +98,7 @@ Kindly follow our [Contribution guideline](CONTRIBUTION.md) on how to contribute
 | ![postgresql](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white&style=plastic) | A widely used, reliable and secure database |
 | ![express](https://img.shields.io/badge/ExpressJS-52A62E?logo=express&style=plastic&logoColor=white) | Backend control to database |
 | ![knex](https://img.shields.io/badge/KnexJS-cc2277?logo=knexjs&logoColor=white&style=plastic) | Maintaining tables and necessary seeds for the postgresql database |
-| ![Faker](https://img.shields.io/badge/FakerJS-c6d333?style=plastic) | Create dummy reviews for testing purposes |
+| ![Faker](https://img.shields.io/badge/Faker-c6d333?style=plastic) | Create dummy reviews for testing purposes |
 
 
 # How to use
@@ -136,7 +176,7 @@ Enter the above stated valuable in the .env file.
 
 Note that the said .env file should be listed in the .gitignore so that when push to git it will not be exported to github.
 
-### 4. Install the necessary packages
+### 3. Install the necessary packages
 #### Install the dependancies
 ```bash
 npm install -i
@@ -146,7 +186,7 @@ npm install -i
 npm run build
 ```
 
-### 5. Run the application
+### 4. Run the application
 The app consist of two parts, the server and the client. Both client and sever must be running concurrently in order for the app to work.
 
 #### server
@@ -239,23 +279,35 @@ npm run seed
 ### The Backend 
 
 #### API endpoints
-The express server contains 4 /api endpoints, though one is just used for testing ('/api/hello').
+To test the endpoint, use postman or tech equvilent and use `GET` `POST` `PATCH` `PUT` or `DELETE` request. The default port for the server is `4000` if you are running it from your local machine (eg. `localhost:4000/`)
+
+| request | api endpoints | Description |
+| ---- | ---- | ---- |
+| `GET` | `/api/hello/` | The endpoints used for testing. Expected to return `world` in the `data` output |
+| `GET` | `/api/providers/names` | The endpoints return providers' `id` and `names` |
+| `GET` | `/api/providers/` | The endpoints return the phone providers details in the form of an array or a list at the `data` output. More details [below](#apiproviders) . |
+| `GET` | `/api/providers/:providerIdOrName` | The endpoints that takes providerId (`number`) or name (`string`) and return the provider's infos and review(s) of that provider. If the `providerIdOrName` is invalid, it will return error (the error will only be noticable in console as an error message). More details [below](#apiprovidersprovideridorname)|
+| `POST` | `/api/reviews` | The endpoint which the review is handled. It provided email checks that one email user can only post their feedback once. The body of the endpoint is expecting the user input such as email, username, the scores and their feedback. See details [below](#apireview)|
+
+(futher endpoints are under conconstruction)
 
 #### /api/providers
 
-This endpoint requires no inputs. This endpoint queries the Database for the seeded provider data and the overall scores from the review_detail table. At the moment, we only have 9 providers, but it could be generalized to take in an id value and query for any number of providers.
+This endpoint queries the Database for the seeded provider data and the overall scores from the review_detail table. At the moment, we only have 9 providers, but it could be generalized to take in an id value and query for any number of providers.
 
-The endpoint `return`s (`res.send()`) back an array of objects, where each object contains the following keys (id, name, img_url, description, english_support, site_url, overall).
+The endpoint return's (i.e. `res.send()`) back an array of objects, where each object contains the following keys (`id`, `name`, `img_url`, `description`, `english_support`, `site_url`, `overall`).
 
-`id` (integer) is the id value the provider has in the provider table.  
-`name` (string) is the name of the provider.  
-`img_url` (string) is a img address to the providers logo. 
-`description` (string) is roughly a paragraph description of the provider.  
-`english_support` (boolean) is a value as to if the company provides English customer support.  
-`site_url` (string) in the url for the providers website (English page if available). 
-`overall` (float rounded to 2 decimal places) is the average of all overall scores of that provider.  
+| keys | Descriptions |
+| ---- | ----| 
+| `id` (integer) | The id value the provider has in the provider table. |
+| `name` (string) | The name of the provider. |
+| `img_url` (string) | The `img` address to the providers logo. |
+|`description` (string) | A general paragraph description of the provider. |  
+| `english_support` (boolean) | A boolean value as to if the company provides English customer support. |
+| `site_url` (string) | The `url` for the providers website (English page if available). |
+|`overall` (float rounded to 2 decimal places)| A figure of the average of all overall scores of that provider.  |
 
-example:
+sample of data output:
 ```json
 [
   {
@@ -267,46 +319,50 @@ example:
     "site_url": "https://www.mobal.com/",
     "overall": 5.71
   },
-  ...
 ]
 ```
 
-#### /api/provider/:providerid
-This endpoint requires the providerid parameter as a number (1-9). This number corrolates to the providers location in the provider table.
+#### /api/providers/:providerIdOrName
+This endpoint requires the providerid parameter as a number (1-9) or provider name (e.g. `Mobal`). This number corrolates to the providers location in the provider table.
 
-This endpoint returns an array of two values
+This endpoint returns an array of two values:
+```jsx
 [providerInfo, reviews]
+```
 where:
-providerInfo is an object 
-reviews is an array of review objects.
+- `providerInfo` is an object 
+- `reviews` is an array of review object.
 
-The first element (providerInfo) has all the same keys as in /api/providers, as well as (ease_of_use, coverage, price, customer_service). Each of these keys are the average scores of their respective reviewer criteria.
+| Element | Description |
+| ---- | ---- |
+| `providerInfo`| It has all the same keys as in `/api/providers`, as well as (`ease_of_use`, `coverage`, `price`, and `customer_service`). Each of these keys are the average scores of their respective reviewer criteria. |
+| `reviews` | An array of objects where each object contains the following keys (`reviewer_name`, `overall`, `ease_of_use`, `coverage`, `price`, `customer_service`, and `customer_review`). |
 
-reviews is an array of objects where each object contains the following keys (reviewer_name, overall, ease_of_use, coverage, price, customer_service,customer_review).
-
-`reviewer_name` (string) is the name of the reviewer to display. 
-`overall` (number) is the reviewer's overall score. 
-`ease_of_use` (number) is the reviewer's Ease of Use score. 
-`coverage` (number) is the reviewer's coverage score. 
-`price` (number) is the reviewer's price score. 
-`customer_service` (number) is the reviewer's customer service score. 
-`customer_review` (string) is the reviews written review of the company.  
+| keys | Description |
+| ---- | ---- |
+| `reviewer_name` (string) | The name of the reviewer to display. |
+| `overall` (number)| The reviewer's overall score.| 
+| `ease_of_use` (number) | The reviewer's Ease of Use score|  
+|`coverage` (number) | The reviewer's coverage score. |
+|`price` (number) | The reviewer's price score. |
+|`customer_service` (number) | The reviewer's customer service score. |
+|`customer_review` (string) | The reviewer's written review of the company. |
 
 #### /api/review 
 This endpoint is to add a new customers review. This endpoint takes the review in the body, test if that email had been used prior to review that company, and if it hasn't adds it to the database.
 
 This endpoint expects the body to contain the following information:
-`provider_id` (number) 
-`reviewer_name` (string) 
-`email` (string) 
-`overall` (number) 
-`ease_of_use` (number) 
-`coverage` (number) 
-`price` (number) 
-`customer_service` (number) 
-`customer_review` (string) 
+- `provider_id` (number) 
+- `reviewer_name` (string) 
+- `email` (string) 
+- `overall` (number) 
+- `ease_of_use` (number) 
+- `coverage` (number) 
+- `price` (number) 
+- `customer_service` (number) 
+- `customer_review` (string) 
 
-example body:
+sample of the review body:
 ```json
 {
     "provider_id":2,
@@ -322,6 +378,7 @@ example body:
 ```
 
 # Credits
+
 | Name | github |
 | ---- | ---- |
 | Taylor |  https://github.com/TaylorC19 |
